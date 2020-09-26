@@ -1,0 +1,24 @@
+void func_1f7dc(void *arg0) {
+    s32 temp_s1;
+    s32 phi_s0;
+    void *phi_s2;
+    s32 phi_s1;
+
+    func_000210FC(0x803A6F40, 0, 0, 0xC, 0xC, 0x20, 0x10, 0x400, 0x400);
+    func_000210FC(0x803A6F40, 0x16, 0, 0xC, 0xC, 0x2C, 0x10, 0x400, 0x400);
+    func_000210FC(0x803A6F40, 0x2C, 0, 0xC, 0xC, 0x38, 0x10, 0x400, 0x400);
+    func_000210FC(0x803A6F40, 0x42, 0, 0xC, 0xC, 0x44, 0x10, 0x400, 0x400);
+    func_00020E2C(0x803A6F40, 0x1D, 0x80, 0xA);
+    phi_s0 = 6;
+    phi_s2 = arg0;
+    phi_s1 = 0;
+loop_1:
+    func_00020D4C(1, phi_s0, 6, phi_s2->unk24);
+    temp_s1 = phi_s1 + 1;
+    phi_s0 = phi_s0 + 0x16;
+    phi_s2 = phi_s2 + 1;
+    phi_s1 = temp_s1;
+    if (temp_s1 != 4) {
+        goto loop_1;
+    }
+}

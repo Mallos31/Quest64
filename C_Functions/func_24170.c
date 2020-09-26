@@ -1,0 +1,41 @@
+void func_24170(void *arg0, ? arg1, f32 arg2, f32 arg3) {
+    f32 sp4C;
+    f32 sp48;
+    f32 sp44;
+    f32 sp3C;
+    f32 sp34;
+    f32 sp30;
+    f32 sp2C;
+    f32 temp_f0;
+    f32 temp_f12;
+    f32 temp_f20;
+    f32 temp_f8;
+
+    sp4C = func_00035680(arg1);
+    temp_f20 = func_000361F0(arg1);
+    sp48 = func_00035680(arg2);
+    sp3C = func_000361F0(arg2);
+    sp44 = func_00035680(arg3);
+    temp_f0 = func_000361F0(arg3);
+    temp_f12 = sp44 * sp4C;
+    arg0->unk0 = (f32) ((temp_f0 * sp3C) + (temp_f12 * sp48));
+    arg0->unk4 = (f32) (sp44 * temp_f20);
+    sp34 = -sp48;
+    arg0->unkC = 0.0f;
+    temp_f8 = -sp44;
+    arg0->unk8 = (f32) ((sp34 * temp_f0) + (temp_f12 * sp3C));
+    sp30 = temp_f8;
+    sp2C = temp_f0 * sp4C;
+    arg0->unk10 = (f32) ((sp30 * sp3C) + (sp2C * sp48));
+    arg0->unk14 = (f32) (temp_f0 * temp_f20);
+    arg0->unk1C = 0.0f;
+    arg0->unk18 = (f32) ((temp_f8 * sp34) + (sp2C * sp3C));
+    arg0->unk20 = (f32) (temp_f20 * sp48);
+    arg0->unk2C = 0.0f;
+    arg0->unk28 = (f32) (temp_f20 * sp3C);
+    arg0->unk24 = (f32) -sp4C;
+    arg0->unk30 = 0.0f;
+    arg0->unk34 = 0.0f;
+    arg0->unk38 = 0.0f;
+    arg0->unk3C = 1.0f;
+}
