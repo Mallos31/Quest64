@@ -1,4 +1,4 @@
-s32 func_400d0(void *arg0, s32 arg1, void *arg2, s32 arg3) {
+s32 func_400d0(void *sprintf, s32 sprintfBuffer, void *arg2, s32 arg3) {
     u8 spD4;
     s32 spD0;
     s32 spCC;
@@ -102,16 +102,16 @@ s32 func_400d0(void *arg0, s32 arg1, void *arg2, s32 arg3) {
     s32 phi_s3_18;
     s32 phi_s3_19;
 
-    spCC = 0;
-    phi_a3 = arg2;
-    phi_s3 = arg1;
+    spCC = 0;			
+    phi_a3 = arg2;		
+    phi_s3 = sprintfBuffer;
 loop_1:
-    temp_v0 = *phi_a3;
-    temp_s2 = phi_a3;
-    phi_s2_2 = temp_s2;
-    phi_s0 = temp_v0;
-    if (temp_v0 != 0) {
-        phi_s2 = temp_s2;
+    temp_v0 = *phi_a3;		/*sets temp_v0 to the value of phi_a3 (arg2)*/
+    temp_s2 = phi_a3;		/*sets temp_s2 to the address in phi_a3*/
+    phi_s2_2 = temp_s2;		/*sets phi_s2_2 to temp_s2 (phi_a3(arg2))*/
+    phi_s0 = temp_v0;		/*sets phi_s0 to the value in temp_v0(*phi_a3(arg2))*/
+    if (temp_v0 != 0) {		/*complete the following loop if arg2 was not null*/
+        phi_s2 = temp_s2;	/*set phi_s2 to */
         phi_s2_2 = temp_s2;
         phi_s0 = temp_v0;
         if (0x25 != temp_v0) {
@@ -133,7 +133,7 @@ loop_3:
     temp_v0_3 = phi_s2_2 - phi_a3;
     phi_s3_11 = phi_s3;
     if (temp_v0_3 > 0) {
-        temp_v0_4 = arg0(phi_s3, phi_a3, temp_v0_3, phi_a3);
+        temp_v0_4 = sprintf(phi_s3, phi_a3, temp_v0_3, phi_a3);
         temp_s3 = temp_v0_4;
         if (temp_v0_4 == 0) {
             return spCC;
@@ -282,7 +282,7 @@ loop_43:
                     }
                     phi_s3_10 = phi_s3_2;
                     if (phi_s0_3 > 0) {
-                        temp_v0_7 = arg0(phi_s3_2, 0x80070AA0, phi_s0_3);
+                        temp_v0_7 = sprintf(phi_s3_2, 0x80070AA0, phi_s0_3);
                         temp_s3_2 = temp_v0_7;
                         if (temp_v0_7 == 0) {
                             return spCC;
@@ -302,7 +302,7 @@ loop_43:
         }
         phi_s3_13 = phi_s3_3;
         if (spAC > 0) {
-            temp_v0_8 = arg0(phi_s3_3, &sp74, spAC);
+            temp_v0_8 = sprintf(phi_s3_3, &sp74, spAC);
             temp_s3_3 = temp_v0_8;
             if (temp_v0_8 == 0) {
                 return spCC;
@@ -324,7 +324,7 @@ loop_56:
                 }
                 phi_s3_12 = phi_s3_4;
                 if (phi_s0_4 > 0) {
-                    temp_v0_9 = arg0(phi_s3_4, 0x80070AC4, phi_s0_4);
+                    temp_v0_9 = sprintf(phi_s3_4, 0x80070AC4, phi_s0_4);
                     temp_s3_4 = temp_v0_9;
                     if (temp_v0_9 == 0) {
                         return spCC;
@@ -343,7 +343,7 @@ loop_56:
         }
         phi_s3_15 = phi_s3_5;
         if (spB4 > 0) {
-            temp_v0_10 = arg0(phi_s3_5, spA8, spB4);
+            temp_v0_10 = sprintf(phi_s3_5, spA8, spB4);
             temp_s3_5 = temp_v0_10;
             if (temp_v0_10 == 0) {
                 return spCC;
@@ -365,7 +365,7 @@ loop_69:
                 }
                 phi_s3_14 = phi_s3_6;
                 if (phi_s0_5 > 0) {
-                    temp_v0_11 = arg0(phi_s3_6, 0x80070AC4, phi_s0_5);
+                    temp_v0_11 = sprintf(phi_s3_6, 0x80070AC4, phi_s0_5);
                     temp_s3_6 = temp_v0_11;
                     if (temp_v0_11 == 0) {
                         return spCC;
@@ -384,7 +384,7 @@ loop_69:
         }
         phi_s3_17 = phi_s3_7;
         if (spBC > 0) {
-            temp_v0_12 = arg0(phi_s3_7, spA8 + spB4, spBC);
+            temp_v0_12 = sprintf(phi_s3_7, spA8 + spB4, spBC);
             temp_s3_7 = temp_v0_12;
             if (temp_v0_12 == 0) {
                 return spCC;
@@ -406,7 +406,7 @@ loop_82:
                 }
                 phi_s3_16 = phi_s3_8;
                 if (phi_s0_6 > 0) {
-                    temp_v0_13 = arg0(phi_s3_8, 0x80070AC4, phi_s0_6);
+                    temp_v0_13 = sprintf(phi_s3_8, 0x80070AC4, phi_s0_6);
                     temp_s3_8 = temp_v0_13;
                     if (temp_v0_13 == 0) {
                         return spCC;
@@ -439,7 +439,7 @@ loop_92:
                     }
                     phi_s3_18 = phi_s3_9;
                     if (phi_s0_7 > 0) {
-                        temp_v0_14 = arg0(phi_s3_9, 0x80070AA0, phi_s0_7);
+                        temp_v0_14 = sprintf(phi_s3_9, 0x80070AA0, phi_s0_7);
                         temp_s3_9 = temp_v0_14;
                         if (temp_v0_14 == 0) {
                             return spCC;
