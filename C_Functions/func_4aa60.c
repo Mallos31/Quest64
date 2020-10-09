@@ -1,22 +1,22 @@
-void *func_4aa60(void *arg0, s32 arg1, s32 arg2) {
+void *ldiv(void *ldiv_result, s32 number, s32 denom) {
     s32 sp4;
     s32 sp0;
-    s32 temp_lo;
-    s32 temp_v1;
+    s32 quotient;
+    s32 remainder;
 
-    temp_lo = arg1 / arg2;
-    sp0 = temp_lo;
-    temp_v1 = arg1 - (arg2 * temp_lo);
-    sp4 = temp_v1;
-    if (temp_lo < 0) {
-        sp0 = temp_lo;
-        sp4 = temp_v1;
-        if (temp_v1 > 0) {
-            sp4 = temp_v1 - arg2;
-            sp0 = temp_lo + 1;
+    quotient = number / denom;
+    sp0 = quotient;
+    remainder = number - (denom * quotient);
+    sp4 = remainder;
+    if (quotient < 0) {
+        sp0 = quotient;
+        sp4 = remainder;
+        if (remainder > 0) {
+            sp4 = remainder - denom;
+            sp0 = quotient + 1;
         }
     }
-    arg0->unk0 = (s32) sp->unk0;
-    arg0->unk4 = (s32) sp->unk4;
-    return arg0;
+    ldiv_result->unk0 = (s32) sp->unk0;
+    ldiv_result->unk4 = (s32) sp->unk4;
+    return ldiv_result;
 }
