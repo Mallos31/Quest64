@@ -1,0 +1,11 @@
+void func_80031C40(void) {
+    func_80024260(0xDA68F0, 0x80100000, 0xDC1620 - 0xDA68F0);
+}
+
+void func_80031C78(void) {
+    func_80024260(0xDC1620, 0x80100000, 0xE27840 - 0xDC1620);
+}
+
+void func_80031CB0(void) {
+    func_80024260(0xE27840, 0x80100000, 0xE7E800 - 0xE27840);
+}
