@@ -282,10 +282,10 @@ void *func_80000FE8(void) {
     void *phi_v1;
     s32 phi_a0;
 
-    func_80024260(0x73A90, 0x80096850, 0x77560 - 0x73A90);
+    FillCacheWithDLData(0x73A90, 0x80096850, 0x77560 - 0x73A90);
     *(void *)0x8007B350 = 0x80096850;
-    func_80024260(0xD4B3C0, 0x800C0000, 0xD77380 - 0xD4B3C0);
-    func_80024260(0xD77380, 0x80399AB0, 0xD884F0 - 0xD77380);
+    FillCacheWithDLData(0xD4B3C0, 0x800C0000, 0xD77380 - 0xD4B3C0);
+    FillCacheWithDLData(0xD77380, 0x80399AB0, 0xD884F0 - 0xD77380);
     (void *)0x80308FFF->unk5149 = (u16)2;
     (void *)0x80308FFF->unk514D = 0x803B5000;
     func_8000111C(0x80301000);
