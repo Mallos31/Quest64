@@ -248,18 +248,18 @@ Please pass a --rodata flag to mips_to_c, pointing to the right .s file.
 (You might need to pass --goto and --no-andor flags as well,
 to get correct control flow for non-jtbl switch jumps.)
 
-?32 func_80000EEC(void) {
-    *(void *)0x8007B2E4 = 0x160;
-    *(void *)0x8007B2E0 = (u16)4;
-    *(void *)0x80084EE4 = -1;
+?32 setupNewGame(void) {
+    *(void *)hudState = 0x160;
+    *(void *)gameState = (u16)4;
+    *(void *)nextMap = -1;
     *(void *)0x80084EF8 = -1;
     *(void *)0x80084F04 = -1;
     *(void *)0x80084F14 = (u16)0xFFFF;
     *(void *)0x80086E44 = 0.0f;
     *(void *)0x800859E2 = (u16)0;
-    *(void *)0x80084EEC = 0xD;
-    *(void *)0x80084EF0 = 0x11;
-    *(void *)0x80085370 = -1;
+    *(void *)currentMap = 0xD;
+    *(void *)currentSubmap = 0x11;
+    *(void *)LastExitID = -1;
     *(void *)0x8007BA60 = (u16)0xD;
     *(void *)0x8007BA62 = (u16)0x11;
     *(void *)0x8007BA64 = (u16)0;
@@ -268,7 +268,7 @@ to get correct control flow for non-jtbl switch jumps.)
     *(void *)0x8007BA48 = (f32) *(void *)0x80070F04;
     *(void *)0x8007BA4C = 0x108;
     *(void *)0x8007BABE = (u16)0;
-    *(void *)0x8007B2E8 = (u16)1;
+    *(void *)cutsceneToStart = (u16)1;
     *(void *)0x8007B2F0 = (u16)0;
     *(void *)0x8007B344 = (u8)0;
     *(void *)0x8007B345 = (u8)0;
@@ -1002,7 +1002,7 @@ void func_80002428(void) {
     *(void *)0x8007B348 = 0;
     func_80031C78();
     func_80100000();
-    if (*(void *)0x8007B2E0 == 4) {
+    if (*(void *)gameState == 4) {
 loop_2:
         func_800314C0(*(void *)0x80092870);
         *(void *)0x8007B2F8 = 0;
@@ -1025,7 +1025,7 @@ loop_6:
         }
         func_80034200(*(void *)0x8007B9D8, (*(void *)0x8007B2F4 * 0xD150) + 0x80301000, 1);
         *(void *)0x8007B2F4 = (s32) (*(void *)0x8007B2F4 ^ 1);
-        if (*(void *)0x8007B2E0 == 4) {
+        if (*(void *)gameState == 4) {
             goto loop_2;
         }
     }
@@ -1047,7 +1047,7 @@ void func_800025E8(void) {
     func_80031CB0();
     func_80100000();
     func_800267B8(0x14);
-    if (*(void *)0x8007B2E0 == 5) {
+    if (*(void *)gameState == 5) {
 loop_2:
         func_800314C0(*(void *)0x80092870);
         *(void *)0x8007B2F8 = 0;
@@ -1070,7 +1070,7 @@ loop_6:
         }
         func_80034200(*(void *)0x8007B9D8, (*(void *)0x8007B2F4 * 0xD150) + 0x80301000, 1);
         *(void *)0x8007B2F4 = (s32) (*(void *)0x8007B2F4 ^ 1);
-        if (*(void *)0x8007B2E0 == 5) {
+        if (*(void *)gameState == 5) {
             goto loop_2;
         }
     }
