@@ -888,7 +888,7 @@ loop_62:
     return phi_return;
 }
 
-? func_8002224C(s32 arg0, ? arg1) {
+? UseKeyItem(s32 arg0, ? arg1) {
     return 0;
 }
 
