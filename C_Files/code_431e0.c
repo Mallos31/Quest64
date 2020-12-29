@@ -376,9 +376,68 @@ void *func_80042D60(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return temp_v1;
 }
 
-Failed to decompile function func_80042DD0:
+void *func_80042DD0(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s16 temp_t0;
+    s32 temp_t3;
+    s32 temp_t5;
+    s32 temp_t6;
+    u8 temp_t2;
+    void *temp_a2;
+    void *temp_a3;
+    void *temp_v0;
+    s32 phi_v1;
+    s32 phi_t0;
+    s32 phi_t0_2;
+    s32 phi_v1_2;
 
-Complex control flow; node assumed to be part of &&/|| wasn't. Run with --no-andor to disable detection of &&/|| and try again.
+    temp_v0 = *(arg0->unk60 + ((arg3 & 0xFF) * 0x10));
+    temp_t6 = arg1 & 0xFF;
+    temp_t3 = arg2 & 0xFF;
+    temp_t0 = temp_v0->unkE;
+    phi_v1 = 1;
+    phi_t0 = (s32) temp_t0;
+    if ((s32) temp_t0 > 0) {
+loop_1:
+        temp_t5 = (s32) (phi_v1 + phi_t0) / 2;
+        temp_a3 = (temp_v0 + (temp_t5 * 4))->unkC;
+        temp_a2 = temp_a3->unk4;
+        temp_t2 = temp_a2->unk2;
+        if (temp_t6 >= (s32) temp_t2) {
+            if ((s32) temp_a2->unk3 >= temp_t6) {
+                if (temp_t3 >= (s32) temp_a2->unk0) {
+                    if ((s32) temp_a2->unk1 >= temp_t3) {
+                        return temp_a3;
+                    }
+                }
+            }
+        }
+        if (temp_t6 >= (s32) temp_t2) {
+            if (temp_t3 < (s32) temp_a2->unk0) {
+                if ((s32) temp_a2->unk3 >= temp_t6) {
+block_9:
+                    phi_t0_2 = temp_t5 - 1;
+                    phi_v1_2 = phi_v1;
+                } else {
+block_10:
+                    phi_t0_2 = phi_t0;
+                    phi_v1_2 = temp_t5 + 1;
+                }
+            } else {
+                goto block_10;
+            }
+        } else {
+            goto block_9;
+        }
+        phi_v1 = phi_v1_2;
+        phi_t0 = phi_t0_2;
+        if (phi_t0_2 >= phi_v1_2) {
+            goto loop_1;
+        }
+    }
+    return NULL;
+}
+
+
 
 Failed to decompile function func_80042ECC:
 
@@ -398,9 +457,52 @@ Unable to determine jump table for jr instruction.
 There must be a read of a variable in the same block as
 the instruction, which has a name starting with "jtbl".
 
-Failed to decompile function func_80043D10:
+void func_80043D10(void *arg0, void *arg1) {
+    s16 temp_s3;
+    void *temp_s0;
+    void *temp_s1;
+    void *phi_s0;
 
-Complex control flow; node assumed to be part of &&/|| wasn't. Run with --no-andor to disable detection of &&/|| and try again.
+    temp_s0 = arg0->unk50;
+    if (temp_s0 != 0) {
+        phi_s0 = temp_s0;
+loop_2:
+        temp_s3 = phi_s0->unkC;
+        temp_s1 = phi_s0->unk0;
+        if (temp_s3 != 0x16) {
+            if (temp_s3 == 0x17) {
+block_4:
+                if (arg1 == phi_s0->unk10) {
+                    arg0->unk78(phi_s0->unk14);
+                    func_80036820(phi_s0);
+                    if (temp_s1 != 0) {
+                        temp_s1->unk8 = (s32) (temp_s1->unk8 + phi_s0->unk8);
+                    }
+                    func_80036850(phi_s0, arg0 + 0x48);
+                    if (temp_s3 == 0x16) {
+                        arg1->unk37 = (u8) (arg1->unk37 & 0xFE);
+                    } else {
+                        arg1->unk37 = (u8) (arg1->unk37 & 0xFD);
+                    }
+                    if (arg1->unk37 != 0) {
+block_11:
+                        phi_s0 = temp_s1;
+                        if (temp_s1 != 0) {
+                            goto loop_2;
+                        }
+                    }
+                } else {
+                    goto block_11;
+                }
+            } else {
+                goto block_11;
+            }
+        } else {
+            goto block_4;
+        }
+    }
+}
+
 
 void func_80043E14(void *arg0) {
     s32 temp_s0;

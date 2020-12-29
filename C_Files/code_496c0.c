@@ -1,4 +1,4 @@
-void func_80048AC0(void *arg0, ?32 arg1, ?32 arg2, ?32 arg3) {
+void alFilterNew(void *arg0, ?32 arg1, ?32 arg2, ?32 arg3) {
     arg0->unk0 = 0;
     arg0->unk4 = arg1;
     arg0->unk8 = arg2;
@@ -7,7 +7,7 @@ void func_80048AC0(void *arg0, ?32 arg1, ?32 arg2, ?32 arg3) {
     arg0->unk10 = arg3;
 }
 
-f32 func_80048AE0(void *arg0, s32 arg1) {
+f32 _doModFunc(void *arg0, s32 arg1) {
     f32 temp_f2;
     f64 temp_f0;
     f32 phi_f2;
@@ -27,7 +27,7 @@ f32 func_80048AE0(void *arg0, s32 arg1) {
     return arg0->unk1C * (f32) ((f64) phi_f2 - 1.0);
 }
 
-void *func_80048B88(void *arg0, s32 arg1, s32 arg2, void *arg3) {
+void *_filterBuffer(void *arg0, s32 arg1, s32 arg2, void *arg3) {
     void *sp24;
     void *sp18;
     s32 temp_v0;
@@ -48,7 +48,7 @@ void *func_80048B88(void *arg0, s32 arg1, s32 arg2, void *arg3) {
     return sp24;
 }
 
-void *func_80048C40(void *arg0, u32 arg1, s32 arg2, s32 arg3, void *arg4) {
+void *_saveBuffer(void *arg0, u32 arg1, s32 arg2, s32 arg3, void *arg4) {
     u32 sp4C;
     void *sp44;
     void *sp3C;
@@ -117,7 +117,7 @@ void *func_80048C40(void *arg0, u32 arg1, s32 arg2, s32 arg3, void *arg4) {
     return phi_s0;
 }
 
-void *func_80048DC8(void *arg0, u32 arg1, s32 arg2, s32 arg3, void *arg4) {
+void *_loadBuffer(void *arg0, u32 arg1, s32 arg2, s32 arg3, void *arg4) {
     u32 sp4C;
     void *sp44;
     void *sp3C;
@@ -193,7 +193,7 @@ void *func_80048DC8(void *arg0, u32 arg1, s32 arg2, s32 arg3, void *arg4) {
     return phi_s0 + 8;
 }
 
-void *func_80048F54(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
+void *_loadOutputBuffer(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
     void *sp5C;
     f32 sp44;
     s32 sp38;
@@ -260,7 +260,7 @@ the instruction, which has a name starting with "jtbl".
     return 0;
 }
 
-void *func_800493EC(void *arg0, s32 arg2, s32 arg4) {
+void *alFxPull(void *arg0, s32 arg2, s32 arg4) {
     s32 sp80;
     s32 sp50;
     s32 sp48;
@@ -400,20 +400,20 @@ loop_2:
     return phi_s0_7 + 8;
 }
 
-void func_80049730(void *arg0, void *arg1) {
-    arg1->unk0 = (s32) arg0->unk8;
-    arg1->unkC = (s16) arg0->unk1A;
-    arg1->unk4 = (s32) arg0->unkC;
+void alSeqGetLoc(void *seq, void *marker) {
+    marker->unk0 = (s32) seq->unk8;
+    marker->unkC = (s16) seq->unk1A;
+    marker->unk4 = (s32) seq->unkC;
 }
 
-void func_8004974C(void *arg0, void *arg1) {
-    arg0->unk8 = (s32) arg1->unk0;
-    arg0->unk1A = (s16) arg1->unkC;
-    arg0->unkC = (s32) arg1->unk4;
+void alSeqSetLoc(void *seq, void *marker) {
+    seq->unk8 = (s32) marker->unk0;
+    seq->unk1A = (s16) marker->unkC;
+    seq->unkC = (s32) marker->unk4;
 }
 
-s32 func_80049768(void *arg0) {
-    return arg0->unkC;
+s32 alSeqGetTicks(void *seq) {
+    return seq->unkC;
 }
 
 void func_80049770(void) {
@@ -449,7 +449,7 @@ loop_2:
     return phi_a1;
 }
 
-u8 func_800497C4(s32 arg0, ? arg1) {
+u8 alSeqNextEvent(s32 arg0, ? arg1) {
     s32 temp_t1;
     s32 temp_t9;
     s32 temp_v0_2;
@@ -541,7 +541,7 @@ u8 func_800497C4(s32 arg0, ? arg1) {
     return temp_v0;
 }
 
-void func_80049948(void *arg0, void *arg1, u32 arg2) {
+void alSeqNewMarker(void *seq, void *m, u32 ticks) {
     s16 sp50;
     s32 sp4C;
     u32 sp44;
@@ -554,59 +554,59 @@ void func_80049948(void *arg0, void *arg1, u32 arg2) {
     u32 phi_s6;
     u32 phi_v0;
 
-    if (arg2 == 0) {
-        arg1->unkC = (u16)0;
-        arg1->unk4 = 0;
-        arg1->unk8 = 0;
-        arg1->unk0 = (s32) arg0->unk4;
+    if (ticks == 0) {
+        m->unkC = (u16)0;
+        m->unk4 = 0;
+        m->unk8 = 0;
+        m->unk0 = (s32) seq->unk4;
         return;
     }
-    sp4C = arg0->unk8;
-    sp3E = arg0->unk1A;
-    sp44 = arg0->unkC;
-    arg0->unk1A = (u16)0;
-    arg0->unkC = 0U;
-    arg0->unk8 = (s32) arg0->unk4;
+    sp4C = seq->unk8;
+    sp3E = seq->unk1A;
+    sp44 = seq->unkC;
+    seq->unk1A = (u16)0;
+    seq->unkC = 0U;
+    seq->unk8 = (s32) seq->unk4;
     phi_v0 = 0U;
 loop_3:
-    temp_s4 = arg0->unk8;
-    temp_s5 = arg0->unk1A;
-    func_800497C4(arg0, &sp50);
+    temp_s4 = seq->unk8;
+    temp_s5 = seq->unk1A;
+    func_800497C4(seq, &sp50);
     if (sp50 == 4) {
-        phi_s4 = arg0->unk8;
-        phi_s5 = arg0->unk1A;
-        phi_s6 = arg0->unkC;
+        phi_s4 = seq->unk8;
+        phi_s5 = seq->unk1A;
+        phi_s6 = seq->unkC;
     } else {
-        temp_v0 = arg0->unkC;
+        temp_v0 = seq->unkC;
         phi_s4 = temp_s4;
         phi_s5 = temp_s5;
         phi_s6 = phi_v0;
         phi_v0 = temp_v0;
-        if (temp_v0 < arg2) {
+        if (temp_v0 < ticks) {
             goto loop_3;
         }
     }
-    arg1->unk0 = phi_s4;
-    arg1->unkC = phi_s5;
-    arg1->unk4 = phi_s6;
-    arg1->unk8 = (u32) arg0->unkC;
-    arg0->unk8 = sp4C;
-    arg0->unk1A = sp3E;
-    arg0->unkC = sp44;
+    m->unk0 = phi_s4;
+    m->unkC = phi_s5;
+    m->unk4 = phi_s6;
+    m->unk8 = (u32) seq->unkC;
+    seq->unk8 = sp4C;
+    seq->unk1A = sp3E;
+    seq->unkC = sp44;
 }
 
-s32 func_80049A68(void *arg0, f32 arg1, s32 arg2) {
+s32 alSeqSecToTicks(void *seq, f32 sec, s32 tempo) {
     f64 temp_f6;
     f64 temp_f8;
     s32 temp_f16;
     f64 phi_f6;
 
-    temp_f6 = (f64) arg2;
+    temp_f6 = (f64) tempo;
     phi_f6 = temp_f6;
-    if (arg2 < 0) {
+    if (tempo < 0) {
         phi_f6 = temp_f6 + 4294967296.0;
     }
-    temp_f8 = (((f64) arg1 * *(void *)0x800723C0) * (f64) arg0->unk18) / phi_f6;
+    temp_f8 = (((f64) sec * *(void *)0x800723C0) * (f64) seq->unk18) / phi_f6;
     temp_f16 = (s32) temp_f8;
     if ((ERROR(cfc1) & 0x78) != 0) {
         if ((ERROR(cfc1) & 0x78) == 0) {
@@ -621,26 +621,26 @@ loop_5:
     return temp_f16;
 }
 
-f32 func_80049B4C(void *arg0, s32 arg1, s32 arg2) {
+f32 alSeqTicksToSec(void *seq, s32 ticks, s32 tempo) {
     f32 temp_f10;
     f32 phi_f10;
 
-    temp_f10 = (f32) arg2;
+    temp_f10 = (f32) tempo;
     phi_f10 = temp_f10;
-    if (arg2 < 0) {
+    if (tempo < 0) {
         phi_f10 = temp_f10 + 4294967296.0f;
     }
-    return (f32) ((f64) ((f32) arg1 * phi_f10) / ((f64) (f32) arg0->unk18 * *(void *)0x800723C8));
+    return (f32) ((f64) ((f32) ticks * phi_f10) / ((f64) (f32) seq->unk18 * *(void *)0x800723C8));
 }
 
-? func_80049BA0(void *arg0, ? arg1) {
+? func_80049BA0(void *seq, ? ticks) {
     u32 temp_v0;
 
-    temp_v0 = arg0->unk8;
-    if (temp_v0 >= (u32) (arg0->unk0 + arg0->unk10)) {
+    temp_v0 = seq->unk8;
+    if (temp_v0 >= (u32) (seq->unk0 + seq->unk10)) {
         return 0;
     }
-    *ERROR(Read from unset register $t0) = func_80049778(arg0, arg0, temp_v0);
+    *ERROR(Read from unset register $t0) = func_80049778(seq, seq, temp_v0);
     ERROR(Read from unset register $a2)->unk8 = (?32) ERROR(Read from unset register $a3);
     return 1;
 }
@@ -679,7 +679,7 @@ s32 func_80049C48(void *arg0) {
     return (s32) (((temp_v1 << 8) | temp_t6) << 0x10) >> 0x10;
 }
 
-void func_80049C78(void *arg0, ?32 arg1, ?32 arg2) {
+void alSeqNew(void *arg0, ?32 arg1, ?32 arg2) {
     s16 temp_v1;
 
     arg0->unk0 = arg1;
@@ -705,78 +705,36 @@ void func_80049C78(void *arg0, ?32 arg1, ?32 arg2) {
     }
 }
 
-void func_80049D50(s32 arg0, void *arg1, s16 arg2) {
+void alSynSetPriority(s32 arg0, void *voice, s16 priority) {
     arg1->unk16 = arg2;
 }
 
-void *func_80049D60(void *arg0, s32 arg2, u32 arg3, s32 arg4, u32 arg5) {
-    u32 sp2C;
-    s32 sp28;
-    u32 sp24;
-    s32 sp20;
-    s32 temp_ret;
-    s32 temp_t8;
-    s32 temp_v0;
-    u32 temp_t3;
-    u32 temp_t9;
-    u32 temp_v1;
-    u32 temp_v1_2;
-    u64 temp_ret_2;
+lldiv_t lldiv(long long num, long long denom)
+{
+    lldiv_t ret;
 
-    temp_ret = func_80039BDC(arg2, arg3, arg4, arg5);
-    temp_v0 = temp_ret;
-    temp_v1 = (u32) (u64) temp_ret;
-    sp20 = temp_v0;
-    sp24 = temp_v1;
-    temp_ret_2 = func_80039C38(arg4, arg5, temp_v0, temp_v1);
-    temp_v1_2 = (u32) temp_ret_2;
-    temp_t8 = (arg2 - temp_ret_2) - (arg3 < temp_v1_2);
-    temp_t9 = arg3 - temp_v1_2;
-    sp2C = temp_t9;
-    sp28 = temp_t8;
-    if (sp20 <= 0) {
-        if (sp20 >= 0) {
-
-        } else {
-            if (temp_t8 >= 0) {
-                temp_t3 = sp24 + 1;
-                if ((temp_t8 > 0) || (temp_t9 != 0)) {
-                    sp20 = sp20 + (temp_t3 == 0);
-                    sp24 = temp_t3;
-                    sp2C = temp_t9 - arg5;
-                    sp28 = (temp_t8 - arg4) - (temp_t9 < arg5);
-                } else {
-
-                }
-            }
-        }
+    ret.quot = num / denom;
+    ret.rem = num - denom * ret.quot;
+    if (ret.quot < 0 && ret.rem > 0)
+    {
+        ret.quot++;
+        ret.rem -= denom;
     }
-    arg0->unk0 = (s32) sp20.unk0;
-    arg0->unk4 = (s32) (&sp20)[1];
-    arg0->unk8 = (s32) (&sp20)[2];
-    arg0->unkC = (s32) (&sp20)[3];
-    return arg0;
+
+    return ret;
 }
 
-void *func_80049E60(void *arg0, s32 arg1, s32 arg2) {
-    s32 sp4;
-    s32 sp0;
-    s32 temp_lo;
-    s32 temp_v1;
+ldiv_t ldiv(long num, long denom)
+{
+    ldiv_t ret;
 
-    temp_lo = arg1 / arg2;
-    sp0 = temp_lo;
-    temp_v1 = arg1 - (arg2 * temp_lo);
-    sp4 = temp_v1;
-    if (temp_lo < 0) {
-        sp0 = temp_lo;
-        sp4 = temp_v1;
-        if (temp_v1 > 0) {
-            sp4 = temp_v1 - arg2;
-            sp0 = temp_lo + 1;
-        }
+    ret.quot = num / denom;
+    ret.rem = num - denom * ret.quot;
+    if (ret.quot < 0 && ret.rem > 0)
+    {
+        ret.quot++;
+        ret.rem -= denom;
     }
-    arg0->unk0 = (s32) sp->unk0;
-    arg0->unk4 = (s32) sp->unk4;
-    return arg0;
+
+    return ret;
 }

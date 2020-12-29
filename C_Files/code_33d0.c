@@ -1,4 +1,4 @@
-void func_800027D0(void) {
+void SetDataForNewGame(void) {
     void *temp_t1;
     void *temp_t6;
     void *phi_t6;
@@ -19,18 +19,18 @@ loop_1:
     }
     temp_t1->unk0 = (s32) temp_t6->unk0;
     temp_t1->unk4 = (s32) temp_t6->unk4;
-    (void *)0x8007BAB8->unk10 = (void *)0x8007BA80;
+    (void *)0x8007BAB8->unk10 = (void *)0x8007BA80; //8007BA80 = Beginning of Player Data. 
     (void *)0x8007BAB8->unk6 = (u16)0;
     (void *)0x8007BAB8->unk8 = (u16)0;
     (void *)0x8007BAB8->unk11C = (u16)0;
-    (void *)0x8007BAB8->unk66 = (u16)-1;
+    (void *)0x8007BAB8->unk66 = (u16)-1; //BrianCurrAnim = 0xffff 
     (void *)0x8007BAB8->unk68 = (u16)0;
     (void *)0x8007BAB8->unk6C = (u16)1;
     (void *)0x8007BAB8->unk78 = (void *)0x8007BA80;
     (void *)0x8007BAB8->unk7C = 0x8007BB38;
     (void *)0x8007BAB8->unk72 = (u16)0;
     (void *)0x8007BAB8->unk74 = (u16)0;
-    (void *)0x8007BAB8->unk38 = (f32) (void *)0x8007BA80->unk20;
+    (void *)0x8007BAB8->unk38 = (f32) (void *)0x8007BA80->unk20; //BrianModelScale = BrianColissionSize
     (void *)0x8007BAB8->unk3C = (f32) (void *)0x8007BA80->unk18;
     (void *)0x8007BAB8->unk64 = (s16) (void *)0x8007BA80->unk2;
     *(void *)0x8007BA4C = 0x108;
