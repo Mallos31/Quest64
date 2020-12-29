@@ -337,7 +337,7 @@ block_12:
     sp4C = phi_f14_2;
     sp54 = phi_f16_2;
     sp58 = phi_f18_2;
-    temp_f2_2 = phi_f14_2 / func_80034F60((phi_f18_2 * phi_f18_2) + (phi_f16_2 * phi_f16_2), phi_f14_2);
+    temp_f2_2 = phi_f14_2 / sqrtf((phi_f18_2 * phi_f18_2) + (phi_f16_2 * phi_f16_2), phi_f14_2);
     temp_a0 = arg0;
     temp_a1 = arg1;
     temp_f16 = phi_f16_2;
@@ -398,7 +398,7 @@ block_40:
             arg0 = temp_a0;
             arg1 = temp_a1;
             temp_f16_2 = arg4 - sp20;
-            temp_f0_4 = func_80034F60((temp_f18_3 * temp_f18_3) + (temp_f16_2 * temp_f16_2), phi_f14_4, temp_a0, temp_a1);
+            temp_f0_4 = sqrtf((temp_f18_3 * temp_f18_3) + (temp_f16_2 * temp_f16_2), phi_f14_4, temp_a0, temp_a1);
             temp_a0_2 = arg0;
             temp_a1_2 = arg1;
             temp_f20 = temp_f0_4;
@@ -407,7 +407,7 @@ block_40:
                 arg1 = temp_a1_2;
                 arg0 = temp_a0_2;
                 temp_f16_3 = arg6 - *temp_a1_2;
-                temp_f0_5 = func_80034F60((temp_f18_4 * temp_f18_4) + (temp_f16_3 * temp_f16_3), temp_a0_2, temp_a1_2);
+                temp_f0_5 = sqrtf((temp_f18_4 * temp_f18_4) + (temp_f16_3 * temp_f16_3), temp_a0_2, temp_a1_2);
                 temp_a0_3 = arg0;
                 temp_a1_3 = arg1;
                 temp_f20_2 = temp_f0_5;
@@ -421,7 +421,7 @@ block_40:
                 temp_f14_4 = arg4 - temp_f4_3;
                 sp2C = temp_f2_6;
                 sp28 = temp_f14_4;
-                temp_f12_4 = (f32) ((((f64) arg2 + *(void *)0x80071270) - (f64) temp_f20_2) / (f64) func_80034F60((temp_f2_6 * temp_f2_6) + (temp_f14_4 * temp_f14_4), temp_f14_4, temp_a0_3, temp_a1_3));
+                temp_f12_4 = (f32) ((((f64) arg2 + *(void *)0x80071270) - (f64) temp_f20_2) / (f64) sqrtf((temp_f2_6 * temp_f2_6) + (temp_f14_4 * temp_f14_4), temp_f14_4, temp_a0_3, temp_a1_3));
                 temp_f8 = temp_f14_4 * temp_f12_4;
                 *arg0 = (f32) (*arg0 - (temp_f2_6 * temp_f12_4));
                 *arg1 = (f32) (*arg1 - temp_f8);
@@ -434,7 +434,7 @@ block_40:
             temp_f14_3 = arg4 - temp_f10;
             sp2C = temp_f2_5;
             sp28 = temp_f14_3;
-            temp_f12_3 = (f32) ((((f64) arg2 + *(void *)0x80071268) - (f64) temp_f20) / (f64) func_80034F60((temp_f2_5 * temp_f2_5) + (temp_f14_3 * temp_f14_3), temp_f14_3, temp_a0_2, temp_a1_2));
+            temp_f12_3 = (f32) ((((f64) arg2 + *(void *)0x80071268) - (f64) temp_f20) / (f64) sqrtf((temp_f2_5 * temp_f2_5) + (temp_f14_3 * temp_f14_3), temp_f14_3, temp_a0_2, temp_a1_2));
             temp_f4_2 = temp_f14_3 * temp_f12_3;
             *arg0 = (f32) (*arg0 - (temp_f2_5 * temp_f12_3));
             *arg1 = (f32) (*arg1 - temp_f4_2);
@@ -456,7 +456,7 @@ block_40:
             arg1 = temp_a1;
             sp2C = temp_f2_4;
             sp28 = temp_f14_2;
-            temp_f12_2 = (f32) ((((f64) arg2 + *(void *)0x80071278) - (f64) sp3C) / (f64) func_80034F60((temp_f2_4 * temp_f2_4) + (temp_f14_2 * temp_f14_2), temp_f14_2, temp_a0, temp_a1));
+            temp_f12_2 = (f32) ((((f64) arg2 + *(void *)0x80071278) - (f64) sp3C) / (f64) sqrtf((temp_f2_4 * temp_f2_4) + (temp_f14_2 * temp_f14_2), temp_f14_2, temp_a0, temp_a1));
             temp_f4 = temp_f14_2 * temp_f12_2;
             *arg0 = (f32) (*arg0 - (temp_f2_4 * temp_f12_2));
             *arg1 = (f32) (*arg1 - temp_f4);

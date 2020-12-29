@@ -111,7 +111,7 @@ loop_2:
                         func_8001D8B0(temp_s0_4, 1, 1, 1, 1, 1);
                         temp_f20 = phi_s1->unk4 - temp_s0_4->unk0;
                         temp_f22 = phi_s1->unk8 - temp_s0_4->unk8;
-                        if (50.0 < (f64) func_80034F60((temp_f20 * temp_f20) + (temp_f22 * temp_f22))) {
+                        if (50.0 < (f64) sqrtf((temp_f20 * temp_f20) + (temp_f22 * temp_f22))) {
                             temp_s0_4->unk10 = func_80023210(temp_f20, temp_f22);
                         } else {
                             temp_v0_3 = func_80022FD0(0x10);
@@ -347,7 +347,7 @@ f32 func_8000835C(void *arg0, void *arg1, void *arg2) {
                 phi_return_5 = temp_f0;
                 if (temp_f0 < temp_f22) {
                     sp68 = temp_f14;
-                    temp_ret = func_80034F60((temp_f20 * temp_f20) + (temp_f22 * temp_f22), temp_f14);
+                    temp_ret = sqrtf((temp_f20 * temp_f20) + (temp_f22 * temp_f22), temp_f14);
                     temp_f0_2 = temp_ret;
                     phi_s4 = 0;
                     phi_return_5 = temp_ret;
@@ -402,7 +402,7 @@ loop_9:
                                 phi_return_4 = temp_f0_3;
                                 if (temp_f0_3 < temp_f22_2) {
                                     sp68 = phi_f14;
-                                    temp_ret_2 = func_80034F60((temp_f20_2 * temp_f20_2) + (temp_f22_2 * temp_f22_2), phi_f14);
+                                    temp_ret_2 = sqrtf((temp_f20_2 * temp_f20_2) + (temp_f22_2 * temp_f22_2), phi_f14);
                                     temp_f0_4 = temp_ret_2;
                                     phi_s4_2 = phi_s4_5;
                                     phi_return_4 = temp_ret_2;
@@ -467,7 +467,7 @@ loop_22:
                             phi_s4_4 = phi_s4_6;
                             phi_return_2 = temp_f0_6;
                             if (temp_f0_6 < temp_f22_3) {
-                                temp_ret_3 = func_80034F60((temp_f20_3 * temp_f20_3) + (temp_f22_3 * temp_f22_3));
+                                temp_ret_3 = sqrtf((temp_f20_3 * temp_f20_3) + (temp_f22_3 * temp_f22_3));
                                 temp_f0_7 = temp_ret_3;
                                 phi_s4_4 = phi_s4_6;
                                 phi_return_2 = temp_ret_3;

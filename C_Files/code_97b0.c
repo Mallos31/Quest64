@@ -370,7 +370,7 @@ void func_80009588(void *arg0, void *arg1, void *arg2) {
             temp_f0 = (bitwise f32) (void *)0x8007BAB8->unk14 - arg0->unk0;
             temp_f2 = (bitwise f32) (void *)0x8007BAB8->unk1C - arg0->unk8;
             temp_a2 = arg1->unk1C;
-            if (!((func_80034F60((temp_f0 * temp_f0) + (temp_f2 * temp_f2), arg1) - ((*(void *)0x8007BB30)->unk18 * *(void *)0x8007BAF0)) < (temp_a2->unk10 * arg0->unk24))) {
+            if (!((sqrtf((temp_f0 * temp_f0) + (temp_f2 * temp_f2), arg1) - ((*(void *)0x8007BB30)->unk18 * *(void *)0x8007BAF0)) < (temp_a2->unk10 * arg0->unk24))) {
                 if (arg1->unk4 != 0) {
                     if ((arg1->unk8 & 2) == 0) {
                         if ((*(void *)0x8008C592 & 0x100) == 0) {
@@ -495,7 +495,7 @@ u16 func_800099DC(void *arg0, void *arg1, s32 arg2) {
                 if ((arg1->unk8 & 8) == 0) {
                     temp_f0 = (void *)0x8007BAB8->unk14 - arg0->unk0;
                     temp_f2 = (void *)0x8007BAB8->unk1C - arg0->unk8;
-                    temp_ret_2 = func_80034F60((temp_f0 * temp_f0) + (temp_f2 * temp_f2));
+                    temp_ret_2 = sqrtf((temp_f0 * temp_f0) + (temp_f2 * temp_f2));
                     phi_return_2 = (bitwise u16) temp_ret_2;
                     if ((temp_ret_2 - ((void *)0x8007BAB8->unk38 * (void *)0x8007BAB8->unk10->unk18)) < (arg1->unk1C->unk14 * arg0->unk24)) {
                         if (func_8000ABF4(arg0) != 0) {
@@ -736,7 +736,7 @@ void *func_8000A508(s32 arg0, f32 arg1, f32 arg2, void *arg3, void *arg4) {
         sp30 = temp_f14;
         temp_f16 = (arg3->unk8 + arg3->unk20) - *(void *)0x8008C430;
         sp2C = temp_f16;
-        temp_f0 = func_80034F60((temp_f14 * temp_f14) + (temp_f16 * temp_f16), temp_f14);
+        temp_f0 = sqrtf((temp_f14 * temp_f14) + (temp_f16 * temp_f16), temp_f14);
         temp_f2 = arg4->unk10 * arg4->unk120;
         if (temp_f2 < temp_f0) {
             arg1 = (((temp_f2 * temp_f14) / temp_f0) - arg3->unk0) + *(void *)0x8008C5A4;
@@ -748,7 +748,7 @@ void *func_8000A508(s32 arg0, f32 arg1, f32 arg2, void *arg3, void *arg4) {
     sp30 = temp_f14_2;
     temp_f16_2 = (arg3->unk8 + arg3->unk20) - *(void *)0x8008C5A0;
     sp2C = temp_f16_2;
-    temp_f0_2 = func_80034F60((temp_f14_2 * temp_f14_2) + (temp_f16_2 * temp_f16_2), temp_f14_2);
+    temp_f0_2 = sqrtf((temp_f14_2 * temp_f14_2) + (temp_f16_2 * temp_f16_2), temp_f14_2);
     temp_f18 = *(void *)0x8008C434;
     if (temp_f18 < temp_f0_2) {
         temp_f2_2 = (f64) temp_f18 - 0.5;
@@ -871,7 +871,7 @@ f32 func_8000A854(void *arg0, void *arg1, void *arg2) {
                 phi_return_5 = temp_f0;
                 if (temp_f0 < temp_f22) {
                     sp68 = temp_f14;
-                    temp_ret = func_80034F60((temp_f20 * temp_f20) + (temp_f22 * temp_f22), temp_f14);
+                    temp_ret = sqrtf((temp_f20 * temp_f20) + (temp_f22 * temp_f22), temp_f14);
                     temp_f0_2 = temp_ret;
                     phi_s3 = 0;
                     phi_return_5 = temp_ret;
@@ -926,7 +926,7 @@ loop_10:
                                 phi_return_4 = temp_f0_3;
                                 if (temp_f0_3 < temp_f22_2) {
                                     sp68 = phi_f14;
-                                    temp_ret_2 = func_80034F60((temp_f20_2 * temp_f20_2) + (temp_f22_2 * temp_f22_2), phi_f14);
+                                    temp_ret_2 = sqrtf((temp_f20_2 * temp_f20_2) + (temp_f22_2 * temp_f22_2), phi_f14);
                                     temp_f0_4 = temp_ret_2;
                                     phi_s3_2 = phi_s3_5;
                                     phi_return_4 = temp_ret_2;
@@ -995,7 +995,7 @@ loop_24:
                             phi_s3_4 = phi_s3_6;
                             phi_return_2 = temp_f0_6;
                             if (temp_f0_6 < temp_f22_3) {
-                                temp_ret_3 = func_80034F60((temp_f20_3 * temp_f20_3) + (temp_f22_3 * temp_f22_3));
+                                temp_ret_3 = sqrtf((temp_f20_3 * temp_f20_3) + (temp_f22_3 * temp_f22_3));
                                 temp_f0_7 = temp_ret_3;
                                 phi_s3_4 = phi_s3_6;
                                 phi_return_2 = temp_ret_3;

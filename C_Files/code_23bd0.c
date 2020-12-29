@@ -29,7 +29,7 @@ void func_800231B0(void *arg0, void *arg1) {
 
     temp_f0 = *arg1;
     temp_f2 = *arg0;
-    temp_f2_2 = 1.0f / func_80034F60((temp_f0 * temp_f0) + (temp_f2 * temp_f2));
+    temp_f2_2 = 1.0f / sqrtf((temp_f0 * temp_f0) + (temp_f2 * temp_f2));
     *arg0 = (f32) (*arg0 * temp_f2_2);
     *arg1 = (f32) (*arg1 * temp_f2_2);
 }
@@ -197,7 +197,7 @@ void func_8002371C(void *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5,
     temp_f16 = arg6 - arg3;
     sp28 = temp_f2;
     sp24 = temp_f16;
-    temp_f0 = func_80034F60((temp_f2 * temp_f2) + (temp_f16 * temp_f16));
+    temp_f0 = sqrtf((temp_f2 * temp_f2) + (temp_f16 * temp_f16));
     temp_a0 = arg0;
     temp_cond = temp_f0 == 0.0f;
     sp40 = temp_f0;
@@ -212,7 +212,7 @@ void func_8002371C(void *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5,
     arg0 = temp_a0;
     sp34 = phi_f18;
     sp28 = temp_f16_2;
-    temp_f0_2 = func_80034F60((sp40 * sp40) + (temp_f16_2 * temp_f16_2), 0.0f, temp_a0);
+    temp_f0_2 = sqrtf((sp40 * sp40) + (temp_f16_2 * temp_f16_2), 0.0f, temp_a0);
     temp_f18 = phi_f18;
     if (temp_f0_2 == 0.0f) {
         phi_f2 = 0.0f;
@@ -277,7 +277,7 @@ void func_80023A08(void *arg0, f32 arg1, f32 arg2, f32 arg3) {
 
     temp_f14 = arg3;
     arg3 = temp_f14;
-    temp_f0 = func_80034F60((arg1 * arg1) + (temp_f14 * temp_f14), temp_f14);
+    temp_f0 = sqrtf((arg1 * arg1) + (temp_f14 * temp_f14), temp_f14);
     temp_f16 = temp_f0;
     temp_f6 = temp_f16 * temp_f16;
     temp_a0 = arg0;
@@ -296,7 +296,7 @@ void func_80023A08(void *arg0, f32 arg1, f32 arg2, f32 arg3) {
     arg0 = temp_a0;
     sp34 = temp_f16;
     sp3C = phi_f18;
-    temp_f0_2 = func_80034F60(temp_f6 + (arg2 * arg2), arg3, temp_a0);
+    temp_f0_2 = sqrtf(temp_f6 + (arg2 * arg2), arg3, temp_a0);
     temp_f4 = sp34 / temp_f0_2;
     temp_f18 = phi_f18;
     temp_f14_2 = -phi_f22;

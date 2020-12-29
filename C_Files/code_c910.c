@@ -867,7 +867,7 @@ loop_2:
             temp_f0 = temp_s0->unk0 - (void *)0x8007BAB8->unk14;
             temp_f2 = temp_s0->unk4 - (void *)0x8007BAB8->unk18;
             temp_f14 = temp_s0->unk8 - (void *)0x8007BAB8->unk1C;
-            temp_f0_2 = func_80034F60(((temp_f0 * temp_f0) + (temp_f2 * temp_f2)) + (temp_f14 * temp_f14), temp_f14);
+            temp_f0_2 = sqrtf(((temp_f0 * temp_f0) + (temp_f2 * temp_f2)) + (temp_f14 * temp_f14), temp_f14);
             if (temp_f0_2 < *(void *)0x80084ED4) {
                 *(void *)0x80084ED4 = temp_f0_2;
                 *(void *)0x80084ED8 = (s32) ((s32) (temp_s0->unk16 & 0xF00) >> 8);
@@ -1204,7 +1204,7 @@ loop_2:
         if (arg2 == temp_s0->unk14) {
             temp_f20 = temp_s0->unk0 - (void *)0x80086DC0->unkC;
             temp_f22 = temp_s0->unk8 - (void *)0x80086DC0->unk14;
-            temp_ret = func_80034F60((temp_f20 * temp_f20) + (temp_f22 * temp_f22));
+            temp_ret = sqrtf((temp_f20 * temp_f20) + (temp_f22 * temp_f22));
             phi_return_2 = (bitwise void *) temp_ret;
             if (temp_ret < *(void *)0x80071220) {
                 temp_ret_2 = func_80023210(temp_f20, temp_f22);

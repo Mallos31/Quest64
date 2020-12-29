@@ -82,7 +82,7 @@ s32 func_8000B740(void) {
         temp_f2 = (void *)0x8007D1A8->unk2C - (void *)0x8007BAB8->unk1C;
         temp_v0 = *(void *)0x8007D1A0;
         phi_v1 = sp1C;
-        if (func_80034F60((temp_f0 * temp_f0) + (temp_f2 * temp_f2), (void *)0x8007BAB8) < ((temp_v0 * 4) + 0x803B0000)->unk-6474) {
+        if (sqrtf((temp_f0 * temp_f0) + (temp_f2 * temp_f2), (void *)0x8007BAB8) < ((temp_v0 * 4) + 0x803B0000)->unk-6474) {
             phi_v1 = temp_v0;
         }
     }
@@ -116,7 +116,7 @@ void *func_8000B7DC(s32 arg0, f32 arg1, s32 arg2, f32 arg3, void *arg4) {
     if ((s32) temp_t5 < 0) {
         phi_f12 = temp_f12 + 4294967296.0f;
     }
-    temp_f4 = (f64) func_80034F60(phi_f12) * *(void *)0x800711D0;
+    temp_f4 = (f64) sqrtf(phi_f12) * *(void *)0x800711D0;
     arg4->unk90 = (u16)0;
     arg4->unk10 = (f32) (temp_f4 + *(void *)0x800711D8);
     arg4->unk114 = (u16) arg4->unk20->unk2A;

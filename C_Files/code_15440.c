@@ -377,7 +377,7 @@ void *func_800154EC(void *arg0, void *arg1) {
         arg1 = temp_a2;
         temp_f2 = temp_v0_2->unk0 - temp_f6;
         temp_f0 = temp_v0_2->unk8 - temp_f10;
-        phi_f2 = func_80034F60((temp_f2 * temp_f2) + (temp_f0 * temp_f0), temp_a2);
+        phi_f2 = sqrtf((temp_f2 * temp_f2) + (temp_f0 * temp_f0), temp_a2);
         phi_a2 = arg1;
     } else {
         phi_f2 = (f32) (((f64) temp_a2->unk64->unk18 * 10.0) * (f64) temp_a2->unk24);
@@ -710,7 +710,7 @@ u16 func_80015B8C(void *arg0) {
                 temp_f14 = temp_v0_2->unk8 - arg0->unk14;
                 sp84 = phi_f16;
                 sp80 = temp_f14;
-                temp_f0 = func_80034F60(((temp_f18 * temp_f18) + (phi_f16 * phi_f16)) + (temp_f14 * temp_f14), temp_f14);
+                temp_f0 = sqrtf(((temp_f18 * temp_f18) + (phi_f16 * phi_f16)) + (temp_f14 * temp_f14), temp_f14);
                 temp_f2 = (sp + (arg0->unk2C->unk28 * 4))->unk50;
                 phi_f18 = (temp_f2 * temp_f18) / temp_f0;
                 phi_f16_2 = (temp_f2 * phi_f16) / temp_f0;
@@ -725,7 +725,7 @@ u16 func_80015B8C(void *arg0) {
             sp80 = phi_f14;
             sp78 = temp_f0_2;
             sp74 = temp_f2_2;
-            temp_f0_3 = func_80034F60(((temp_f0_2 * temp_f0_2) + (temp_f2_2 * temp_f2_2)) + (temp_f4 * temp_f4), phi_f14);
+            temp_f0_3 = sqrtf(((temp_f0_2 * temp_f0_2) + (temp_f2_2 * temp_f2_2)) + (temp_f4 * temp_f4), phi_f14);
             temp_f14_2 = phi_f14;
             temp_f16 = phi_f16_2;
             temp_f18_2 = phi_f18;
@@ -745,7 +745,7 @@ u16 func_80015B8C(void *arg0) {
             sp80 = phi_f14_2;
             sp84 = phi_f16_3;
             sp88 = phi_f18_2;
-            temp_f0_4 = func_80034F60(((phi_f18_2 * phi_f18_2) + (phi_f16_3 * phi_f16_3)) + (phi_f14_2 * phi_f14_2), phi_f14_2);
+            temp_f0_4 = sqrtf(((phi_f18_2 * phi_f18_2) + (phi_f16_3 * phi_f16_3)) + (phi_f14_2 * phi_f14_2), phi_f14_2);
             temp_f2_4 = (sp + (arg0->unk2C->unk2E * 4))->unk3C;
             temp_f12 = *(void *)0x80071498;
             temp_f16_2 = (temp_f2_4 * phi_f16_3) / temp_f0_4;
@@ -868,7 +868,7 @@ block_21:
                 temp_f2 = *(void *)0x8007BACC - arg0->unkC;
                 temp_f14 = *(void *)0x8007BAD4 - arg0->unk14;
                 temp_f0 = (f32) ((((f64) *(void *)0x8007BAD0 + ((f64) ((*(void *)0x8007BB30)->unk1C * *(void *)0x8007BAF0) * 0.5)) - (f64) arg0->unk10) * 0.5);
-                if ((arg0->unk2C->unk1C + ((*(void *)0x8007BB30)->unk18 * *(void *)0x8007BAF0)) < func_80034F60(((temp_f2 * temp_f2) + (temp_f0 * temp_f0)) + (temp_f14 * temp_f14), temp_f14)) {
+                if ((arg0->unk2C->unk1C + ((*(void *)0x8007BB30)->unk18 * *(void *)0x8007BAF0)) < sqrtf(((temp_f2 * temp_f2) + (temp_f0 * temp_f0)) + (temp_f14 * temp_f14), temp_f14)) {
                     goto block_21;
                 }
             }
@@ -892,7 +892,7 @@ loop_8:
                         }
                         phi_s3_2 = phi_s3_3;
                         phi_s2_2 = phi_s2;
-                        if (!(func_80034F60(((temp_f2_2 * temp_f2_2) + (phi_f0 * phi_f0)) + (temp_f14_2 * temp_f14_2), temp_f14_2) < (arg0->unk2C->unk1C + (temp_s0->unk64->unk18 * temp_s0->unk24)))) {
+                        if (!(sqrtf(((temp_f2_2 * temp_f2_2) + (phi_f0 * phi_f0)) + (temp_f14_2 * temp_f14_2), temp_f14_2) < (arg0->unk2C->unk1C + (temp_s0->unk64->unk18 * temp_s0->unk24)))) {
 block_16:
                             phi_s3 = phi_s3_3 - 1;
 block_17:

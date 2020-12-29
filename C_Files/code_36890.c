@@ -31,14 +31,14 @@ f32 func_80035C90(void *arg0, void *arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5
     temp_f0 = arg5 - arg2;
     temp_f22 = arg6 - arg3;
     temp_f24 = arg7 - arg4;
-    temp_f2 = (f32) (-1.0 / (f64) func_80034F60(((temp_f0 * temp_f0) + (temp_f22 * temp_f22)) + (temp_f24 * temp_f24)));
+    temp_f2 = (f32) (-1.0 / (f64) sqrtf(((temp_f0 * temp_f0) + (temp_f22 * temp_f22)) + (temp_f24 * temp_f24)));
     temp_f20 = temp_f0 * temp_f2;
     temp_f22 = temp_f22 * temp_f2;
     temp_f24 = temp_f24 * temp_f2;
     temp_f26 = (arg9 * temp_f24) - (argA * temp_f22);
     temp_f28 = (argA * temp_f20) - (arg8 * temp_f24);
     temp_f30 = (arg8 * temp_f22) - (arg9 * temp_f20);
-    temp_f14 = (f32) (1.0 / (f64) func_80034F60(((temp_f26 * temp_f26) + (temp_f28 * temp_f28)) + (temp_f30 * temp_f30)));
+    temp_f14 = (f32) (1.0 / (f64) sqrtf(((temp_f26 * temp_f26) + (temp_f28 * temp_f28)) + (temp_f30 * temp_f30)));
     temp_f26 = temp_f26 * temp_f14;
     temp_f28 = temp_f28 * temp_f14;
     temp_f30 = temp_f30 * temp_f14;
@@ -49,7 +49,7 @@ f32 func_80035C90(void *arg0, void *arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5
     temp_f18 = (temp_f20 * temp_f28) - (temp_f22 * temp_f26);
     argA = temp_f18;
     temp_f2_3 = *(void *)0x80071BA0;
-    temp_f14_2 = (f32) (1.0 / (f64) func_80034F60(((temp_f2_2 * temp_f2_2) + (temp_f16 * temp_f16)) + (temp_f18 * temp_f18), temp_f14));
+    temp_f14_2 = (f32) (1.0 / (f64) sqrtf(((temp_f2_2 * temp_f2_2) + (temp_f16 * temp_f16)) + (temp_f18 * temp_f18), temp_f14));
     temp_f10 = arg9 * temp_f14_2;
     arg8 = arg8 * temp_f14_2;
     arg9 = temp_f10;

@@ -725,7 +725,7 @@ void func_80013008(void *arg0) {
     temp_f2 = sp20->unk8 - temp_f10;
     sp40 = temp_f0;
     sp38 = temp_f2;
-    temp_f0_2 = func_80034F60((temp_f0 * temp_f0) + (temp_f2 * temp_f2), temp_a0);
+    temp_f0_2 = sqrtf((temp_f0 * temp_f0) + (temp_f2 * temp_f2), temp_a0);
     temp_a0_2 = arg0;
     if (temp_f0_2 != 0.0f) {
         temp_f14 = temp_a0_2->unk4C;
@@ -881,7 +881,7 @@ block_33:
     arg0 = temp_a0_5;
     sp40 = temp_f16_2;
     sp38 = temp_f18;
-    temp_f0_9 = func_80034F60(temp_f8 + (temp_f18 * temp_f18), 0, temp_a0_5);
+    temp_f0_9 = sqrtf(temp_f8 + (temp_f18 * temp_f18), 0, temp_a0_5);
     temp_a0_6 = arg0;
     temp_f14_5 = temp_f0_9;
     if ((sp3C != 0.0f) || (phi_a0 = temp_a0_6, (temp_f0_9 != 0.0f))) {
@@ -939,7 +939,7 @@ f32 func_80013698(void *arg0) {
     sp34 = temp_f0;
     temp_f2 = arg0->unk14 - arg0->unk20;
     sp2C = temp_f2;
-    temp_ret = func_80034F60((temp_f0 * temp_f0) + (temp_f2 * temp_f2));
+    temp_ret = sqrtf((temp_f0 * temp_f0) + (temp_f2 * temp_f2));
     temp_f0_2 = temp_ret;
     sp28 = temp_f0_2;
     if ((sp30 != 0.0f) || (phi_return = temp_ret, (temp_f0_2 != 0.0f))) {
@@ -1553,7 +1553,7 @@ f32 func_80014720(void *arg0, f32 arg1) {
             phi_s1 = temp_v0;
 loop_3:
             temp_s0 = *phi_s2;
-            if (((f64) (temp_s0->unk4 - arg1) < 20.0) && (temp_f2 = temp_s0->unk0 - arg0->unkC, temp_f0 = temp_s0->unk8 - arg0->unk14, ((f64) func_80034F60((temp_f2 * temp_f2) + (temp_f0 * temp_f0)) < 30.0))) {
+            if (((f64) (temp_s0->unk4 - arg1) < 20.0) && (temp_f2 = temp_s0->unk0 - arg0->unkC, temp_f0 = temp_s0->unk8 - arg0->unk14, ((f64) sqrtf((temp_f2 * temp_f2) + (temp_f0 * temp_f0)) < 30.0))) {
                 phi_f24 = (f32) ((f64) temp_s0->unk4 + 30.0);
             } else {
                 temp_s1 = phi_s1 - 1;

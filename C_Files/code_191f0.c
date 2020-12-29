@@ -1222,7 +1222,7 @@ loop_5:
         temp_f22 = (phi_s0_2->unk4 + 5.0f) - temp_f28;
         temp_f24 = phi_s0_2->unk8 - temp_f30;
         func_80023A08(&spE0, temp_f20, temp_f22, temp_f24);
-        func_80023DF4(&spE0, 0x40000000, func_80034F60(((temp_f20 * temp_f20) + (temp_f22 * temp_f22)) + (temp_f24 * temp_f24)), 0x40000000);
+        func_80023DF4(&spE0, 0x40000000, sqrtf(((temp_f20 * temp_f20) + (temp_f22 * temp_f22)) + (temp_f24 * temp_f24)), 0x40000000);
         sp110 = temp_f26;
         sp114 = temp_f28;
         sp118 = temp_f30;
