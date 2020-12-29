@@ -1,12 +1,12 @@
-s32 func_800265F0(void) {
+s32 initBGM(void) {
     s32 temp_v0;
     void *phi_v1;
     s32 phi_v0;
 
     *(void *)0x8008FCC2 = (u16)0;
     *(void *)0x8008FCC4 = (u16)0;
-    *(void *)0x8008FCC1 = (u8)-1;
-    *(void *)0x8008FCC0 = (s8) *(void *)0x8008FCC1;
+    *(void *)currBGM = (u8)-1;
+    *(void *)0x8008FCC0 = (s8) *(void *)currBGM;
     *(void *)0x8008FCC6 = (u8)0xFF;
     phi_v1 = (void *)0x8008FCC8;
     phi_v0 = 0x10;
@@ -65,7 +65,7 @@ u8 func_80026658(void) {
         if ((phi_v0 & 4) != 0) {
             if (func_8002543C(0) == 0) {
                 *(void *)0x8008FCC2 = (u16) (*(void *)0x8008FCC2 & 0xFFFB);
-                *(void *)0x8008FCC0 = (s8) *(void *)0x8008FCC1;
+                *(void *)0x8008FCC0 = (s8) *(void *)currBGM;
                 temp_a1 = *(void *)0x8008FCC0;
                 if (temp_a1 != -1) {
                     func_800252D8(0, temp_a1);
@@ -97,56 +97,56 @@ loop_14:
     return phi_return;
 }
 
-void *func_800267B8(s32 arg0) {
+void updateBGM(s32 arg0) {
     s32 temp_a0;
 
     temp_a0 = (s32) (arg0 << 0x18) >> 0x18;
-    if (temp_a0 != *(void *)0x8008FCC1) {
-        *(void *)0x8008FCC1 = (s8) temp_a0;
+    if (temp_a0 != *(void *)currBGM) {
+        *(void *)currBGM = (s8) temp_a0;
         *(void *)0x8008FCC2 = (u16) (*(void *)0x8008FCC2 | 1);
     }
-    return (void *)0x8008FCC1;
+    return currBGM;
 }
 
-void *func_800267F8(s32 arg0, s32 arg1) {
-    s32 temp_a0;
+void PlayVictoryTheme(u8 BGM, s32 arg1) {
+    s32 tempBGM;
 
-    temp_a0 = (s32) (arg0 << 0x18) >> 0x18;
-    if (temp_a0 != *(void *)0x8008FCC1) {
-        *(void *)0x8008FCC1 = (s8) temp_a0;
-        *(void *)0x8008FCC2 = (u16) (*(void *)0x8008FCC2 | 1);
+    tempBGM = (s32) (arg0 << 0x18) >> 0x18;
+    if (tempBGM != *(void *)currBGM) {
+        *(void *)currBGM = (s8) tempBGM;
+        *(void *)0x8008FCC2 = (u16) (*(void *)0x8008FCC2 | 1); //setting this bit forces a BGM update
         *(void *)0x8008FCC4 = (s16) (arg1 & 0xFFFF);
     }
-    return (void *)0x8008FCC1;
+    return
 }
 
-void *func_8002684C(s32 arg0, s32 arg1, s32 arg2) {
+void updateBGMOnMapTransition(s32 nextMap, s32 nextSubmap, s32 flags) {
     s16 temp_a2;
     s32 temp_v1;
     s8 temp_v1_2;
     void *temp_v0;
     void *phi_v0;
-    s32 phi_v1;
-    s32 phi_v1_2;
+    s32 mapCounter;
+    s32 mapCounter_2;
     void *phi_v0_2;
     void *phi_return;
     void *phi_return_2;
 
-    phi_v0 = (void *)0x80053B00;
-    phi_v1 = 0x46;
+    phi_v0 = (void *)0x80053B00; //TBL_MapBGMs
+    mapCounter = 0x46; 
     phi_return_2 = (void *)0x80053B00;
 loop_1:
-    if ((arg0 == phi_v0->unk0) && (temp_a2 = phi_v0->unk2, phi_v1_2 = phi_v1, phi_v0_2 = phi_v0, phi_return = phi_return_2, (arg1 != temp_a2))) {
-        phi_v1_2 = phi_v1;
+    if ((nextMap == phi_v0->unk0) && (temp_a2 = phi_v0->unk2, mapCounter_2 = mapCounter, phi_v0_2 = phi_v0, phi_return = phi_return_2, (nextSubmap != temp_a2))) {
+        mapCounter_2 = mapCounter;
         phi_v0_2 = phi_v0;
         phi_return = phi_return_2;
         if (-1 != temp_a2) {
 block_4:
-            temp_v1 = phi_v1 - 1;
+            temp_v1 = mapCounter - 1;
             temp_v0 = phi_v0 + 6;
             phi_v0 = temp_v0;
-            phi_v1 = temp_v1;
-            phi_v1_2 = temp_v1;
+            mapCounter = temp_v1;
+            mapCounter_2 = temp_v1;
             phi_v0_2 = temp_v0;
             phi_return = temp_v0;
             phi_return_2 = temp_v0;
@@ -157,13 +157,13 @@ block_4:
     } else {
         goto block_4;
     }
-    if (phi_v1_2 != 0) {
+    if (mapCounter_2 != 0) {
         temp_v1_2 = phi_v0_2->unk4;
         phi_return = (void *)0x8008FCC2;
-        if (temp_v1_2 != *(void *)0x8008FCC1) {
-            *(void *)0x8008FCC1 = temp_v1_2;
+        if (temp_v1_2 != *(void *)currBGM) {
+            *(void *)currBGM = temp_v1_2;
             *(void *)0x8008FCC2 = (u16) (*(void *)0x8008FCC2 | 1);
-            *(void *)0x8008FCC4 = (s16) (arg2 & 0xFFFF);
+            *(void *)0x8008FCC4 = (s16) (flags & 0xFFFF);
             phi_return = (void *)0x8008FCC2;
         }
     }
