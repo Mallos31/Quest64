@@ -1,19 +1,19 @@
-s32 func_8003AC10(s32 arg0) {
-    s32 sp1C;
-    s32 temp_v0;
+s32 osContStartReadData(OSMesgQueue *mq) {
+    s32 tempRet;
+    s32 ret;
 
-    sp1C = 0;
-    func_80044840();
-    if (*(void *)0x80095490 != 1) {
-        func_8003AD44();
-        sp1C = func_80046950(1, 0x80095450);
-        func_80034020(arg0, 0, 1);
+    tempRet = 0;
+    __osSiGetAccess();
+    if (*(void *)__osContLastCmd != 1) {
+        __osPackReadData();
+        tempRet = __osSiRawStartDma(1, __osContPifRam);
+        osRecvMesg(mq, 0, 1);
     }
-    temp_v0 = func_80046950(0, 0x80095450);
-    sp1C = temp_v0;
-    *(void *)0x80095490 = (u8)1U;
-    func_80044884();
-    return temp_v0;
+    ret = __osSiRawStartDma(0, __osContPifRam);
+    tempRet = ret;
+    *(void *)__osContLastCmd = (u8)1U;
+    __osSiRelAccess();
+    return ret;
 }
 
 void func_8003AC9C(void *arg0) {
@@ -24,10 +24,10 @@ void func_8003AC9C(void *arg0) {
     s32 temp_t9;
     void *phi_a0;
 
-    spC = (void *)0x80095450;
+    spC = (void *)__osContPifRam;
     sp0 = 0;
     phi_a0 = arg0;
-    if ((s32) *(void *)0x80095491 > 0) {
+    if ((s32) *(void *)__osMaxControllers > 0) {
 loop_1:
         sp4.unk0 = (?32) (unaligned s32) spC->unk0;
         sp4.unk4 = (?32) (unaligned s32) spC->unk4;
@@ -38,7 +38,7 @@ loop_1:
             phi_a0->unk3 = spB;
         }
         temp_t9 = sp0 + 1;
-        temp_at = temp_t9 < (s32) *(void *)0x80095491;
+        temp_at = temp_t9 < (s32) *(void *)__osMaxControllers;
         spC = spC + 8;
         sp0 = temp_t9;
         phi_a0 = phi_a0 + 6;
@@ -48,7 +48,7 @@ loop_1:
     }
 }
 
-void func_8003AD44(void) {
+void __osPackReadData(void) {
     void *spC;
     s8 spB;
     s8 spA;
@@ -62,7 +62,7 @@ void func_8003AD44(void) {
     s32 temp_t0;
     s32 temp_t7;
 
-    spC = (void *)0x80095450;
+    spC = (void *)__osContPifRam;
     sp0 = 0;
 loop_1:
     ((sp0 * 4) + 0x80090000)->unk5450 = 0;
@@ -80,12 +80,12 @@ loop_1:
     spA = (u8)-1;
     spB = (u8)-1;
     sp0 = 0;
-    if ((s32) *(void *)0x80095491 > 0) {
+    if ((s32) *(void *)__osMaxControllers > 0) {
 loop_3:
         spC->unk0 = (unaligned s32) sp4.unk0;
         spC->unk4 = (unaligned s32) sp4.unk4;
         temp_t7 = sp0 + 1;
-        temp_at = temp_t7 < (s32) *(void *)0x80095491;
+        temp_at = temp_t7 < (s32) *(void *)__osMaxControllers;
         sp0 = temp_t7;
         spC = spC + 8;
         if (temp_at != 0) {
@@ -95,7 +95,7 @@ loop_3:
     spC->unk0 = (u8)0xFE;
 }
 
-s32 func_8003AE30(void *arg0, s32 arg1, void *arg2) {
+s32 osPfsFileState(OSPfs *pfs, s32 file_no, void *state) {
     s32 sp14C;
     s32 sp148;
     ? sp48;
@@ -109,27 +109,27 @@ s32 func_8003AE30(void *arg0, s32 arg1, void *arg2) {
     u8 temp_t1;
     u8 temp_t5;
 
-    if (arg1 >= arg0->unk50) {
+    if (file_no >= pfs->unk50) { 	//unk50 = dir_size
 block_2:
         return 5;
     }
-    if (arg1 < 0) {
+    if (file_no < 0) {
         goto block_2;
     }
-    if ((arg0->unk0 & 1) == 0) {
+    if ((pfs->unk0 & 1) == 0) {  //unk0 = status
         return 5;
     }
-    if (func_800453C0(arg0) == 2) {
+    if (__osCheckId(pfs) == 2) {
         return 2;
     }
-    if (arg0->unk65 != 0) {
-        arg0->unk65 = (u8)0U;
-        sp14C = func_800457DC(arg0);
+    if (pfs->unk65 != 0) {	//unk65 = activeBank
+        pfs->unk65 = (u8)0U;
+        sp14C = __osPfsSelectBank(pfs);
         if (sp14C != 0) {
             return sp14C;
         }
     }
-    sp14C = func_80045850(arg0->unk4, arg0->unk8, arg0->unk5C + arg1, &sp28);
+    sp14C = __osContRamRead(pfs->unk4, pfs->unk8, pfs->unk5C + file_no, &sp28);
     if (sp14C != 0) {
         return sp14C;
     }
@@ -140,22 +140,22 @@ block_14:
     if (sp28 == 0) {
         goto block_14;
     }
-    if ((s32) sp2E < arg0->unk60) {
+    if ((s32) sp2E < pfs->unk60) {
         return 3;
     }
     temp_t5 = (u8) sp2E;
     sp148 = 0;
     sp1E = sp2F;
     sp1F = temp_t5;
-    if ((s32) temp_t5 < (s32) arg0->unk64) {
+    if ((s32) temp_t5 < (s32) pfs->unk64) {
 loop_18:
-        sp14C = func_800454BC(arg0, &sp48, 0, sp1F);
+        sp14C = __osPfsRWInode(pfs, &sp48, 0, sp1F);
         if (sp14C != 0) {
             return sp14C;
         }
         sp24 = (u16) *((sp1E * 2) + &sp48);
         sp148 = sp148 + 1;
-        if ((s32) sp24 >= arg0->unk60) {
+        if ((s32) sp24 >= pfs->unk60) {
 loop_21:
             sp148 = sp148 + 1;
             sp24 = (u16) *((sp25 * 2) + &sp48);
@@ -164,13 +164,13 @@ loop_21:
                 sp1F = temp_t1;
                 sp1E = sp25;
             } else {
-                if ((s32) sp24 >= arg0->unk60) {
+                if ((s32) sp24 >= pfs->unk60) {
                     goto loop_21;
                 }
             }
         }
         if (sp24 != 1) {
-            if ((s32) sp1F < (s32) arg0->unk64) {
+            if ((s32) sp1F < (s32) pfs->unk64) {
                 goto loop_18;
             }
         }
@@ -178,12 +178,12 @@ loop_21:
     if (sp24 != 1) {
         return 3;
     }
-    arg2->unk0 = (s32) (sp148 << 8);
-    arg2->unk8 = sp2C;
-    arg2->unk4 = sp28;
+    state->unk0 = (s32) (sp148 << 8);
+    state->unk8 = sp2C;
+    state->unk4 = sp28;
     sp20 = 0;
 loop_29:
-    (arg2 + sp20)->unkE = (u8) (sp + sp20)->unk38;
+    (state + sp20)->unkE = (u8) (sp + sp20)->unk38;
     temp_t5_2 = sp20 + 1;
     sp20 = temp_t5_2;
     if (temp_t5_2 < 0x10) {
@@ -191,7 +191,7 @@ loop_29:
     }
     sp20 = 0;
 loop_31:
-    (arg2 + sp20)->unkA = (u8) (sp + sp20)->unk34;
+    (state + sp20)->unkA = (u8) (sp + sp20)->unk34;
     temp_t9 = sp20 + 1;
     sp20 = temp_t9;
     if (temp_t9 < 4) {
