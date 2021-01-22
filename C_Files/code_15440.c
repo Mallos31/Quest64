@@ -18,9 +18,129 @@ loop_1:
     return 0x80087170U;
 }
 
-Failed to decompile function func_80014890:
+s32 func_80014890(s32 arg0, void *arg1) {
+    u8 sp1E;
+    u8 sp1D;
+    ? sp1C;
+    ? *temp_a0;
+    s32 temp_a2;
+    s32 temp_a2_2;
+    s32 temp_t2;
+    s32 temp_t6;
+    u16 temp_a1;
+    u32 temp_a3;
+    u8 temp_a0_3;
+    u8 temp_v1;
+    void *temp_a0_2;
+    void *temp_t0;
+    void *phi_t0;
+    ? *phi_a0;
+    s32 phi_a2;
+    void *phi_t0_2;
+    void *phi_a0_2;
+    void *phi_a0_3;
+    ? *phi_a1;
+    void *phi_t1;
+    u32 phi_a3;
+    u32 phi_a3_2;
+    s32 phi_a2_2;
+    s32 phi_a2_3;
+    s32 phi_a2_4;
+    s32 phi_a2_5;
 
-Complex control flow; node assumed to be part of &&/|| wasn't. Run with --no-andor to disable detection of &&/|| and try again.
+    temp_t6 = arg0 & 0xFFFF;
+    temp_v1 = *arg1;
+    if (temp_t6 != 0) {
+        temp_t2 = temp_t6 & 3;
+        phi_a2_5 = 0;
+        if (temp_t2 != 0) {
+            phi_t0 = arg1;
+            phi_a0 = &sp1C;
+            phi_a2 = 0;
+loop_3:
+            temp_a2 = phi_a2 + 1;
+            temp_a0 = phi_a0 + 1;
+            temp_a0->unk-1 = (u8) *phi_t0;
+            phi_t0 = phi_t0 + 1;
+            phi_a0 = temp_a0;
+            phi_a2 = temp_a2;
+            if (temp_t2 != temp_a2) {
+                goto loop_3;
+            }
+            phi_a2_5 = temp_a2;
+            if (temp_a2 != temp_t6) {
+block_5:
+                phi_t0_2 = arg1 + phi_a2_5;
+                phi_a0_2 = phi_a2_5 + &sp1C;
+loop_6:
+                temp_a0_2 = phi_a0_2 + 4;
+                temp_t0 = phi_t0_2 + 4;
+                temp_a0_2->unk-4 = (u8) *phi_t0_2;
+                temp_a0_2->unk-3 = (u8) temp_t0->unk-3;
+                temp_a0_2->unk-2 = (u8) temp_t0->unk-2;
+                temp_a0_2->unk-1 = (u8) temp_t0->unk-1;
+                phi_t0_2 = temp_t0;
+                phi_a0_2 = temp_a0_2;
+                if (temp_a0_2 != (temp_t6 + &sp1C)) {
+                    goto loop_6;
+                }
+            }
+        } else {
+            goto block_5;
+        }
+    }
+    if (temp_t6 >= 3) {
+        temp_a0_3 = sp1E;
+        if ((s32) temp_a0_3 < (s32) sp1D) {
+            sp1E = sp1D;
+            sp1D = temp_a0_3;
+        }
+    }
+    phi_a0_3 = ((temp_v1 * 4) + 0x800C0000)->unk1B14;
+    phi_a2_2 = 0xF;
+loop_11:
+    temp_a1 = phi_a0_3->unk4;
+    if (temp_a1 == temp_t6) {
+        phi_a3_2 = 0U;
+        if (temp_a1 != 0) {
+            phi_a1 = &sp1C;
+            phi_t1 = phi_a0_3;
+            phi_a3 = 0U;
+loop_14:
+            phi_a3_2 = phi_a3;
+            if (*phi_a1 == phi_t1->unk6) {
+                temp_a3 = phi_a3 + 1;
+                phi_a1 = phi_a1 + 1;
+                phi_t1 = phi_t1 + 1;
+                phi_a3 = temp_a3;
+                phi_a3_2 = temp_a3;
+                if (temp_a3 < (u32) temp_a1) {
+                    goto loop_14;
+                }
+            }
+        }
+        phi_a2_3 = phi_a2_2;
+        if (phi_a3_2 != temp_a1) {
+block_17:
+            temp_a2_2 = phi_a2_2 - 1;
+            phi_a0_3 = phi_a0_3 + 0x44;
+            phi_a2_2 = temp_a2_2;
+            phi_a2_3 = temp_a2_2;
+            if (temp_a2_2 != 0) {
+                goto loop_11;
+            }
+        }
+    } else {
+        goto block_17;
+    }
+    phi_a2_4 = phi_a2_3;
+    if (phi_a2_3 == 0) {
+        phi_a2_4 = 0xF;
+    }
+    return ((temp_v1 << 8) - phi_a2_4) + 0xF;
+}
+
+
 
 s32 func_800149D0(u32 arg0, s32 arg1) {
     s32 temp_t7;
@@ -1302,9 +1422,90 @@ void func_80016D60(s32 arg0, s32 arg1) {
     func_80016CB0(arg0, arg1);
 }
 
-Failed to decompile function func_80016D98:
+void func_80016D98(void *arg0) {
+    f32 temp_f0;
+    f32 temp_f12;
+    f64 temp_f20;
+    f64 temp_f22;
+    f64 temp_f24;
+    f64 temp_f2;
+    s32 temp_s2;
+    s32 temp_s2_2;
+    void *temp_s3;
+    void *phi_s1;
+    f32 phi_f28;
+    f32 phi_f12;
+    f32 phi_f12_2;
+    f32 phi_f26;
+    s32 phi_s2;
+    s32 phi_s2_2;
 
-Complex control flow; node assumed to be part of &&/|| wasn't. Run with --no-andor to disable detection of &&/|| and try again.
+    temp_s3 = arg0->unk24;
+    if ((temp_s3->unk5E & 1) != 0) {
+        arg0->unk28 = (void *)0x8007BACC;
+        return;
+    }
+    if ((arg0->unk2C->unk2 & 8) != 0) {
+        temp_f12 = arg0->unk18;
+        if (temp_f12 == 0.0f) {
+            if (arg0->unk20 != 0.0f) {
+block_5:
+                phi_f28 = func_80023210(temp_f12, arg0->unk20);
+            } else {
+block_6:
+                phi_f28 = temp_s3->unk10;
+            }
+        } else {
+            goto block_5;
+        }
+    } else {
+        goto block_6;
+    }
+    temp_s2 = *(void *)0x8007C990;
+    if (temp_s2 != 0) {
+        temp_f24 = *(void *)0x800714B8;
+        temp_f22 = *(void *)0x800714C0;
+        temp_f20 = *(void *)0x800714C8;
+        phi_s1 = (void *)0x8007C998;
+        phi_f26 = *(void *)0x800714B0;
+        phi_s2_2 = temp_s2;
+loop_9:
+        phi_s2 = phi_s2_2;
+        if (phi_s1->unk74 != -1) {
+            (void *)0x800871D0->unk0 = (f32) (phi_s1->unk24 - arg0->unk24->unk0);
+            (void *)0x800871D0->unk4 = (f32) (phi_s1->unk2C - arg0->unk24->unk8);
+            func_800232F4(phi_f28, (void *)0x800871D0);
+            temp_f0 = func_80023210((void *)0x800871D0->unk0, (void *)0x800871D0->unk4);
+            temp_f2 = (f64) temp_f0;
+            temp_s2_2 = phi_s2_2 - 1;
+            if (temp_f22 < temp_f2) {
+                phi_f12 = (f32) (temp_f2 - temp_f20);
+            } else {
+                phi_f12 = temp_f0;
+                if (temp_f2 < temp_f24) {
+                    phi_f12 = (f32) (temp_f2 + temp_f20);
+                }
+            }
+            phi_f12_2 = phi_f12;
+            if (phi_f12 < 0.0f) {
+                phi_f12_2 = -phi_f12;
+            }
+            phi_s2 = temp_s2_2;
+            if (phi_f12_2 < phi_f26) {
+                arg0->unk28 = (void *) (phi_s1 + 0x24);
+                phi_s2 = temp_s2_2;
+                phi_f26 = phi_f12_2;
+            }
+        }
+        phi_s1 = phi_s1 + 0x128;
+        phi_s2_2 = phi_s2;
+        if (phi_s2 != 0) {
+            goto loop_9;
+        }
+    }
+}
+
+
 
 void *func_80016F88(void *arg0) {
     s32 temp_v1;
@@ -1525,9 +1726,105 @@ void *func_800175B8(s32 arg0, void *arg1) {
     return temp_v0;
 }
 
-Failed to decompile function func_800175D4:
+s32 func_800175D4(void *arg0, void *arg1) {
+    f32 temp_f0;
+    f32 temp_f0_2;
+    f32 temp_f0_3;
+    f32 temp_f0_4;
+    f32 temp_f0_5;
+    f32 temp_f12;
+    f32 temp_f12_2;
+    f32 temp_f12_3;
+    f64 temp_f2;
+    f64 temp_f6;
+    s32 temp_a1;
+    s32 temp_v0_2;
+    s32 temp_v0_3;
+    u16 temp_a0_2;
+    u16 temp_t9;
+    u8 temp_a0;
+    void *temp_a2;
+    void *temp_v0;
+    void *phi_a2;
+    u16 phi_v1;
+    s32 phi_v0;
+    s32 phi_v0_2;
+    f32 phi_f12;
+    f32 phi_f12_2;
+    f32 phi_f0;
+    f32 phi_f12_3;
+    f32 phi_f0_2;
+    f64 phi_f6;
 
-Complex control flow; node assumed to be part of &&/|| wasn't. Run with --no-andor to disable detection of &&/|| and try again.
+    temp_a2 = arg0;
+    if ((arg1->unk5E & 1) != 0) {
+        arg0 = temp_a2;
+        phi_a2 = arg0;
+        phi_v1 = ((func_8000B140(arg1, temp_a2) * 0x128) + 0x80080000)->unk-3648->unk2A;
+    } else {
+        temp_a0 = temp_a2->unk6;
+        temp_v0 = (temp_a0 * 4) + 0x8004CDD0;
+        phi_a2 = temp_a2;
+        phi_v1 = ((temp_a0 + 0x8007BA80)->unk24 + ((s32) (temp_v0->unk0 + 0x8007BA80)->unk24 >> 4) + ((s32) (temp_v0->unk2 + 0x8007BA80)->unk24 >> 3) + ((s32) (temp_v0->unk4 + 0x8007BA80)->unk24 >> 3)) & 0xFFFF;
+    }
+    temp_t9 = phi_a2->unkC;
+    temp_a1 = phi_v1 & 3;
+    temp_f6 = (f64) temp_t9;
+    phi_f6 = temp_f6;
+    if ((s32) temp_t9 < 0) {
+        phi_f6 = temp_f6 + 4294967296.0;
+    }
+    temp_a0_2 = phi_v1;
+    temp_f12 = (f32) (phi_f6 * *(void *)0x800714D0);
+    temp_f0 = (f32) ((f64) temp_f12 * *(void *)0x800714D8);
+    phi_f12 = temp_f12;
+    if (phi_v1 != 0) {
+        phi_v0_2 = 0;
+        phi_f12_2 = temp_f12;
+        phi_f0 = temp_f0;
+        if (temp_a1 != 0) {
+            phi_v0 = 0;
+            phi_f12_3 = temp_f12;
+            phi_f0_2 = temp_f0;
+loop_8:
+            temp_f12_2 = phi_f12_3 + phi_f0_2;
+            temp_v0_2 = phi_v0 + 1;
+            temp_f0_2 = (f32) ((f64) phi_f0_2 * *(void *)0x800714E0);
+            phi_v0 = temp_v0_2;
+            phi_f12_3 = temp_f12_2;
+            phi_f0_2 = temp_f0_2;
+            if (temp_a1 != temp_v0_2) {
+                goto loop_8;
+            }
+            phi_f12 = temp_f12_2;
+            phi_v0_2 = temp_v0_2;
+            phi_f12_2 = temp_f12_2;
+            phi_f0 = temp_f0_2;
+            if (temp_v0_2 != temp_a0_2) {
+block_10:
+                temp_f2 = *(void *)0x800714E8;
+loop_11:
+                temp_v0_3 = phi_v0_2 + 4;
+                temp_f0_3 = (f32) ((f64) phi_f0 * temp_f2);
+                temp_f0_4 = (f32) ((f64) temp_f0_3 * temp_f2);
+                temp_f0_5 = (f32) ((f64) temp_f0_4 * temp_f2);
+                temp_f12_3 = phi_f12_2 + phi_f0 + temp_f0_3 + temp_f0_4 + temp_f0_5;
+                phi_v0_2 = temp_v0_3;
+                phi_f12 = temp_f12_3;
+                phi_f12_2 = temp_f12_3;
+                phi_f0 = (f32) ((f64) temp_f0_5 * temp_f2);
+                if (temp_v0_3 != temp_a0_2) {
+                    goto loop_11;
+                }
+            }
+        } else {
+            goto block_10;
+        }
+    }
+    return (u32) phi_f12 & 0xFFFF;
+}
+
+
 
 void func_800177F8(u16 arg0, u16 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, void *arg6, void *arg7, void *arg8) {
     u16 temp_v0;
