@@ -92,7 +92,7 @@ loop_1:
     return temp_v0;
 }
 
-u8 func_800386D0(s32 arg0, s32 arg1) {
+u8 __getTrackByte(s32 arg0, s32 arg1) {
     u8 temp_a0;
     u8 temp_v1;
     u8 temp_v1_2;
@@ -146,16 +146,16 @@ u8 func_800386D0(s32 arg0, s32 arg1) {
     return phi_v1;
 }
 
-s32 func_80038794(void) {
+s32 __readVarLen(void) {
     s32 temp_v0;
     s32 temp_v0_2;
     s32 phi_t1;
 
-    temp_v0 = func_800386D0(ERROR(Read from unset register $t2), ERROR(Read from unset register $t3));
+    temp_v0 = __getTrackByte(ERROR(Read from unset register $t2), ERROR(Read from unset register $t3));
     phi_t1 = temp_v0;
     if ((temp_v0 & 0x80) != 0) {
 loop_2:
-        temp_v0_2 = func_800386D0(ERROR(Read from unset register $t2), ERROR(Read from unset register $t3));
+        temp_v0_2 = __getTrackByte(ERROR(Read from unset register $t2), ERROR(Read from unset register $t3));
         phi_t1 = (ERROR(Read from unset register $t1) << 7) + (temp_v0_2 & 0x7F);
         if ((temp_v0_2 & 0x80) != 0) {
             goto loop_2;
@@ -224,19 +224,19 @@ loop_1:
     if (temp_v0 != 0x10) {
         goto loop_1;
     }
-    temp_v0_2 = func_800386D0(arg0, phi_t3, temp_a2);
+    temp_v0_2 = __getTrackByte(arg0, phi_t3, temp_a2);
     temp_t2 = temp_v0_2 & 0xFF;
     if (temp_v0_2 == 0xFF) {
-        temp_ret = func_800386D0(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
+        temp_ret = __getTrackByte(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
         temp_v0_3 = temp_ret;
         temp_a2_2 = temp_v0_3 & 0xFF;
         if (temp_v0_3 == 0x51) {
             arg1->unk0 = (u16)3;
             arg1->unk8 = (u8) ERROR(Read from unset register $t2);
             arg1->unk9 = temp_a2_2;
-            arg1->unkB = func_800386D0(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3), temp_a2_2);
-            arg1->unkC = func_800386D0(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
-            temp_ret_2 = func_800386D0(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
+            arg1->unkB = __getTrackByte(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3), temp_a2_2);
+            arg1->unkC = __getTrackByte(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
+            temp_ret_2 = __getTrackByte(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
             arg1->unkD = temp_ret_2;
             (ERROR(Read from unset register $t4) + ERROR(Read from unset register $t3))->unkA8 = (u8)0;
             phi_return = temp_ret_2;
@@ -253,8 +253,8 @@ loop_1:
                 }
             } else {
                 if (temp_v0_3 == 0x2E) {
-                    func_800386D0(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3), temp_a2_2);
-                    temp_ret_3 = func_800386D0(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
+                    __getTrackByte(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3), temp_a2_2);
+                    temp_ret_3 = __getTrackByte(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
                     (ERROR(Read from unset register $t4) + ERROR(Read from unset register $t3))->unkA8 = (u8)0;
                     arg1->unk0 = (u16)0x13;
                     phi_return = temp_ret_3;
@@ -290,7 +290,7 @@ loop_1:
         arg1->unk0 = (u16)1;
         if ((temp_v0_2 & 0x80) != 0) {
             arg1->unk8 = temp_t2;
-            arg1->unk9 = func_800386D0(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
+            arg1->unk9 = __getTrackByte(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
             (ERROR(Read from unset register $t4) + ERROR(Read from unset register $t3))->unkA8 = (s8) ERROR(Read from unset register $t2);
         } else {
             arg1->unk9 = temp_v0_2;
@@ -299,13 +299,13 @@ loop_1:
         temp_v0_5 = arg1->unk8;
         temp_t9 = temp_v0_5 & 0xF0;
         if ((temp_t9 != 0xC0) && (temp_t9 != 0xD0)) {
-            temp_ret_4 = func_800386D0(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
+            temp_ret_4 = __getTrackByte(ERROR(Read from unset register $t4), ERROR(Read from unset register $t3));
             arg1->unkA = temp_ret_4;
             phi_return = temp_ret_4;
             if ((arg1->unk8 & 0xF0) == 0x90) {
                 sp28 = ERROR(Read from unset register $t1);
                 sp24 = ERROR(Read from unset register $t3);
-                temp_ret_5 = func_80038794();
+                temp_ret_5 = __readVarLen();
                 arg1->unkC = temp_ret_5;
                 phi_return = (u8) temp_ret_5;
             }
@@ -318,7 +318,7 @@ loop_1:
     ERROR(Read from unset register $t4)->unk10 = (?32) ERROR(Read from unset register $t1);
     ERROR(Read from unset register $t4)->unkC = (s32) (ERROR(Read from unset register $t4)->unkC + ERROR(Read from unset register $t1));
     if (arg1->unk0 != 0x12) {
-        temp_ret_6 = func_80038794();
+        temp_ret_6 = __readVarLen();
         ERROR(Read from unset register $t5)->unkB8 = (s32) (ERROR(Read from unset register $t5)->unkB8 + temp_ret_6);
         phi_return = temp_ret_6;
     }
@@ -356,7 +356,7 @@ loop_1:
     if (temp_v0 != 0) {
         arg0->unk4 = (s32) (arg0->unk4 | (1 << phi_t5));
         phi_t4->unk18 = (s32) (arg1 + temp_v0);
-        temp_ret = func_80038794();
+        temp_ret = __readVarLen();
         ERROR(Read from unset register $t4)->unkB8 = temp_ret;
         phi_return = temp_ret;
     } else {
@@ -503,7 +503,7 @@ f32 func_80038E70(void *arg0, s32 arg1, s32 arg2) {
     return (f32) ((f64) ((f32) arg1 * phi_f10) / ((f64) phi_f16 * *(void *)0x80071E58));
 }
 
-? func_80038EDC(void *arg0, void *arg1) {
+? __alCSeqNextDelta(void *arg0, void *arg1) {
     s32 temp_a2;
     s32 temp_v0;
     u32 temp_a1;

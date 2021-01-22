@@ -1,4 +1,4 @@
-? func_80047180(void) {
+? __osSiDeviceBusy(void) {
     if ((*(void *)0xA4800018 & 3) != 0) {
         return 1;
     }
@@ -7,7 +7,7 @@
 
 Warning: confusing control flow, output may have incorrect && and || detection. Run with --no-andor to disable detection and print gotos instead.
 
-? func_800471B0(void) {
+? __osLeoInterrupt(void) {
     s32 sp3C;
     s32 sp38;
     s32 sp34;
@@ -31,7 +31,7 @@ Warning: confusing control flow, output may have incorrect && and || detection. 
     if ((sp38 & 1) != 0) {
         *(void *)0x8006F410 = (s32) (*(void *)0x8006F410 & -0x801);
         temp_t0->unk18 = 0x1D;
-        func_8004793C();
+        _osLeoAbnormalResume();
     } else {
         sp38 = *(void *)0xA4600010;
         if ((sp38 & 3) != 0) {
@@ -69,7 +69,7 @@ loop_12:
                 }
                 sp3C = *(void *)0xA5000508;
                 sp2C->unk0 = 0x16;
-                func_8004793C();
+                _osLeoAbnormalResume();
                 *(void *)0xA4600010 = 2;
                 *(void *)0x8006F410 = (s32) (*(void *)0x8006F410 | 0x100401);
             } else {
@@ -77,12 +77,12 @@ loop_12:
                     if ((sp3C & 0x40000000) == 0) {
                         if ((sp30->unk8 + 1) != (sp30->unk4 * 0x55)) {
                             sp2C->unk0 = 0x18;
-                            func_80047854();
+                            __osLeoResume();
                         } else {
                             *(void *)0xA4600010 = 2;
                             *(void *)0x8006F410 = (s32) (*(void *)0x8006F410 | 0x100401);
                             sp2C->unk0 = 0;
-                            func_8004793C();
+                            _osLeoAbnormalResume();
                         }
                     } else {
                         sp2C->unk4 = (s32) (sp2C->unk4 + sp2C->unkC);
@@ -94,11 +94,11 @@ loop_12:
                         if (sp30->unk4 == 3) {
                             if ((sp2C->unk10 + 0x11) < sp30->unk8) {
                                 sp2C->unk0 = 0;
-                                func_80047854();
+                                __osLeoResume();
                             } else {
                                 if ((sp3C & 0x40000000) == 0) {
                                     sp2C->unk0 = 0x17;
-                                    func_80047854();
+                                    __osLeoResume();
                                 } else {
 block_27:
                                     sp34 = *(void *)0xA5000510;
@@ -108,7 +108,7 @@ block_30:
                                             if ((u32) sp2C->unk10 >= 4U) {
                                                 if ((sp30->unk4 != 3) || (sp30->unk8 >= 0x53)) {
                                                     sp2C->unk0 = 0x17;
-                                                    func_80047854();
+                                                    __osLeoResume();
                                                 } else {
 block_35:
                                                     sp2C->unk10 = (s32) (sp2C->unk10 + 1);
@@ -116,7 +116,7 @@ block_36:
                                                     if ((sp3C & 0x10000000) != 0) {
                                                         if (sp30->unk8 != 0x57) {
                                                             sp2C->unk0 = 0x18;
-                                                            func_80047854();
+                                                            __osLeoResume();
                                                         }
                                                         if ((sp30->unk4 == 2) && (sp30->unk6 == 0)) {
                                                             sp30->unk6 = (u16)1U;
@@ -135,10 +135,10 @@ block_36:
                                                             sp24 = sp30 + 0x18;
                                                             if ((sp30->unk28 == 0) && (temp_t3 = sp30->unk20, ((temp_t3->unkC | ((temp_t3->unk0 | temp_t3->unk4) | temp_t3->unk8)) != 0))) {
                                                                 sp30->unk18 = 0x18;
-                                                                func_80047854();
+                                                                __osLeoResume();
                                                             } else {
                                                                 *sp24 = 0;
-                                                                func_8004793C();
+                                                                _osLeoAbnormalResume();
 block_51:
                                                                 sp30->unk8 = (s32) (sp30->unk8 + 1);
                                                                 if ((sp3C & 0x40000000) != 0) {
@@ -148,11 +148,11 @@ block_51:
                                                                         return 1;
                                                                     }
                                                                     sp2C->unk0 = 0x18;
-                                                                    func_80047854();
+                                                                    __osLeoResume();
                                                                 } else {
                                                                     if (sp30->unk8 < 0x55) {
                                                                         sp2C->unk0 = 0x18;
-                                                                        func_80047854();
+                                                                        __osLeoResume();
                                                                     } else {
 
                                                                     }
@@ -183,7 +183,7 @@ block_51:
                         }
                     } else {
                         sp2C->unk0 = 4;
-                        func_80047854();
+                        __osLeoResume();
                     }
                 }
             }
@@ -192,7 +192,7 @@ block_51:
     return 1;
 }
 
-void func_80047854(void) {
+void __osLeoResume(void) {
     void *sp1C;
     s32 sp18;
 
@@ -215,12 +215,12 @@ loop_3:
         }
     }
     *(void *)0xA5000510 = (s32) sp1C->unk10;
-    func_8004793C();
+    _osLeoAbnormalResume();
     *(void *)0xA4600010 = 2;
     *(void *)0x8006F410 = (s32) (*(void *)0x8006F410 | 0x100401);
 }
 
-void func_8004793C(void) {
+void _osLeoAbnormalResume(void) {
     void *sp2C;
     void *sp28;
     s32 sp24;
@@ -237,7 +237,7 @@ void func_8004793C(void) {
             *(sp28->unk14 + (temp_hi * 4)) = (s32) sp2C->unk4;
             sp28->unk8 = (s32) (sp28->unk8 + 1);
             if (*sp28->unk0 != 0) {
-                func_8003D18C(0x800709F8, func_8003D1D4(sp28));
+                __osEnqueueThread(0x800709F8, __osPopThread(sp28));
             }
         }
     }

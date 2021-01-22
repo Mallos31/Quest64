@@ -14,32 +14,32 @@
     *(void *)0xA460002C = (?32) *(void *)0x80095566;
     *(void *)0xA4600030 = (?32) *(void *)0x80095567;
     *(void *)0x80095570 = 0;
-    func_8003D430(0x80095574, 0x60);
-    temp_v0 = func_8003D4D0();
+    bzero(0x80095574, 0x60);
+    temp_v0 = __osDisableInt();
     *(void *)0x80095560 = (s32) *(void *)0x8006F43C;
     *(void *)0x8006F43C = 0x80095560;
     sp1C = temp_v0;
     *(void *)0x800955D4 = 0x80095560;
-    func_8003D4F0(sp1C);
+    __osRestoreInt(sp1C);
     return 0x80095560;
 }
 
-void func_8003D750(void) {
+void __osSiCreateAccessQueue(void) {
     *(void *)0x80070A10 = 1;
     func_80033F10(0x800955E8, 0x800955E0, 1);
     func_80034200(0x800955E8, 0, 0);
 }
 
-void func_8003D7A0(void) {
+void __osSiGetAccess(void) {
     ? sp1C;
 
     if (*(void *)0x80070A10 == 0) {
-        func_8003D750();
+        __osSiCreateAccessQueue();
     }
     func_80034020(0x800955E8, &sp1C, 1);
 }
 
-void func_8003D7E4(void) {
+void __osSiRelAccess(void) {
     func_80034200(0x800955E8, 0, 0);
 }
 

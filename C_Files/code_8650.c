@@ -543,7 +543,7 @@ void *func_800086E4(s32 arg0) {
     temp_v1 = temp_v0->unk2;
     if (temp_v1 != 2) {
         if (temp_v1 == 5) {
-            if (func_8000B9D8(temp_v0->unk6) == 0) {
+            if (checkForValidBossID(temp_v0->unk6) == 0) {
                 phi_a1 = temp_s0->unk80->unk8;
             } else {
                 temp_v0_2 = temp_s0->unk80;
@@ -580,7 +580,7 @@ void *func_800086E4(s32 arg0) {
         temp_v0_3 = phi_v0;
         phi_return = temp_v0_3;
         if (temp_v0_3 == 0) {
-            func_800212A0(temp_s0->unk80->unk7);
+            addItemToEmptySlot(temp_s0->unk80->unk7);
             (void *)0x8007BAB8->unk8 = (u16) ((void *)0x8007BAB8->unk8 | 0x40);
             return (void *)0x8007BAB8;
         }

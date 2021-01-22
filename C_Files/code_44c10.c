@@ -16,7 +16,7 @@ void func_80044060(void *arg0, void *arg1) {
     void *temp_v0;
 
     if (arg1->unk8 != 0) {
-        temp_v0 = func_80036A30();
+        temp_v0 = __allocParam();
         if (temp_v0 != 0) {
             temp_v0->unk8 = (u16)0xF;
             temp_v0->unk0 = 0;

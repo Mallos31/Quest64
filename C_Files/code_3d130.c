@@ -1,4 +1,4 @@
-s32 func_8003C530(void *arg0) {
+s32 __osGetId(void *arg0) {
     s32 sp64;
     u16 sp62;
     u16 sp60;
@@ -10,21 +10,21 @@ s32 func_8003C530(void *arg0) {
 
     if (arg0->unk65 != 0) {
         arg0->unk65 = (u8)0U;
-        sp1C = func_800457DC(arg0);
+        sp1C = __osPfsSelectBank(arg0);
         if (sp1C != 0) {
             return sp1C;
         }
     }
-    sp1C = func_80045850(arg0->unk4, arg0->unk8, 1, &sp40);
+    sp1C = __osContRamRead(arg0->unk4, arg0->unk8, 1, &sp40);
     if (sp1C != 0) {
         return sp1C;
     }
-    func_80044B4C(&sp40, &sp62, &sp60);
+    __osIdCheckSum(&sp40, &sp62, &sp60);
     sp18 = &sp40;
     if ((sp40.unk1C != sp62) || (sp40.unk1E != sp60)) {
-        sp1C = func_80044FCC(arg0, sp18);
+        sp1C = __osCheckPackId(arg0, sp18);
         if (sp1C == 0xA) {
-            sp1C = func_80044BB4(arg0, sp18, &sp20);
+            sp1C = __osRepairPackId(arg0, sp18, &sp20);
             if (sp1C != 0) {
                 return sp1C;
             }
@@ -38,7 +38,7 @@ s32 func_8003C530(void *arg0) {
 
     }
     if ((sp18->unk18 & 1) == 0) {
-        sp1C = func_80044BB4(arg0, sp18, &sp20);
+        sp1C = __osRepairPackId(arg0, sp18, &sp20);
         if (sp1C != 0) {
             return sp1C;
         }
@@ -62,7 +62,7 @@ loop_19:
     arg0->unk54 = 8;
     arg0->unk58 = (s32) ((arg0->unk64 * 8) + 8);
     arg0->unk5C = (s32) (arg0->unk58 + (arg0->unk64 * 8));
-    sp1C = func_80045850(arg0->unk4, arg0->unk8, 7, arg0 + 0x2C);
+    sp1C = __osContRamRead(arg0->unk4, arg0->unk8, 7, arg0 + 0x2C);
     if (sp1C != 0) {
         return sp1C;
     }

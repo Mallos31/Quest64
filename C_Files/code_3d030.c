@@ -1,4 +1,4 @@
-void func_8003D430(s32 arg0, s32 arg1) {
+void bzero(s32 arg0, s32 arg1) {
     s32 temp_a1;
     s32 temp_a3;
     s32 temp_a3_2;

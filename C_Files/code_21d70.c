@@ -41,7 +41,7 @@ loop_3:
     return temp_v0;
 }
 
-? func_80021214(void) {
+? CheckIfLastInvSlotEmpty(void) {
     ? phi_v1;
 
     phi_v1 = 1;
@@ -75,7 +75,7 @@ loop_1:
     return phi_v1;
 }
 
-s32 func_800212A0(s32 arg0) {
+s32 addItemToEmptySlot(s32 arg0) {
     void *temp_v1;
     void *phi_v1;
     void *phi_v1_2;

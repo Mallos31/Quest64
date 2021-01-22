@@ -2,16 +2,16 @@ void func_80036920(void) {
 
 }
 
-s32 func_80036928(void *arg0, s32 arg1) {
+s32 _timeToSamplesNoRound(void *arg0, s32 arg1) {
     return (s32) (f32) (((f64) ((f32) arg1 * (f32) arg0->unk44) / *(void *)0x80071C00) + 0.5) & -0x10;
 }
 
-void func_80036980(s32 arg0, s32 arg1) {
+void _freePVoice(s32 arg0, s32 arg1) {
     func_80036820(arg1);
     func_80036850(arg1, arg0 + 0x14);
 }
 
-void func_800369B8(void *arg0) {
+void _collectPVoices(void *arg0) {
     s32 temp_s0;
     s32 temp_s0_2;
     s32 phi_s0;
@@ -30,7 +30,7 @@ loop_1:
     }
 }
 
-void *func_80036A18(void *arg0) {
+void *__freeParam(void *arg0) {
     void *temp_v0;
 
     temp_v0 = *(void *)0x80070990;
@@ -39,7 +39,7 @@ void *func_80036A18(void *arg0) {
     return temp_v0;
 }
 
-void *func_80036A30(void) {
+void *__allocParam(void) {
     void *temp_a0;
     void *temp_v0;
     void *phi_v1;
@@ -173,7 +173,7 @@ loop_17:
         }
     }
     *arg1 = (s32) ((s32) (phi_s4_2 - arg0) >> 3);
-    func_800369B8(temp_s1);
+    _collectPVoices(temp_s1);
     return phi_s4_2;
 }
 
@@ -295,7 +295,7 @@ s32 func_80037000(void) {
     } else {
         *(void *)0x800709A0 = (u8)0U;
     }
-    if (func_800426A0() != 0) {
+    if (__osAiDeviceBusy() != 0) {
         return -1;
     }
     *(void *)0xA4500000 = func_80034DD0(sp1C);

@@ -1,4 +1,4 @@
-s32 func_80045850(s32 arg0, s32 arg1, u16 arg2, void *arg3) {
+s32 __osContRamRead(s32 arg0, s32 arg1, u16 arg2, void *arg3) {
     s32 sp5C;
     s32 sp58;
     void *sp54;
@@ -18,13 +18,13 @@ s32 func_80045850(s32 arg0, s32 arg1, u16 arg2, void *arg3) {
     sp5C = 0;
     sp54 = (void *)0x80095660;
     sp28 = 2;
-    func_80044840();
+    __osSiGetAccess();
     *(void *)0x80095490 = (u8)2;
-    func_80045A6C(arg1, arg2);
-    sp5C = func_80046950(1, 0x80095660);
+    __osPackRamReadData(arg1, arg2);
+    sp5C = __osSiRawStartDma(1, 0x80095660);
     func_80034020(arg0, 0, 1);
 loop_1:
-    sp5C = func_80046950(0, 0x80095660);
+    sp5C = __osSiRawStartDma(0, 0x80095660);
     func_80034020(arg0, 0, 1);
     sp54 = (void *)0x80095660;
     if (arg1 != 0) {
@@ -57,11 +57,11 @@ loop_5:
     temp_t2 = (s32) (sp2E & 0xC0) >> 4;
     sp5C = temp_t2;
     if (temp_t2 == 0) {
-        sp27 = func_80046AB0(&sp2C + 6);
+        sp27 = __osContDataCrc(&sp2C + 6);
         if (sp27 != sp52) {
-            sp5C = func_800448B0(arg0, arg1);
+            sp5C = __osPfsGetStatus(arg0, arg1);
             if (sp5C != 0) {
-                func_80044884();
+                __osSiRelAccess();
             } else {
                 sp5C = 4;
 block_15:
@@ -71,7 +71,7 @@ block_15:
                         goto loop_1;
                     }
                 }
-                func_80044884();
+                __osSiRelAccess();
             }
         } else {
             sp58 = 0;
@@ -93,7 +93,7 @@ loop_12:
     return sp5C;
 }
 
-void func_80045A6C(s32 arg0, u16 arg1) {
+void __osPackRamReadData(s32 arg0, u16 arg1) {
     void *sp44;
     s8 sp42;
     s16 sp20;
@@ -118,7 +118,7 @@ void func_80045A6C(s32 arg0, u16 arg1) {
     sp1D = (u8)3;
     sp1E = (u8)0x21;
     sp1F = (u8)2;
-    temp_v0 = func_80046A00(arg1);
+    temp_v0 = __osContAddressCrc(arg1);
     sp42 = (u8)0xFF;
     sp20 = temp_v0 | (arg1 << 5);
     sp18 = 0;

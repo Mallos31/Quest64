@@ -216,7 +216,7 @@ void *_loadOutputBuffer(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
     if (arg1->unk24 != 0) {
         sp38 = arg1->unk4 - arg1->unk0;
         arg0 = arg0;
-        temp_f2 = (f32) (1.0 - (f64) ((f32) (s32) ((func_80048AE0(arg1, arg3) / (f32) sp38) * 32768.0f) / 32768.0f));
+        temp_f2 = (f32) (1.0 - (f64) ((f32) (s32) ((_doModFunc(arg1, arg3) / (f32) sp38) * 32768.0f) / 32768.0f));
         temp_f4 = temp_f2 * (f32) arg3;
         sp44 = temp_f2;
         temp_v0 = arg1->unk24;
@@ -228,7 +228,7 @@ void *_loadOutputBuffer(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
         temp_t8 = (s32) (temp_t0 & 7) >> 1;
         temp_t3 = temp_t8 * 2;
         sp28 = temp_t3;
-        temp_v0_2 = func_80048DC8(temp_f12, 32768.0f, arg0, temp_t0 - temp_t3, 0x280, temp_f16 + temp_t8, arg4);
+        temp_v0_2 = _loadBuffer(temp_f12, 32768.0f, arg0, temp_t0 - temp_t3, 0x280, temp_f16 + temp_t8, arg4);
         temp_t6 = temp_v0_2 + 8;
         temp_v0_2->unk0 = (s32) (((temp_t3 + 0x280) & 0xFFFF) | 0x8000000);
         temp_v0_2->unk4 = (s32) ((arg2 << 0x10) | ((arg3 * 2) & 0xFFFF));
@@ -241,7 +241,7 @@ void *_loadOutputBuffer(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
         arg1->unk18 = (s32) ((arg1->unk18 + temp_f16) - arg3);
         phi_v1 = temp_v1;
     } else {
-        phi_v1 = func_80048DC8(arg0, arg0->unk18 + (-(s32) arg1->unk4 * 2), arg2, arg3, arg4);
+        phi_v1 = _loadBuffer(arg0, arg0->unk18 + (-(s32) arg1->unk4 * 2), arg2, arg3, arg4);
     }
     return phi_v1;
 }
@@ -313,7 +313,7 @@ void *alFxPull(void *arg0, s32 arg2, s32 arg4) {
     temp_v0->unk14 = 0x80006C0;
     sp48 = temp_t1;
     sp50 = temp_s1;
-    temp_v0_2 = func_80048C40(arg0, arg0->unk18, 0x6C0, arg2, temp_v0 + 0x18);
+    temp_v0_2 = _saveBuffer(arg0, arg0->unk18, 0x6C0, arg2, temp_v0 + 0x18);
     temp_v0_2->unk0 = 0x2000800;
     temp_v0_2->unk4 = temp_s1;
     temp_s0 = temp_v0_2 + 8;
@@ -334,10 +334,10 @@ loop_2:
             phi_s5_2 = (s32) (phi_s2_2 << 0x10) >> 0x10;
         } else {
             phi_s2 = phi_s2_2;
-            phi_s0_2 = func_80048DC8(arg0, temp_s4, phi_s5, arg2, phi_s0);
+            phi_s0_2 = _loadBuffer(arg0, temp_s4, phi_s5, arg2, phi_s0);
             phi_s5_2 = phi_s5;
         }
-        temp_v0_3 = func_80048F54(arg0, temp_s1_2, phi_s2, arg2, phi_s0_2);
+        temp_v0_3 = _loadOutputBuffer(arg0, temp_s1_2, phi_s2, arg2, phi_s0_2);
         temp_a0_2 = temp_s1_2->unk8;
         phi_s0_3 = temp_v0_3;
         if (temp_a0_2 != 0) {
@@ -348,7 +348,7 @@ loop_2:
             if (temp_s1_2->unk24 == 0) {
                 phi_s0_3 = temp_s0_2;
                 if (temp_s1_2->unk20 == 0) {
-                    phi_s0_3 = func_80048C40(arg0, temp_fp, phi_s2, arg2, temp_s0_2);
+                    phi_s0_3 = _saveBuffer(arg0, temp_fp, phi_s2, arg2, temp_s0_2);
                 }
             }
         }
@@ -358,16 +358,16 @@ loop_2:
         if (temp_v1 != 0) {
             temp_v0_4->unk0 = (s32) ((temp_v1 & 0xFFFF) | 0xC000000);
             temp_v0_4->unk4 = (s32) ((phi_s2 << 0x10) | (phi_s5_2 & 0xFFFF));
-            phi_s0_4 = func_80048C40(arg0, temp_s4, phi_s5_2, arg2, phi_s0_3 + 8);
+            phi_s0_4 = _saveBuffer(arg0, temp_s4, phi_s5_2, arg2, phi_s0_3 + 8);
         }
         temp_a0_3 = temp_s1_2->unk20;
         phi_s0_5 = phi_s0_4;
         if (temp_a0_3 != 0) {
-            phi_s0_5 = func_80048B88(temp_a0_3, phi_s2, arg2, phi_s0_4);
+            phi_s0_5 = _filterBuffer(temp_a0_3, phi_s2, arg2, phi_s0_4);
         }
         phi_s0_6 = phi_s0_5;
         if (temp_s1_2->unk24 == 0) {
-            phi_s0_6 = func_80048C40(arg0, temp_fp, phi_s2, arg2, phi_s0_5);
+            phi_s0_6 = _saveBuffer(arg0, temp_fp, phi_s2, arg2, phi_s0_5);
         }
         temp_v1_2 = temp_s1_2->unkC;
         temp_s7 = (s32) ((phi_s7 + 1) << 0x10) >> 0x10;
@@ -633,7 +633,7 @@ f32 alSeqTicksToSec(void *seq, s32 ticks, s32 tempo) {
     return (f32) ((f64) ((f32) ticks * phi_f10) / ((f64) (f32) seq->unk18 * *(void *)0x800723C8));
 }
 
-? func_80049BA0(void *seq, ? ticks) {
+? __alSeqNextDelta(void *seq, ? ticks) {
     u32 temp_v0;
 
     temp_v0 = seq->unk8;

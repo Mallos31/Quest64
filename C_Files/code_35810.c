@@ -49,7 +49,7 @@ void func_80034C10(s32 arg0) {
         temp_t0_2->unkC = (s32) (temp_t0_2->unkC | (temp_t0_2->unk8->unk4 & 0x300));
     }
     temp_t5_2 = *(void *)0x80070A84;
-    temp_a0 = func_8003D4D0();
+    temp_a0 = __osDisableInt();
     temp_t5_2->unk0 = (u16) (temp_t5_2->unk0 | 8);
-    func_8003D4F0(temp_a0);
+    __osRestoreInt(temp_a0);
 }

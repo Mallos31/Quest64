@@ -46,7 +46,7 @@ s32 func_8003B270(void *arg0, u16 arg1, s32 arg2, void *arg3, void *arg4, s32 ar
         if ((arg0->unk0 & 1) == 0) {
 
         } else {
-            if (func_800453C0(arg0) == 2) {
+            if (__osCheckId(arg0) == 2) {
                 return 2;
             }
             sp260 = func_80046FC0(arg0, arg1, arg2, arg3, arg4, arg6);
@@ -74,7 +74,7 @@ block_38:
                                 if (sp274 != -1) {
                                     (sp + (sp268 * 2))->unk5C = sp3B;
                                     (sp + (sp268 * 2))->unk5D = (s8) sp274;
-                                    sp260 = func_800454BC(arg0, &sp5C, 1, sp3A);
+                                    sp260 = __osPfsRWInode(arg0, &sp5C, 1, sp3A);
                                     if (sp260 == 0) {
                                         sp46 = (u16)0;
                                         sp264 = 0;
@@ -100,7 +100,7 @@ loop_46:
                                         if (temp_at_2 != 0) {
                                             goto loop_46;
                                         }
-                                        sp260 = func_80046B80(arg0->unk4, arg0->unk8, *arg6 + arg0->unk5C, &sp3C, 0);
+                                        sp260 = __osContRamWrite(arg0->unk4, arg0->unk8, *arg6 + arg0->unk5C, &sp3C, 0);
                                         if (sp260 == 0) {
                                             return sp260;
                                         }
@@ -112,9 +112,9 @@ loop_46:
                             return 3;
                         }
 loop_23:
-                        sp260 = func_800454BC(arg0, &sp15C, 0, sp3B);
+                        sp260 = __osPfsRWInode(arg0, &sp15C, 0, sp3B);
                         if (sp260 == 0) {
-                            sp260 = func_8003B6F4(arg0, &sp15C, sp25C, &sp274, (?32) sp3B, &sp270, &sp26C);
+                            sp260 = __osPfsDeclearPage(arg0, &sp15C, sp25C, &sp274, (?32) sp3B, &sp270, &sp26C);
                             if (sp260 == 0) {
                                 if (sp274 != -1) {
                                     if (sp34 == 0) {
@@ -123,7 +123,7 @@ loop_23:
                                     } else {
                                         (sp + (sp268 * 2))->unk5C = sp3B;
                                         (sp + (sp268 * 2))->unk5D = (s8) sp274;
-                                        sp260 = func_800454BC(arg0, &sp5C, 1, sp3A);
+                                        sp260 = __osPfsRWInode(arg0, &sp5C, 1, sp3A);
                                         if (sp260 != 0) {
                                             return sp260;
                                         }
@@ -172,7 +172,7 @@ block_37:
     return 5;
 }
 
-s32 func_8003B6F4(void *arg0, s32 arg1, s32 arg2, void *arg3, u8 arg4, void *arg5, void *arg6) {
+s32 __osPfsDeclearPage(void *arg0, s32 arg1, s32 arg2, void *arg3, u8 arg4, void *arg5, void *arg6) {
     s32 sp4C;
     s32 sp48;
     s32 sp44;
@@ -225,7 +225,7 @@ loop_12:
                 if (*(arg1 + (sp4C * 2)) == 3) {
                     *(arg1 + (sp44 * 2)) = arg4;
                     (arg1 + (sp44 * 2))->unk1 = (s8) sp4C;
-                    sp1C = func_8003B958(arg0, sp44, &sp24, arg4);
+                    sp1C = __osClearPage(arg0, sp44, &sp24, arg4);
                     if (sp1C != 0) {
                         return sp1C;
                     }
@@ -245,14 +245,14 @@ loop_12:
             *arg6 = sp44;
         } else {
             *(arg1 + (sp44 * 2)) = (u16)1;
-            sp1C = func_8003B958(arg0, sp44, &sp24, arg4);
+            sp1C = __osClearPage(arg0, sp44, &sp24, arg4);
             *arg6 = 0;
         }
     }
     return sp1C;
 }
 
-s32 func_8003B958(void *arg0, s32 arg1, s32 arg2, u8 arg3) {
+s32 __osClearPage(void *arg0, s32 arg1, s32 arg2, u8 arg3) {
     s32 sp24;
     s32 sp20;
     s32 temp_t5;
@@ -260,13 +260,13 @@ s32 func_8003B958(void *arg0, s32 arg1, s32 arg2, u8 arg3) {
 
     sp20 = 0;
     arg0->unk65 = arg3;
-    sp20 = func_800457DC(arg0);
+    sp20 = __osPfsSelectBank(arg0);
     if (sp20 != 0) {
         return sp20;
     }
     sp24 = 0;
 loop_3:
-    sp20 = func_80046B80(arg0->unk4, arg0->unk8, (arg1 * 8) + sp24, arg2, 0);
+    sp20 = __osContRamWrite(arg0->unk4, arg0->unk8, (arg1 * 8) + sp24, arg2, 0);
     if (sp20 == 0) {
         temp_t5 = sp24 + 1;
         sp24 = temp_t5;
@@ -275,7 +275,7 @@ loop_3:
         }
     }
     arg0->unk65 = (u8)0;
-    temp_v0 = func_800457DC(arg0);
+    temp_v0 = __osPfsSelectBank(arg0);
     sp20 = temp_v0;
     return temp_v0;
 }

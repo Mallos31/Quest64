@@ -1,3 +1,3 @@
-void func_80047CD0(void) {
+void __osSetCompare(void) {
     ERROR(unknown instruction: mtc0 $a0, $11);
 }

@@ -1,4 +1,4 @@
-s32 func_80047CE0(void *arg0, s32 arg1) {
+s32 _Litob(void *arg0, s32 arg1) {
     ? sp78;
     s32 sp70;
     s32 sp64;

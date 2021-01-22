@@ -6,7 +6,7 @@ s32 func_8003C030(void *arg0, void *arg1, s32 arg2, void *arg3) {
     temp_t9 = arg3->unk0;
     if (*arg1 != temp_t9) {
         *arg1 = temp_t9;
-        sp1C = func_800454BC(arg0, arg2, 0, *arg1);
+        sp1C = __osPfsRWInode(arg0, arg2, 0, *arg1);
         if (sp1C != 0) {
             return sp1C;
         }
@@ -73,17 +73,17 @@ block_8:
     if ((arg0->unk0 & 1) == 0) {
         return 5;
     }
-    if (func_800453C0(arg0) == 2) {
+    if (__osCheckId(arg0) == 2) {
         return 2;
     }
     if (arg0->unk65 != 0) {
         arg0->unk65 = (u8)0U;
-        sp154 = func_800457DC(arg0);
+        sp154 = __osPfsSelectBank(arg0);
         if (sp154 != 0) {
             return sp154;
         }
     }
-    sp154 = func_80045850(arg0->unk4, arg0->unk8, arg0->unk5C + arg1, &sp134);
+    sp154 = __osContRamRead(arg0->unk4, arg0->unk8, arg0->unk5C + arg1, &sp134);
     if (sp154 != 0) {
         return sp154;
     }
@@ -144,7 +144,7 @@ loop_37:
         temp_t9 = (u8) sp30;
         if (arg0->unk65 != temp_t9) {
             arg0->unk65 = temp_t9;
-            sp154 = func_800457DC(arg0);
+            sp154 = __osPfsSelectBank(arg0);
             if (sp154 != 0) {
                 return sp154;
             }
@@ -152,9 +152,9 @@ loop_37:
         temp_t3 = (sp31 * 8) + sp2C;
         sp20 = temp_t3;
         if (arg2 == 0) {
-            phi_v0 = func_80045850(arg0->unk4, arg0->unk8, temp_t3 & 0xFFFF, sp24);
+            phi_v0 = __osContRamRead(arg0->unk4, arg0->unk8, temp_t3 & 0xFFFF, sp24);
         } else {
-            phi_v0 = func_80046B80(arg0->unk4, arg0->unk8, sp20, sp24, 0);
+            phi_v0 = __osContRamWrite(arg0->unk4, arg0->unk8, sp20, sp24, 0);
         }
         sp154 = phi_v0;
         if (sp154 != 0) {
@@ -171,11 +171,11 @@ loop_37:
         if ((sp13C & 2) == 0) {
             sp13C = sp13C | 2;
             arg0->unk65 = (u8)0;
-            sp154 = func_800457DC(arg0);
+            sp154 = __osPfsSelectBank(arg0);
             if (sp154 != 0) {
                 return sp154;
             }
-            sp154 = func_80046B80(arg0->unk4, arg0->unk8, arg0->unk5C + arg1, &sp134, 0);
+            sp154 = __osContRamWrite(arg0->unk4, arg0->unk8, arg0->unk5C + arg1, &sp134, 0);
             if (sp154 != 0) {
                 return sp154;
             }

@@ -39,7 +39,7 @@ f64 func_80035A00(void *arg0, void *arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5
     temp_f14_2 = (f32) ((f64) arg2 * *(void *)0x80071B90);
     temp_f12 = temp_f14_2 / 2.0f;
     sp1C = temp_f12;
-    sp20 = func_800361F0(temp_f12, temp_f14_2);
+    sp20 = cosf(temp_f12, temp_f14_2);
     temp_f2 = sp20 / func_80035680(temp_f12);
     temp_f18 = arg4 + arg5;
     temp_f12_2 = arg4 - arg5;

@@ -28,14 +28,14 @@ void *func_80042614(void *arg0, s32 arg2, s32 arg4) {
     return temp_v0;
 }
 
-? func_800426A0(void) {
+? __osAiDeviceBusy(void) {
     if ((*(void *)0xA450000C & 0x80000000) != 0) {
         return 1;
     }
     return 0;
 }
 
-s32 func_800426D0(void *arg0, void *arg1, s32 arg2) {
+s32 __setInstChanState(void *arg0, void *arg1, s32 arg2) {
     s32 temp_v0;
 
     temp_v0 = arg2 * 0x10;
@@ -47,7 +47,7 @@ s32 func_800426D0(void *arg0, void *arg1, s32 arg2) {
     return temp_v0;
 }
 
-s32 func_80042724(void *arg0, s32 arg1) {
+s32 __resetPerfChanState(void *arg0, s32 arg1) {
     s32 temp_v0;
 
     temp_v0 = arg1 * 0x10;
@@ -62,7 +62,7 @@ s32 func_80042724(void *arg0, s32 arg1) {
     return temp_v0;
 }
 
-void *func_800427A4(void *arg0, void *arg1) {
+void *__initFromBank(void *arg0, void *arg1) {
     s32 temp_s0;
     s32 temp_s1;
     void *temp_v0;
@@ -84,18 +84,18 @@ loop_1:
     phi_return = temp_v0;
     if ((s32) arg0->unk34 > 0) {
 loop_3:
-        func_80042724(arg0, phi_s0);
+        __resetPerfChanState(arg0, phi_s0);
         temp_s0 = phi_s0 + 1;
         phi_s0 = temp_s0;
         phi_s0_2 = temp_s0;
-        phi_return = func_800426D0(arg0, temp_s1, phi_s0);
+        phi_return = __setInstChanState(arg0, temp_s1, phi_s0);
         if (temp_s0 < (s32) arg0->unk34) {
             goto loop_3;
         }
     }
     if (arg1->unk8 != 0) {
-        func_80042724(arg0, phi_s0_2);
-        phi_return = func_800426D0(arg0, arg1->unk8, 9);
+        __resetPerfChanState(arg0, phi_s0_2);
+        phi_return = __setInstChanState(arg0, arg1->unk8, 9);
     }
     return phi_return;
 }
@@ -104,7 +104,7 @@ void func_80042858(void) {
 
 }
 
-s32 func_80042860(void *arg0, s32 arg1) {
+s32 __vsDelta(void *arg0, s32 arg1) {
     s32 temp_v1;
 
     temp_v1 = arg0->unk24 - arg1;
@@ -114,11 +114,11 @@ s32 func_80042860(void *arg0, s32 arg1) {
     return 0x3E8;
 }
 
-s32 func_80042884(void *arg0, void *arg1) {
+s32 __vsVol(void *arg0, void *arg1) {
     return (s32) (((u32) (((s32) ((arg0->unk36 * arg0->unk33) * arg0->unk30) >> 6) * ((s32) (((arg1->unk60 + (arg0->unk31 * 0x10))->unk9 * arg0->unk20->unkD) * arg1->unk32) >> 0xE)) >> 0xF) << 0x10) >> 0x10;
 }
 
-void func_8004290C(void *arg0, void *arg1, s32 arg2) {
+void __seqpReleaseVoice(void *arg0, void *arg1, s32 arg2) {
     void *sp54;
     s16 sp50;
     void *temp_s0;
@@ -159,7 +159,7 @@ loop_2:
     func_8003FE6C(arg0 + 0x48, &sp50, arg2);
 }
 
-u8 func_80042A38(void *arg0, s32 arg1, s32 arg2) {
+u8 __voiceNeedsNoteKill(void *arg0, s32 arg1, s32 arg2) {
     void *sp2C;
     u8 sp1F;
     s32 temp_t0;
@@ -205,7 +205,7 @@ loop_2:
     return phi_t1;
 }
 
-void *func_80042AE0(void *arg0, s32 arg1) {
+void *__unmapVoice(void *arg0, s32 arg1) {
     void *temp_v0;
     void *temp_v1;
     void *temp_v1_2;
@@ -247,7 +247,7 @@ loop_1:
     return phi_return_2;
 }
 
-void func_80042B50(void *arg0) {
+void __postNextSeqEvent(void *arg0) {
     s16 sp28;
     s32 sp24;
     s32 sp20;
@@ -266,7 +266,7 @@ void func_80042B50(void *arg0) {
             sp20 = temp_a2;
             arg0 = temp_a3;
             temp_a3_2 = arg0;
-            if (func_80049BA0(temp_a2, &sp24, temp_a2, temp_a3) != 0) {
+            if (__alSeqNextDelta(temp_a2, &sp24, temp_a2, temp_a3) != 0) {
                 phi_a3 = temp_a3_2;
                 if (temp_a3_2->unk84 != 0) {
                     sp20 = temp_a2;
@@ -309,7 +309,7 @@ void func_80042C2C(void *arg0, void *arg1) {
     }
 }
 
-s32 func_80042CA4(void *arg0, void *arg1) {
+s32 __vsPan(void *arg0, void *arg1) {
     s32 temp_v1;
     s32 phi_v1;
     s32 phi_v1_2;
@@ -326,7 +326,7 @@ s32 func_80042CA4(void *arg0, void *arg1) {
     return phi_v1_2 & 0xFF;
 }
 
-void *func_80042CEC(void *arg0, s32 arg1, s32 arg2) {
+void *__lookupVoice(void *arg0, s32 arg1, s32 arg2) {
     u8 temp_a0;
     void *temp_v1;
     void *temp_v1_2;
@@ -355,7 +355,7 @@ loop_2:
     return NULL;
 }
 
-void *func_80042D60(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void *__mapVoice(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     void *temp_v1;
 
     temp_v1 = arg0->unk6C;
@@ -376,7 +376,7 @@ void *func_80042D60(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return temp_v1;
 }
 
-void *func_80042DD0(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void *__lookupSoundQuick(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s16 temp_t0;
     s32 temp_t3;
     s32 temp_t5;
@@ -457,7 +457,7 @@ Unable to determine jump table for jr instruction.
 There must be a read of a variable in the same block as
 the instruction, which has a name starting with "jtbl".
 
-void func_80043D10(void *arg0, void *arg1) {
+void __seqpStopOsc(void *arg0, void *arg1) {
     s16 temp_s3;
     void *temp_s0;
     void *temp_s1;
@@ -504,7 +504,7 @@ block_11:
 }
 
 
-void func_80043E14(void *arg0) {
+void __initChanState(void *arg0) {
     s32 temp_s0;
     s32 phi_s2;
     s32 phi_s0;
@@ -514,7 +514,7 @@ void func_80043E14(void *arg0) {
     if ((s32) arg0->unk34 > 0) {
 loop_1:
         *(arg0->unk60 + phi_s2) = 0;
-        func_80042724(arg0, phi_s0);
+        __resetPerfChanState(arg0, phi_s0);
         temp_s0 = phi_s0 + 1;
         phi_s2 = phi_s2 + 0x10;
         phi_s0 = temp_s0;
@@ -554,7 +554,7 @@ void func_80043E84(void *arg0, void *arg1) {
     arg0->unk34 = (u8) arg1->unk8;
     sp2C = temp_a2;
     arg0->unk60 = func_80036660(0, 0, temp_a2, arg1->unk8, 0x10);
-    func_80043E14(arg0);
+    __initChanState(arg0);
     temp_v0 = func_80036660(0, 0, temp_a2, arg1->unk0, 0x38);
     arg0->unk6C = NULL;
     if (arg1->unk0 > 0) {

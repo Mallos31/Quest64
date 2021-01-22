@@ -9,12 +9,12 @@ s32 func_8003C790(void *arg0, void *arg1, void *arg2) {
     if ((arg0->unk0 & 1) == 0) {
         return 5;
     }
-    if (func_800453C0(arg0) == 2) {
+    if (__osCheckId(arg0) == 2) {
         return 2;
     }
     if (arg0->unk65 != 0) {
         arg0->unk65 = (u8)0U;
-        sp40 = func_800457DC(arg0);
+        sp40 = __osPfsSelectBank(arg0);
         if (sp40 != 0) {
             return sp40;
         }
@@ -22,7 +22,7 @@ s32 func_8003C790(void *arg0, void *arg1, void *arg2) {
     sp44 = 0;
     if (arg0->unk50 > 0) {
 loop_8:
-        sp40 = func_80045850(arg0->unk4, arg0->unk8, arg0->unk5C + sp44, &sp20);
+        sp40 = __osContRamRead(arg0->unk4, arg0->unk8, arg0->unk5C + sp44, &sp20);
         if (sp40 != 0) {
             return sp40;
         }

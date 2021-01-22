@@ -20,8 +20,8 @@ void func_80033AE0(void *arg0, s32 arg1, s32 arg2, s32 arg3, u32 arg4, s32 arg5)
     arg0->unk18 = 0;
     arg0->unk10 = (u16)1;
     arg0->unk12 = (u16)0;
-    temp_s0 = func_8003D4D0();
+    temp_s0 = __osDisableInt();
     arg0->unkC = (void *) *(void *)0x800709FC;
     *(void *)0x800709FC = arg0;
-    func_8003D4F0(temp_s0);
+    __osRestoreInt(temp_s0);
 }

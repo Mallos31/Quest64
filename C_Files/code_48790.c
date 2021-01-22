@@ -20,10 +20,10 @@ loop_1:
     return 0;
 }
 
-void func_80047C30(s32 arg0) {
+void __osSetGlobalIntMask(s32 arg0) {
     s32 temp_s0;
 
-    temp_s0 = func_8003D4D0();
+    temp_s0 = __osDisableInt();
     *(void *)0x8006F410 = (s32) (*(void *)0x8006F410 | arg0);
-    func_8003D4F0(temp_s0);
+    __osRestoreInt(temp_s0);
 }

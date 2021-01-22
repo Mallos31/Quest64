@@ -91,9 +91,9 @@ void *func_80002918(void) {
     if (temp_v0_2 != 0) {
         phi_a1 = (s32) temp_v0_2;
     } else {
-        phi_a1 = *(void *)0x8007BC2C;
+        phi_a1 = *(void *)BrianCurrentAnim;
     }
-    func_8001D8B0(0x8007BACC, phi_a1, 1, *(void *)0x8007BC2C, 1, 1);
+    func_8001D8B0(0x8007BACC, phi_a1, 1, *(void *)BrianCurrentAnim, 1, 1);
     temp_v0_3 = *(void *)0x8007BA4C;
     if ((temp_v0_3 & 8) != 0) {
         (void *)0x8007BAB8->unk0 = (u16)3;
@@ -153,7 +153,7 @@ block_12:
     return (void *)0x8007BC0C;
 }
 
-s32 func_80002EA0(void) {
+s32 CheckIfRoomIsValidLoadPoint(void) {
     s32 temp_v0;
     s32 temp_v1;
     void *temp_a1;
@@ -216,12 +216,12 @@ f64 func_80002F60(void) {
     temp_v0 = *(void *)0x8007BAC8;
     sp24 = ((*(void *)0x8007BB1C * 4) + 0x80050000)->unk3D00;
     if ((temp_v0->unk4 * 3) < (s32) temp_v0->unk6) {
-        *(void *)0x8007BC2C = 0x19;
+        *(void *)BrianCurrentAnim = 0x19;
     } else {
         if ((*(void *)0x8008C592 & 1) != 0) {
-            *(void *)0x8007BC2C = 0x11;
+            *(void *)BrianCurrentAnim = 0x11;
         } else {
-            *(void *)0x8007BC2C = 0;
+            *(void *)BrianCurrentAnim = 0;
         }
     }
     *(void *)0x8007BA58 = 0.0f;
@@ -280,7 +280,7 @@ f64 func_80002F60(void) {
                         *(void *)0x8007BA74 = (s32) (temp_v0_5 - 1);
                         *(void *)0x8007BAB8 = (u16)7U;
                         *(void *)0x8007BAEC = 0.0f;
-                        temp_a1 = *(void *)0x8007BC2C;
+                        temp_a1 = *(void *)BrianCurrentAnim;
                         *(void *)0x8007BAE4 = 0.0f;
                         *(void *)0x8007BAE0 = 0.0f;
                         *(void *)0x8007BAD8 = 0.0f;
@@ -308,7 +308,7 @@ f64 func_80002F60(void) {
 
                             }
                         } else {
-                            if ((func_80021214(temp_a0, (void *)0x8007BA78) != 0) && (temp_a0_2 = *(void *)0x8007BA7C, (temp_a0_2 != 0))) {
+                            if ((CheckIfLastInvSlotEmpty(temp_a0, (void *)0x8007BA78) != 0) && (temp_a0_2 = *(void *)0x8007BA7C, (temp_a0_2 != 0))) {
                                 func_8001205C(temp_a0_2);
                                 (void *)0x8007BC30->unk0 = 0.0f;
                                 *(void *)0x8007BC34 = (f32) (*(void *)0x8007BAF0 * 171.0f);
@@ -328,7 +328,7 @@ f64 func_80002F60(void) {
                                 *(void *)0x8007BAE0 = 0.0f;
                                 *(void *)0x8007BAD8 = 0.0f;
                                 *(void *)0x8007BB2C = (u16) (*(void *)0x8007BB2C | 1);
-                                func_8001D8B0(0x8007BACC, 0x1B, 1, *(void *)0x8007BC2C, 1, 1);
+                                func_8001D8B0(0x8007BACC, 0x1B, 1, *(void *)BrianCurrentAnim, 1, 1);
                             }
                         }
                     }
@@ -392,7 +392,7 @@ f64 func_80002F60(void) {
         *(void *)0x8007BAE4 = 0.0f;
         *(void *)0x8007BAE0 = 0.0f;
         *(void *)0x8007BAD8 = 0.0f;
-        func_8001D8B0(0x8007BACC, 0x10, 1, *(void *)0x8007BC2C, 1, 1);
+        func_8001D8B0(0x8007BACC, 0x10, 1, *(void *)BrianCurrentAnim, 1, 1);
     } else {
         if ((temp_v0_8 & 0x10) != 0) {
             func_800202E4(0x8007BACC);
@@ -475,7 +475,7 @@ void func_80003A1C(void) {
     (void *)0x8007BAB8->unk74 = (u16) ((void *)0x8007BAB8->unk74 | 1);
     (void *)0x8007BAB8->unk130 = (f32) (void *)0x8007BAB8->unk24;
     (void *)0x8007BAB8->unk4 = (s16) (((void *)0x8007BAB8->unk64 * 4) + 0x80050000)->unk3D00->unkDA;
-    func_8001D8B0(0x8007BACC, 0x12, 1, *(void *)0x8007BC2C, 1, 1);
+    func_8001D8B0(0x8007BACC, 0x12, 1, *(void *)BrianCurrentAnim, 1, 1);
 }
 
 void func_80003B60(void *arg0, void *arg1, ? arg2) {
@@ -674,7 +674,7 @@ f32 func_80004040(void *arg0, void *arg1, ? arg2) {
         if (temp_v0->unk4 == 0) {
             arg1->unk0 = (u16)6;
             arg1->unk4 = (u16)0xE6U;
-            func_8001D8B0(9, 1, *(void *)0x8007BC2C, 1, 1);
+            func_8001D8B0(9, 1, *(void *)BrianCurrentAnim, 1, 1);
             func_800202E4(arg0);
             func_800267B8(0x1E);
             *(void *)0x8007B2E4 = (s32) (*(void *)0x8007B2E4 | 0x880);
@@ -880,7 +880,7 @@ u16 func_800045F0(void *arg0, void *arg1, void *arg2) {
                 arg1->unk0 = (u16)3;
                 arg1->unk8 = (u16) (temp_v0_2 & 0xFFFB);
                 arg1->unk4 = (u16) arg2->unk122;
-                func_8001D8B0(arg0, 0x18, 1, *(void *)0x8007BC2C, 1, 1);
+                func_8001D8B0(arg0, 0x18, 1, *(void *)BrianCurrentAnim, 1, 1);
             } else {
                 arg1->unk0 = (u16)0;
             }
@@ -940,7 +940,7 @@ block_4:
     if ((temp_t7 & 0xFFFF) == 0) {
         arg1->unk0 = (u16)0xA;
         arg1->unk4 = (u16)0x50U;
-        func_8001D8B0(temp_f12, temp_f14, arg0, arg1->unk6, 1, *(void *)0x8007BC2C, 1, 1);
+        func_8001D8B0(temp_f12, temp_f14, arg0, arg1->unk6, 1, *(void *)BrianCurrentAnim, 1, 1);
         func_80006720(arg0);
         func_8001D924(arg0, (arg0->unk52 * 0xC) + arg2, arg0->unk24);
         arg0->unk10 = (f32) arg1->unk134;
@@ -982,7 +982,7 @@ void func_8000496C(void *arg0, void *arg1, ? arg2) {
         if (arg1->unk4 == 0x20) {
             func_800120C0(arg1->unk118);
             func_8002E768(1);
-            func_800212A0(arg1->unk118);
+            addItemToEmptySlot(arg1->unk118);
             *(void *)0x8007B2E4 = (s32) (*(void *)0x8007B2E4 | 2);
             func_800268D4(0, 0x3B, 0xFF);
         }
@@ -990,7 +990,7 @@ void func_8000496C(void *arg0, void *arg1, ? arg2) {
         arg1->unk4 = temp_t9;
         if ((temp_t9 & 0xFFFF) == 0) {
             arg0->unk10 = (f32) arg1->unk134;
-            temp_a1 = *(void *)0x8007BC2C;
+            temp_a1 = *(void *)BrianCurrentAnim;
             func_8001D8B0(arg0, temp_a1, 1, temp_a1, 1, 1);
             return;
         }
@@ -1031,7 +1031,7 @@ void func_80004AB8(s32 arg0, void *arg1, ? arg2) {
         }
         arg1->unk0 = (u16)3;
         arg1->unk4 = (u16)0xFU;
-        func_8001D8B0(arg0, 0x18, 1, *(void *)0x8007BC2C, 1, 1);
+        func_8001D8B0(arg0, 0x18, 1, *(void *)BrianCurrentAnim, 1, 1);
         arg1->unk2 = (u16)0;
         func_8001D358(arg0);
     }
@@ -1137,7 +1137,7 @@ block_2:
     if (arg1 != 0.0f) {
         goto block_2;
     }
-    temp_a1 = *(void *)0x8007BC2C;
+    temp_a1 = *(void *)BrianCurrentAnim;
     phi_return = 0.0f;
     if (temp_a1 != arg2->unk52) {
         phi_return = 0.0f;
@@ -1305,7 +1305,7 @@ block_21:
         temp_a0_2->unk20 = (f32) ((f64) temp_a0_2->unk20 * temp_f12);
         if (1.0 < temp_f2_2) {
             temp_f0_3 = *(void *)0x80071058;
-            temp_a3 = *(void *)0x8007BC2C;
+            temp_a3 = *(void *)BrianCurrentAnim;
             sp54 = 0xF;
             sp48 = 3;
             arg3->unk0 = (u16)4;
@@ -1467,7 +1467,7 @@ block_13:
         }
     } else {
         temp_f0_2 = *(void *)0x800710B8;
-        temp_a3 = *(void *)0x8007BC2C;
+        temp_a3 = *(void *)BrianCurrentAnim;
         sp5C = 0xF;
         sp50 = 3;
         arg3->unk0 = (u16)4;
@@ -1826,7 +1826,7 @@ u16 func_8000600C(void *arg0, void *arg1) {
     return phi_return_2;
 }
 
-s32 func_800060D4(void) {
+s32 doorSomething(void) {
     f32 temp_f12;
     s32 temp_a1;
     s32 temp_a1_2;
@@ -1844,7 +1844,7 @@ s32 func_800060D4(void) {
         *(void *)0x8007BAB8 = (u16)3;
         *(void *)0x8007BABC = (u16)0x1E;
         *(void *)0x8007BABE = (u16)0;
-        temp_a1 = *(void *)0x8007BC2C;
+        temp_a1 = *(void *)BrianCurrentAnim;
         *(void *)0x8007BB2C = (u16) (*(void *)0x8007BB2C | 1);
         temp_ret = func_8001D8B0(0x8007BACC, temp_a1, 1, temp_a1, 1, 1);
         *(void *)0x8007B2EC = 0x13;
@@ -1890,7 +1890,7 @@ block_8:
     *(void *)0x8007BAB8 = (u16)3;
     *(void *)0x8007BABC = (u16)0x1E;
     *(void *)0x8007BABE = (u16)0;
-    temp_a1_2 = *(void *)0x8007BC2C;
+    temp_a1_2 = *(void *)BrianCurrentAnim;
     *(void *)0x8007BB2C = (u16) (*(void *)0x8007BB2C | 1);
     temp_ret_4 = func_8001D8B0(0x8007BACC, temp_a1_2, 1, temp_a1_2, 1, 1);
     *(void *)0x8007B2EC = 0x19;
@@ -2004,7 +2004,7 @@ void func_800069FC(void *arg0, void *arg1, ? arg2) {
     arg0->unk0 = (u16)0xD;
     arg0->unk4 = (u16)0x14;
     arg1->unk60 = (u16) (arg1->unk60 | 1);
-    func_8001D8B0(arg1, 0xA, 1, *(void *)0x8007BC2C, 1, 1);
+    func_8001D8B0(arg1, 0xA, 1, *(void *)BrianCurrentAnim, 1, 1);
     func_800140EC(0x23, arg1);
 }
 
@@ -2146,7 +2146,7 @@ s32 func_80006BEC(s32 arg0, u16 arg1, void *arg2) {
             (void *)0x8007BACC->unk60 = (u16) (temp_t8 | 2);
         }
         sp2C = (s32) arg1;
-        func_8001D8B0((void *)0x8007BACC, 8, 1, *(void *)0x8007BC2C, 1, 1);
+        func_8001D8B0((void *)0x8007BACC, 8, 1, *(void *)BrianCurrentAnim, 1, 1);
         if (phi_s0_2 != 0) {
             sp2C = (s32) arg1;
             func_80013F20(2);
@@ -2166,7 +2166,7 @@ void func_80006F6C(void) {
             *(void *)0x8007BAB8 = (u16)3U;
             *(void *)0x8007BABC = (s16) ((*(void *)0x8007BB1C * 4) + 0x80050000)->unk3D00->unk56;
             *(void *)0x8007BB2C = (u16) (*(void *)0x8007BB2C | 3);
-            func_8001D8B0(0x8007BACC, 7, 1, *(void *)0x8007BC2C, 1, 1);
+            func_8001D8B0(0x8007BACC, 7, 1, *(void *)BrianCurrentAnim, 1, 1);
             func_800208B8(0x8007BACC);
             func_800268D4(0, 0x17, 0xFF);
         }
@@ -2305,7 +2305,7 @@ void func_800072A8(void *arg0, void *arg1, s32 arg2) {
         phi_a3 = 0x16;
     } else {
         phi_a1 = 3;
-        phi_a3 = *(void *)0x8007BC2C;
+        phi_a3 = *(void *)BrianCurrentAnim;
     }
     arg0->unk0 = (u16)0xE;
     arg0->unk120 = (u16)0x12;
@@ -2607,7 +2607,7 @@ void *func_800074A0(void *arg0, void *arg1) {
         if (temp_a0_3 != 0xFF) {
             func_800120C0(temp_a0_3, (void *)0x8007B2E4);
             func_8002E768(1);
-            func_800212A0(*(void *)0x8007BA73);
+            addItemToEmptySlot(*(void *)0x8007BA73);
             *(void *)0x8007BA70 = 0xFF;
             arg0->unk8 = (u16) (arg0->unk8 | 2);
             *(void *)0x8007B2E4 = (s32) (*(void *)0x8007B2E4 | 2);

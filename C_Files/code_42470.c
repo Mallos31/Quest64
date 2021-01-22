@@ -1,4 +1,4 @@
-f64 func_80041870(f32 arg0, s32 arg2) {
+f64 _ldexpf(f32 arg0, s32 arg2) {
     f64 phi_f12;
 
     phi_f12 = (f64) arg0;
@@ -8,7 +8,7 @@ f64 func_80041870(f32 arg0, s32 arg2) {
     return phi_f12;
 }
 
-f64 func_80041898(f32 arg0, void *arg2) {
+f64 _frexpf(f32 arg0, void *arg2) {
     f64 temp_f0;
     f64 temp_f0_2;
     f64 phi_f0;
@@ -160,7 +160,7 @@ loop_8:
     phi_s0 = temp_f6;
     phi_f2 = 1.0;
     phi_f2_3 = 1.0;
-    phi_f0 = 1.0 + ((((&sp68 + ((s32) (func_80041898(phi_f14 / ERROR(Read from unset register $f16), phi_f14, &spB0) * (f64) 0x10) * 8))->unk-40 + (f64) spB0) * *(void *)0x80072080) / (1.0 * temp_f20));
+    phi_f0 = 1.0 + ((((&sp68 + ((s32) (_frexpf(phi_f14 / ERROR(Read from unset register $f16), phi_f14, &spB0) * (f64) 0x10) * 8))->unk-40 + (f64) spB0) * *(void *)0x80072080) / (1.0 * temp_f20));
     if (temp_f6 != 0) {
 loop_10:
         temp_t9 = phi_s0 >> 1;
@@ -184,7 +184,7 @@ loop_10:
     return temp_v0;
 }
 
-void *func_80041C34(void) {
+void *_pullSubFrame(void) {
     s16 temp_v1;
     s32 temp_s7;
     void *temp_a0;
@@ -257,7 +257,7 @@ block_2:
     return phi_s4;
 }
 
-s32 func_80041ECC(s32 arg0, s32 arg1, s32 arg2) {
+s32 _getVol(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_t8;
     s32 temp_t9;
     s32 temp_v0;

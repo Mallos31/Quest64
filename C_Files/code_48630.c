@@ -11,7 +11,7 @@ void func_80047A30(void *arg0) {
         arg0 = *(void *)0x80070A00;
     } else {
         if (arg0->unk10 != 1) {
-            func_8003D510(arg0->unk8, arg0);
+            __osDequeueThread(arg0->unk8, arg0);
         }
     }
     temp_t0 = *(void *)0x800709FC;
@@ -38,7 +38,7 @@ loop_7:
         }
     }
     if (arg0 == *(void *)0x80070A00) {
-        func_8003D1E4();
+        __osDispatchThread();
     }
-    func_8003D4F0(func_8003D4D0());
+    __osRestoreInt(__osDisableInt());
 }

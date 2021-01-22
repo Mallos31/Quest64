@@ -1,4 +1,4 @@
-s32 func_80046A00(s32 arg0) {
+s32 __osContAddressCrc(s32 arg0) {
     u8 spF;
     u8 spE;
     s32 sp8;
@@ -38,7 +38,7 @@ loop_1:
     return (spF & 0x1F) & 0xFF;
 }
 
-u8 func_80046AB0(void *arg0) {
+u8 __osContDataCrc(void *arg0) {
     u8 spF;
     u8 spE;
     s32 sp8;
@@ -89,7 +89,7 @@ loop_2:
 
 Warning: confusing control flow, output may have incorrect && and || detection. Run with --no-andor to disable detection and print gotos instead.
 
-s32 func_80046B80(s32 arg0, s32 arg1, u16 arg2, s32 arg3, s32 arg4) {
+s32 __osContRamWrite(s32 arg0, s32 arg1, u16 arg2, s32 arg3, s32 arg4) {
     s32 sp5C;
     s32 sp58;
     void *sp54;
@@ -113,13 +113,13 @@ s32 func_80046B80(s32 arg0, s32 arg1, u16 arg2, s32 arg3, s32 arg4) {
             }
         }
     }
-    func_80044840();
+    __osSiGetAccess();
     *(void *)0x80095490 = (u8)3;
-    func_80046D84(arg1, arg2, arg3);
-    sp5C = func_80046950(1, 0x80095660);
+    _osPackRamWriteData(arg1, arg2, arg3);
+    sp5C = __osSiRawStartDma(1, 0x80095660);
     func_80034020(arg0, 0, 1);
 loop_5:
-    sp5C = func_80046950(0, 0x80095660);
+    sp5C = __osSiRawStartDma(0, 0x80095660);
     func_80034020(arg0, 0, 1);
     sp54 = (void *)0x80095660;
     if (arg1 != 0) {
@@ -152,10 +152,10 @@ loop_9:
     temp_t4 = (s32) (sp2E & 0xC0) >> 4;
     sp5C = temp_t4;
     if (temp_t4 == 0) {
-        if (func_80046AB0(arg3) != sp52) {
-            sp5C = func_800448B0(arg0, arg1);
+        if (__osContDataCrc(arg3) != sp52) {
+            sp5C = __osPfsGetStatus(arg0, arg1);
             if (sp5C != 0) {
-                func_80044884();
+                __osSiRelAccess();
             } else {
                 sp5C = 4;
 block_16:
@@ -165,7 +165,7 @@ block_16:
                         goto loop_5;
                     }
                 }
-                func_80044884();
+                __osSiRelAccess();
             }
         } else {
             goto block_16;
@@ -177,7 +177,7 @@ block_16:
     return sp5C;
 }
 
-void func_80046D84(s32 arg0, u16 arg1, void *arg2) {
+void _osPackRamWriteData(s32 arg0, u16 arg1, void *arg2) {
     void *sp44;
     s8 sp42;
     s16 sp20;
@@ -202,7 +202,7 @@ void func_80046D84(s32 arg0, u16 arg1, void *arg2) {
     sp1D = (u8)0x23;
     sp1E = (u8)1;
     sp1F = (u8)3;
-    temp_v0 = func_80046A00(arg1);
+    temp_v0 = __osContAddressCrc(arg1);
     sp42 = (u8)0xFF;
     sp20 = temp_v0 | (arg1 << 5);
     sp18 = 0;

@@ -83,9 +83,9 @@ s32 func_80039D90(s32 arg0, void *arg1, s32 arg2) {
     s32 temp_v0;
 
     sp60 = 0;
-    func_80044840();
-    sp60 = func_800448B0(arg0, arg2);
-    func_80044884();
+    __osSiGetAccess();
+    sp60 = __osPfsGetStatus(arg0, arg2);
+    __osSiRelAccess();
     if (sp60 != 0) {
         return sp60;
     }
@@ -93,14 +93,14 @@ s32 func_80039D90(s32 arg0, void *arg1, s32 arg2) {
     arg1->unk8 = arg2;
     arg1->unk0 = 0;
     arg1->unk65 = (u8)0;
-    sp60 = func_800457DC(arg1);
+    sp60 = __osPfsSelectBank(arg1);
     if (sp60 != 0) {
         return sp60;
     }
-    func_80044B4C(&sp3C, &sp5E, &sp5C);
+    __osIdCheckSum(&sp3C, &sp5E, &sp5C);
     sp38 = &sp3C;
     if ((sp3C.unk1C != sp5E) || (sp3C.unk1E != sp5C)) {
-        sp60 = func_80044FCC(arg1, sp38);
+        sp60 = __osCheckPackId(arg1, sp38);
         if (sp60 != 0) {
             return sp60;
         }
@@ -111,7 +111,7 @@ s32 func_80039D90(s32 arg0, void *arg1, s32 arg2) {
 
     }
     if ((sp38->unk18 & 1) == 0) {
-        sp60 = func_80044BB4(arg1, sp38, &sp18);
+        sp60 = __osRepairPackId(arg1, sp38, &sp18);
         if (sp60 != 0) {
             return sp60;
         }
@@ -135,7 +135,7 @@ loop_16:
     arg1->unk54 = 8;
     arg1->unk58 = (s32) ((arg1->unk64 * 8) + 8);
     arg1->unk5C = (s32) (arg1->unk58 + (arg1->unk64 * 8));
-    sp60 = func_80045850(arg1->unk4, arg1->unk8, 7, arg1 + 0x2C);
+    sp60 = __osContRamRead(arg1->unk4, arg1->unk8, 7, arg1 + 0x2C);
     if (sp60 != 0) {
         return sp60;
     }

@@ -43,7 +43,7 @@ void func_80044540(void *arg0, void *arg1, s32 arg2, f32 arg3, s16 arg4, u8 arg5
     u8 phi_v1;
 
     if (arg1->unk8 != 0) {
-        temp_v0 = func_80036A30();
+        temp_v0 = __allocParam();
         temp_a3 = arg1;
         if (temp_v0 != 0) {
             phi_v1 = arg6;
@@ -60,7 +60,7 @@ void func_80044540(void *arg0, void *arg1, s32 arg2, f32 arg3, s16 arg4, u8 arg5
             temp_v0->unkC = arg3;
             arg1 = temp_a3;
             sp1C = temp_v0;
-            temp_v0->unk14 = func_80036928(arg0, arg7, temp_v0, temp_a3);
+            temp_v0->unk14 = _timeToSamplesNoRound(arg0, arg7, temp_v0, temp_a3);
             temp_v0->unk18 = arg2;
             temp_a0 = arg1->unk8->unkC;
             temp_a0->unk8(temp_a0, 3, temp_v0, arg1);

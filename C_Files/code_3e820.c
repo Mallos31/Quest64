@@ -1,14 +1,14 @@
-Failed to decompile function func_8003DC20:
+Failed to decompile function __osDevMgrMain:
 
 Unable to determine jump table for jr instruction.
 
 There must be a read of a variable in the same block as
 the instruction, which has a name starting with "jtbl".
 
-void func_8003E0B0(void) {
+void __osViInit(void) {
     void *temp_t5;
 
-    func_8003D430(0x80070A20, 0x60);
+    bzero(0x80070A20, 0x60);
     *(void *)0x80070A80 = (void *)0x80070A20;
     *(void *)0x80070A84 = (void *)0x80070A50;
     (void *)0x80070A20->unk32 = (u16)1;
@@ -34,5 +34,5 @@ loop_6:
         }
     }
     *(void *)0xA4400000 = 0;
-    func_8003EA30();
+    __osViSwapContext();
 }

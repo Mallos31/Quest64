@@ -1,12 +1,12 @@
 void func_80034380(void) {
-    func_8003E1F0(0x400);
+    __osSpSetStatus(0x400);
 }
 
 s32 func_800343A0(void *arg0) {
     s32 sp1C;
     s32 sp18;
 
-    sp1C = func_8003E200();
+    sp1C = __osSpGetStatus();
     if ((sp1C & 0x100) != 0) {
         sp18 = 1;
     } else {
@@ -28,7 +28,7 @@ s32 func_800343A0(void *arg0) {
     s32 temp_a0_6;
     s32 temp_a0_7;
 
-    func_8003E210(0x80093FA0, 0x40);
+    bcopy(0x80093FA0, 0x40);
     temp_a0 = *(void *)0x80093FB0;
     if (temp_a0 != 0) {
         *(void *)0x80093FB0 = func_80034DD0(temp_a0);
@@ -73,39 +73,39 @@ void func_8003452C(void *arg0) {
         }
     }
     func_80034E50(temp_v0, 0x40);
-    func_8003E1F0(0x2B00);
-    if (func_8003E520(0x4001000) == -1) {
+    __osSpSetStatus(0x2B00);
+    if (__osSpSetPc(0x4001000) == -1) {
 loop_4:
-        if (func_8003E520(0x4001000) == -1) {
+        if (__osSpSetPc(0x4001000) == -1) {
             goto loop_4;
         }
     }
-    if (func_8003E560(1, 0x4000FC0, temp_v0, 0x40) == -1) {
+    if (__osSpRawStartDma(1, 0x4000FC0, temp_v0, 0x40) == -1) {
 loop_6:
-        if (func_8003E560(1, 0x4000FC0, temp_v0, 0x40) == -1) {
+        if (__osSpRawStartDma(1, 0x4000FC0, temp_v0, 0x40) == -1) {
             goto loop_6;
         }
     }
-    if (func_8003E5F0() != 0) {
+    if (__osSpDeviceBusy() != 0) {
 loop_8:
-        if (func_8003E5F0() != 0) {
+        if (__osSpDeviceBusy() != 0) {
             goto loop_8;
         }
     }
-    if (func_8003E560(1, 0x4001000, temp_v0->unk8, temp_v0->unkC) == -1) {
+    if (__osSpRawStartDma(1, 0x4001000, temp_v0->unk8, temp_v0->unkC) == -1) {
 loop_10:
-        if (func_8003E560(1, 0x4001000, temp_v0->unk8, temp_v0->unkC) == -1) {
+        if (__osSpRawStartDma(1, 0x4001000, temp_v0->unk8, temp_v0->unkC) == -1) {
             goto loop_10;
         }
     }
 }
 
 void func_80034694(s32 arg0) {
-    if (func_8003E5F0() != 0) {
+    if (__osSpDeviceBusy() != 0) {
 loop_1:
-        if (func_8003E5F0() != 0) {
+        if (__osSpDeviceBusy() != 0) {
             goto loop_1;
         }
     }
-    func_8003E1F0(0x125);
+    __osSpSetStatus(0x125);
 }

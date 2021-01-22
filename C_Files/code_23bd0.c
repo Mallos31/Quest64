@@ -115,7 +115,7 @@ void func_800232F4(f32 arg0, void *arg1) {
     f32 temp_f2;
 
     sp1C = func_80035680(arg0);
-    temp_f0 = func_800361F0(arg0);
+    temp_f0 = cosf(arg0);
     temp_f12 = arg1->unk4;
     temp_f2 = arg1->unk0;
     temp_f10 = temp_f12 * temp_f0;
@@ -139,11 +139,11 @@ void func_80023360(void *arg0, ? arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f
     f32 temp_f4;
 
     sp4C = func_80035680(arg1);
-    temp_f20 = func_800361F0(arg1);
+    temp_f20 = cosf(arg1);
     sp48 = func_80035680(arg2);
-    sp3C = func_800361F0(arg2);
+    sp3C = cosf(arg2);
     sp44 = func_80035680(arg3);
-    temp_f0 = func_800361F0(arg3);
+    temp_f0 = cosf(arg3);
     temp_f12 = sp44 * sp4C;
     temp_f10 = -sp48;
     arg0->unk0 = (f32) (((temp_f0 * sp3C) + (temp_f12 * sp48)) * arg4);
@@ -187,11 +187,11 @@ void func_80023570(void *arg0, ? arg1, f32 arg2, f32 arg3) {
     f32 temp_f8;
 
     sp4C = func_80035680(arg1);
-    temp_f20 = func_800361F0(arg1);
+    temp_f20 = cosf(arg1);
     sp48 = func_80035680(arg2);
-    sp3C = func_800361F0(arg2);
+    sp3C = cosf(arg2);
     sp44 = func_80035680(arg3);
-    temp_f0 = func_800361F0(arg3);
+    temp_f0 = cosf(arg3);
     temp_f12 = sp44 * sp4C;
     arg0->unk0 = (f32) ((temp_f0 * sp3C) + (temp_f12 * sp48));
     arg0->unk4 = (f32) (sp44 * temp_f20);
@@ -391,11 +391,11 @@ void func_80023C1C(void *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5,
     arg5 = arg5 * temp_f0;
     arg6 = arg6 * temp_f0;
     sp4C = func_80035680(temp_f20);
-    temp_f20_2 = func_800361F0(temp_f20);
+    temp_f20_2 = cosf(temp_f20);
     sp48 = func_80035680(arg5);
-    sp3C = func_800361F0(arg5);
+    sp3C = cosf(arg5);
     sp44 = func_80035680(arg6);
-    temp_f0_2 = func_800361F0(arg6);
+    temp_f0_2 = cosf(arg6);
     temp_f12 = sp44 * sp4C;
     arg0->unk0 = (f32) (((temp_f0_2 * sp3C) + (temp_f12 * sp48)) * arg7);
     arg0->unk4 = (f32) ((sp44 * temp_f20_2) * arg7);

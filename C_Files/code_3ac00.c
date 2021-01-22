@@ -14,11 +14,11 @@ s32 func_8003A000(void *arg0) {
     if (((arg0->unk8 * 4) + 0x80070000)->unk9B0 == 0) {
         return 5;
     }
-    func_80044840();
+    __osSiGetAccess();
     *(void *)0x80095490 = (u8)3;
-    func_80046950(1, (arg0->unk8 << 6) + 0x80095210);
+    __osSiRawStartDma(1, (arg0->unk8 << 6) + 0x80095210);
     func_80034020(arg0->unk4, 0, 1);
-    sp48 = func_80046950(0, 0x80095660);
+    sp48 = __osSiRawStartDma(0, 0x80095660);
     func_80034020(arg0->unk4, 0, 1);
     sp44 = (void *)0x80095660;
     if (arg0->unk8 != 0) {
@@ -50,11 +50,11 @@ loop_6:
     temp_t4 = (s32) (sp1E & 0xC0) >> 4;
     sp48 = temp_t4;
     if (temp_t4 == 0) {
-        if (func_80046AB0(0x80095410) != sp42) {
+        if (__osContDataCrc(0x80095410) != sp42) {
             sp48 = 4;
         }
     }
-    func_80044884();
+    __osSiRelAccess();
     return sp48;
 }
 
@@ -74,11 +74,11 @@ s32 func_8003A1A0(void *arg0) {
     if (((arg0->unk8 * 4) + 0x80070000)->unk9B0 == 0) {
         return 5;
     }
-    func_80044840();
+    __osSiGetAccess();
     *(void *)0x80095490 = (u8)3;
-    func_80046950(1, (arg0->unk8 << 6) + 0x80095310);
+    __osSiRawStartDma(1, (arg0->unk8 << 6) + 0x80095310);
     func_80034020(arg0->unk4, 0, 1);
-    sp48 = func_80046950(0, 0x80095660);
+    sp48 = __osSiRawStartDma(0, 0x80095660);
     func_80034020(arg0->unk4, 0, 1);
     sp44 = (void *)0x80095660;
     if (arg0->unk8 != 0) {
@@ -110,15 +110,15 @@ loop_6:
     temp_t4 = (s32) (sp1E & 0xC0) >> 4;
     sp48 = temp_t4;
     if (temp_t4 == 0) {
-        if (func_80046AB0(0x80095430) != sp42) {
+        if (__osContDataCrc(0x80095430) != sp42) {
             sp48 = 4;
         }
     }
-    func_80044884();
+    __osSiRelAccess();
     return sp48;
 }
 
-void func_8003A340(s32 arg0, u16 arg1, void *arg2, void *arg3) {
+void _MakeMotorData(s32 arg0, u16 arg1, void *arg2, void *arg3) {
     void *sp44;
     s8 sp42;
     s16 sp20;
@@ -153,7 +153,7 @@ loop_1:
     sp1D = (u8)0x23;
     sp1E = (u8)1;
     sp1F = (u8)3;
-    temp_v0 = func_80046A00(arg1);
+    temp_v0 = __osContAddressCrc(arg1);
     sp42 = (u8)0xFF;
     sp20 = temp_v0 | (arg1 << 5);
     sp18 = 0;
@@ -219,14 +219,14 @@ loop_1:
     if (temp_t7 < 0x20) {
         goto loop_1;
     }
-    sp40 = func_80046B80(arg0, arg2, 0x400, &sp20, 0);
+    sp40 = __osContRamWrite(arg0, arg2, 0x400, &sp20, 0);
     if (sp40 == 2) {
-        sp40 = func_80046B80(arg0, arg2, 0x400, &sp20, 0);
+        sp40 = __osContRamWrite(arg0, arg2, 0x400, &sp20, 0);
     }
     if (sp40 != 0) {
         return sp40;
     }
-    sp40 = func_80045850(arg0, arg2, 0x400, &sp20);
+    sp40 = __osContRamRead(arg0, arg2, 0x400, &sp20);
     if (sp40 == 2) {
         sp40 = 4;
     }
@@ -244,14 +244,14 @@ loop_13:
     if (temp_t9 < 0x20) {
         goto loop_13;
     }
-    sp40 = func_80046B80(arg0, arg2, 0x400, &sp20, 0);
+    sp40 = __osContRamWrite(arg0, arg2, 0x400, &sp20, 0);
     if (sp40 == 2) {
-        sp40 = func_80046B80(arg0, arg2, 0x400, &sp20, 0);
+        sp40 = __osContRamWrite(arg0, arg2, 0x400, &sp20, 0);
     }
     if (sp40 != 0) {
         return sp40;
     }
-    sp40 = func_80045850(arg0, arg2, 0x400, &sp20);
+    sp40 = __osContRamRead(arg0, arg2, 0x400, &sp20);
     if (sp40 == 2) {
         sp40 = 4;
     }
@@ -271,8 +271,8 @@ loop_26:
         if (temp_t4 < 0x20) {
             goto loop_26;
         }
-        func_8003A340(arg2, 0x600, 0x80095430, (arg2 << 6) + 0x80095310);
-        func_8003A340(arg2, 0x600, 0x80095410, (arg2 << 6) + 0x80095210);
+        _MakeMotorData(arg2, 0x600, 0x80095430, (arg2 << 6) + 0x80095310);
+        _MakeMotorData(arg2, 0x600, 0x80095410, (arg2 << 6) + 0x80095210);
         ((arg2 * 4) + 0x80070000)->unk9B0 = 1;
     }
     return 0;

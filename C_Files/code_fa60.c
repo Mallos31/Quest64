@@ -559,7 +559,7 @@ Complex control flow; node assumed to be part of &&/|| wasn't. Run with --no-and
     return phi_return;
 }
 
-? func_8000FFE8(void *arg0) {
+? checkForKeyItems(void *arg0) {
     u16 temp_v0;
     void *temp_a2;
     void *phi_a2;
@@ -815,7 +815,7 @@ u16 func_800102D0(void) {
     return phi_return;
 }
 
-void func_80010510(s32 arg0) {
+void checkIfDayHasPassed&Inc(s32 arg0) {
     s32 temp_v1;
     u16 temp_a0;
 

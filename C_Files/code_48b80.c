@@ -1,4 +1,4 @@
-s32 func_80047F80(void) {
+s32 _Ldtob(void) {
     s32 temp_ret;
     s32 temp_ret_2;
     s32 temp_s2;

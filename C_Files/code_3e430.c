@@ -8,8 +8,8 @@ void func_8003D830(void *arg0, s32 arg1) {
         arg0->unk4 = arg1;
         if (arg0 != *(void *)0x80070A00) {
             if (arg0->unk10 != 1) {
-                func_8003D510(arg0->unk8, arg0);
-                func_8003D18C(arg0->unk8, arg0);
+                __osDequeueThread(arg0->unk8, arg0);
+                __osEnqueueThread(arg0->unk8, arg0);
             }
         }
         temp_t5 = *(void *)0x80070A00;
@@ -18,7 +18,7 @@ void func_8003D830(void *arg0, s32 arg1) {
             func_8003D08C(0x800709F8);
         }
     }
-    func_8003D4F0(func_8003D4D0());
+    __osRestoreInt(__osDisableInt());
 }
 
 ? func_8003D910(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {

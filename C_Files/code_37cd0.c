@@ -1,4 +1,4 @@
-void func_800370D0(void *arg0) {
+void __CSPPostNextSeqEvent(void *arg0) {
     s16 sp20;
     s32 sp1C;
     s32 temp_a0;
@@ -9,7 +9,7 @@ void func_800370D0(void *arg0) {
         temp_a0 = arg0->unk18;
         if (temp_a0 != 0) {
             arg0 = temp_a3;
-            if (func_80038EDC(temp_a0, &sp1C, temp_a3) != 0) {
+            if (__alCSeqNextDelta(temp_a0, &sp1C, temp_a3) != 0) {
                 sp20 = (u16)0;
                 func_8003FE6C(arg0 + 0x48, &sp20, arg0->unk24 * sp1C, arg0);
             }
@@ -177,7 +177,7 @@ void func_80038190(void *arg0, void *arg1) {
     arg0->unk34 = (u8) arg1->unk8;
     sp2C = temp_a2;
     arg0->unk60 = func_80036660(0, 0, temp_a2, arg1->unk8, 0x10);
-    func_80043E14(arg0);
+    __initChanState(arg0);
     temp_v0 = func_80036660(0, 0, temp_a2, arg1->unk0, 0x38);
     arg0->unk6C = NULL;
     if (arg1->unk0 > 0) {

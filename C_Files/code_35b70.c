@@ -19,11 +19,11 @@ void func_80034F70(void *arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5,
     *(void *)0x80095200 = temp_f0;
     arg3 = arg3 * temp_f0;
     temp_f20 = func_80035680(temp_f12, temp_f14);
-    temp_f22 = func_800361F0(arg1);
+    temp_f22 = cosf(arg1);
     sp40 = func_80035680(arg2);
-    sp34 = func_800361F0(arg2);
+    sp34 = cosf(arg2);
     sp3C = func_80035680(arg3);
-    temp_f0_2 = func_800361F0(arg3);
+    temp_f0_2 = cosf(arg3);
     arg0->unk0 = (f32) ((sp34 * temp_f0_2) * arg4);
     arg0->unk4 = (f32) ((sp34 * sp3C) * arg4);
     arg0->unkC = 0.0f;

@@ -232,7 +232,7 @@ void func_80024BEC(s32 arg0) {
     func_80033F10(&sp1A0, &sp180, 8);
     func_80033F10(&sp168, &sp148, 8);
     func_800007D4(arg0, &sp140, &sp1A0);
-    sp120 = func_800006F8(arg0);
+    sp120 = Add_Four(arg0);
 loop_5:
     func_80034020(&sp1A0, &sp68, 1);
     temp_v1 = *sp68;

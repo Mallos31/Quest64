@@ -1,4 +1,4 @@
-void func_8003C990(void) {
+void __osSetSR(void) {
     ERROR(unknown instruction: mtc0 $a0, $12);
 }
 

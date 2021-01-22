@@ -54,20 +54,20 @@ s32 func_8003A7E0(s32 arg0, s32 arg1, s32 arg2) {
         }
     }
     *(void *)0x80095491 = (u8)4;
-    func_8003AAA8(0);
-    sp78 = func_80046950(1, 0x80095450);
+    __osPackRequestData(0);
+    sp78 = __osSiRawStartDma(1, 0x80095450);
     func_80034020(arg0, &sp7C, 1);
-    temp_v0 = func_80046950(0, 0x80095450);
+    temp_v0 = __osSiRawStartDma(0, 0x80095450);
     sp78 = temp_v0;
     func_80034020(arg0, &sp7C, 1);
-    func_8003A9D8(arg1, arg2);
+    __osContGetInitData(arg1, arg2);
     *(void *)0x80095490 = (u8)0;
-    func_800447F0();
+    __osSiCreateAccessQueue();
     func_80033F10(0x800954B8, 0x800954D0, 1);
     return temp_v0;
 }
 
-void func_8003A9D8(void *arg0, void *arg1) {
+void __osContGetInitData(void *arg0, void *arg1) {
     void *sp14;
     ? spC;
     s32 sp8;
@@ -102,7 +102,7 @@ loop_1:
     *arg0 = sp7;
 }
 
-void func_8003AAA8(s32 arg0) {
+void __osPackRequestData(s32 arg0) {
     void *spC;
     s8 spB;
     s8 spA;
@@ -155,13 +155,13 @@ s32 func_8003ABA0(u8 arg0) {
     s32 sp1C;
 
     sp1C = 0;
-    func_80044840();
+    __osSiGetAccess();
     if ((s32) arg0 >= 5) {
         *(void *)0x80095491 = (u8)4U;
     } else {
         *(void *)0x80095491 = arg0;
     }
     *(void *)0x80095490 = (u8)0xFE;
-    func_80044884();
+    __osSiRelAccess();
     return sp1C;
 }

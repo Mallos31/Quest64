@@ -31,21 +31,21 @@ s32 func_80045BB0(void *arg0) {
     void *temp_t9;
 
     sp34 = 0;
-    sp480 = func_800453C0(arg0);
+    sp480 = __osCheckId(arg0);
     if (sp480 == 2) {
         sp480 = func_80045164(arg0);
     }
     if (sp480 != 0) {
         return sp480;
     }
-    sp480 = func_80046274(arg0, &sp38);
+    sp480 = corrupted_init(arg0, &sp38);
     if (sp480 != 0) {
         return sp480;
     }
     sp484 = 0;
     if (arg0->unk50 > 0) {
 loop_7:
-        sp480 = func_80045850(arg0->unk4, arg0->unk8, arg0->unk5C + sp484, &sp25C);
+        sp480 = __osContRamRead(arg0->unk4, arg0->unk8, arg0->unk5C + sp484, &sp25C);
         if (sp480 != 0) {
             return sp480;
         }
@@ -62,14 +62,14 @@ loop_15:
                             temp_t6 = (u8) sp47C;
                             if (sp33 != temp_t6) {
                                 sp33 = temp_t6;
-                                sp480 = func_800454BC(arg0, &sp27C, 0, temp_t6);
+                                sp480 = __osPfsRWInode(arg0, &sp27C, 0, temp_t6);
                                 if (sp480 != 0) {
                                     if (sp480 != 3) {
                                         return sp480;
                                     }
                                 }
                             }
-                            sp2C = func_80046428(arg0, subroutine_arg1, &sp38) - sp28;
+                            sp2C = corrupted(arg0, subroutine_arg1, &sp38) - sp28;
                             if (sp2C == 0) {
                                 sp28 = 1;
                                 sp47C = (u16) *((sp47D * 2) + &sp27C);
@@ -95,12 +95,12 @@ loop_15:
                 sp266 = (u16)0;
                 if (arg0->unk65 != 0) {
                     arg0->unk65 = (u8)0U;
-                    sp480 = func_800457DC(arg0);
+                    sp480 = __osPfsSelectBank(arg0);
                     if (sp480 != 0) {
                         return sp480;
                     }
                 }
-                sp480 = func_80046B80(arg0->unk4, arg0->unk8, arg0->unk5C + sp484, &sp25C, 0);
+                sp480 = __osContRamWrite(arg0->unk4, arg0->unk8, arg0->unk5C + sp484, &sp25C, 0);
                 if (sp480 != 0) {
                     return sp480;
                 }
@@ -117,12 +117,12 @@ loop_15:
                 sp266 = (u16)0;
                 if (arg0->unk65 != 0) {
                     arg0->unk65 = (u8)0U;
-                    sp480 = func_800457DC(arg0);
+                    sp480 = __osPfsSelectBank(arg0);
                     if (sp480 != 0) {
                         return sp480;
                     }
                 }
-                sp480 = func_80046B80(arg0->unk4, arg0->unk8, arg0->unk5C + sp484, &sp25C, 0);
+                sp480 = __osContRamWrite(arg0->unk4, arg0->unk8, arg0->unk5C + sp484, &sp25C, 0);
                 if (sp480 != 0) {
                     return sp480;
                 }
@@ -140,7 +140,7 @@ loop_15:
     sp484 = 0;
     if (arg0->unk50 > 0) {
 loop_42:
-        sp480 = func_80045850(arg0->unk4, arg0->unk8, arg0->unk5C + sp484, &sp25C);
+        sp480 = __osContRamRead(arg0->unk4, arg0->unk8, arg0->unk5C + sp484, &sp25C);
         if (sp480 != 0) {
             return sp480;
         }
@@ -158,7 +158,7 @@ loop_42:
     sp33 = (u8)0U;
     if ((s32) arg0->unk64 > 0) {
 loop_51:
-        sp480 = func_800454BC(arg0, &sp27C, 0, sp33);
+        sp480 = __osPfsRWInode(arg0, &sp27C, 0, sp33);
         if (sp480 != 0) {
             if (sp480 != 3) {
                 return sp480;
@@ -215,7 +215,7 @@ loop_64:
                 goto loop_62;
             }
         }
-        sp480 = func_800454BC(arg0, &sp37C, 1, sp33);
+        sp480 = __osPfsRWInode(arg0, &sp37C, 1, sp33);
         if (sp480 != 0) {
             return sp480;
         }
@@ -233,7 +233,7 @@ loop_64:
     return 0;
 }
 
-s32 func_80046274(void *arg0, void *arg1) {
+s32 corrupted_init(void *arg0, void *arg1) {
     s32 sp12C;
     s32 sp128;
     s32 sp124;
@@ -270,7 +270,7 @@ loop_3:
         } else {
             sp124 = arg0->unk60;
         }
-        sp1C = func_800454BC(arg0, &sp20, 0, sp123);
+        sp1C = __osPfsRWInode(arg0, &sp20, 0, sp123);
         if (sp1C != 0) {
             if (sp1C != 3) {
                 return sp1C;
@@ -324,7 +324,7 @@ loop_10:
     return 0;
 }
 
-s32 func_80046428(void *arg0, u8 arg1, void *arg2) {
+s32 corrupted(void *arg0, u8 arg1, void *arg2) {
     s32 sp2C;
     s32 sp28;
     s32 sp24;
@@ -370,7 +370,7 @@ loop_6:
             if (((arg2 + sp28)->unk101 & (1 << phi_t4)) != 0) {
 block_14:
                 if (sp23 != arg2->unk100) {
-                    sp18 = func_800454BC(arg0, arg2, 0, sp23);
+                    sp18 = __osPfsRWInode(arg0, arg2, 0, sp23);
                     if (sp18 != 0) {
                         if (sp18 != 3) {
                             return sp18;
@@ -425,14 +425,14 @@ s32 func_80046610(s32 arg0, void *arg1) {
     sp3C = 0;
     sp1F = (u8)0U;
     sp18 = 3;
-    func_80044840();
+    __osSiGetAccess();
 loop_1:
-    func_800467B0(0);
-    sp3C = func_80046950(1, 0x80095660);
+    __osPfsRequestData(0);
+    sp3C = __osSiRawStartDma(1, 0x80095660);
     func_80034020(arg0, &sp38, 1);
-    sp3C = func_80046950(0, 0x80095660);
+    sp3C = __osSiRawStartDma(0, 0x80095660);
     func_80034020(arg0, &sp38, 1);
-    func_80046880(&sp37, &sp24);
+    __osPfsGetInitData(&sp37, &sp24);
     sp20 = 0;
     if ((s32) *(void *)0x80095491 > 0) {
 loop_2:
@@ -467,12 +467,12 @@ loop_9:
             goto loop_9;
         }
     }
-    func_80044884();
+    __osSiRelAccess();
     *arg1 = sp1F;
     return sp3C;
 }
 
-void func_800467B0(s32 arg0) {
+void __osPfsRequestData(s32 arg0) {
     void *spC;
     s8 spB;
     s8 spA;
@@ -515,7 +515,7 @@ loop_1:
     spC->unk0 = (u8)0xFE;
 }
 
-void func_80046880(void *arg0, void *arg1) {
+void __osPfsGetInitData(void *arg0, void *arg1) {
     void *sp14;
     ? spC;
     s32 sp8;
@@ -550,8 +550,8 @@ loop_1:
     *arg0 = sp7;
 }
 
-? func_80046950(s32 arg0, s32 arg1) {
-    if (func_80047180() != 0) {
+? __osSiRawStartDma(s32 arg0, s32 arg1) {
+    if (__osSiDeviceBusy() != 0) {
         return -1;
     }
     if (arg0 == 1) {

@@ -51,11 +51,11 @@ void func_8000062C(s32 arg0) {
     func_80033C30(temp_a0_3);
 }
 
-s32 func_800006F8(s32 arg0) {
+s32 Add_Four(s32 arg0) {
     return arg0 + 4;
 }
 
-s32 func_80000704(s32 arg0) {
+s32 Add_0x3C(s32 arg0) {
     return arg0 + 0x3C;
 }
 
@@ -283,7 +283,7 @@ void *func_80000FE8(void) {
     s32 phi_a0;
 
     FillCacheWithDLData(0x73A90, 0x80096850, 0x77560 - 0x73A90);
-    *(void *)0x8007B350 = 0x80096850;
+    *(void *)spiritData = 0x80096850;
     FillCacheWithDLData(0xD4B3C0, 0x800C0000, 0xD77380 - 0xD4B3C0);
     FillCacheWithDLData(0xD77380, 0x80399AB0, 0xD884F0 - 0xD77380);
     (void *)0x80308FFF->unk5149 = (u16)2;
@@ -385,7 +385,7 @@ s32 func_800011DC(void *arg0) {
     *(void *)0x8007B2FC = (void *) (temp_v1_2 + 8);
     temp_v1_2->unk0 = 0xBC000406;
     sp74 = temp_v1_2;
-    sp74->unk4 = func_80034DD0(*(void *)0x8007B350);
+    sp74->unk4 = func_80034DD0(*(void *)spiritData);
     temp_v1_3 = *(void *)0x8007B2FC;
     *(void *)0x8007B2FC = (void *) (temp_v1_3 + 8);
     temp_v1_3->unk0 = 0xBC000806;
@@ -624,7 +624,7 @@ void func_80001800(void) {
         if ((temp_v1 & 0x800) != 0) {
             *(void *)0x80084EE4 = (s32) *(void *)0x8007BA60;
             *(void *)0x80084EE8 = (s32) *(void *)0x8007BA62;
-            func_80002EA0();
+            CheckIfRoomIsValidLoadPoint();
         }
         func_8002E5E0(0);
         *(void *)0x800905C0 = 0;
@@ -707,7 +707,7 @@ block_16:
     *(void *)0x8007B2E8 = (u16)0U;
     if (1 == *(void *)0x8007B2E0) {
 loop_24:
-        func_800314C0(*(void *)0x80092870);
+        controllerButtonsSomething(*(void *)0x80092870);
         *(void *)0x8007B2F8 = 0;
         *(void *)0x80087200 = 0;
         func_80011850();
@@ -737,7 +737,7 @@ loop_24:
                 if (func_8000FDE0((void *)0x8007BAB8->unk14, (void *)0x8007BAB8->unk1C, (void *)0x8007BAB8->unk24) != 0) {
                     *(void *)0x8007B2E4 = (s32) (*(void *)0x8007B2E4 | 0x80);
                     func_8001459C();
-                    func_800060D4();
+                    doorSomething();
                     *(void *)0x8007B2F0 = (u16)0U;
                 } else {
 block_34:
@@ -795,7 +795,7 @@ block_34:
                             temp_v0_7->unk8 = (u16) temp_v0_7->unkA;
                             temp_a0 = *(void *)0x800859D0 + 0x2328;
                             *(void *)0x800859D0 = temp_a0;
-                            func_80010510(temp_a0);
+                            checkIfDayHasPassed&Inc(temp_a0);
                             *(void *)0x8007BA60 = (u16) *(void *)0x80084EE4;
                             *(void *)0x8007BA62 = (u16) *(void *)0x80084EE8;
                             *(void *)0x8007BA64 = (s16) *(void *)0x80085370;
@@ -915,7 +915,7 @@ void func_800020B4(void) {
     *(void *)0x8008FD0E = (u8)0;
     if (2 == *(void *)0x8007B2E0) {
 loop_2:
-        func_800314C0(*(void *)0x80092870);
+        controllerButtonsSomething(*(void *)0x80092870);
         *(void *)0x8007B2F8 = 0;
         func_800011DC((*(void *)0x8007B2F4 * 0xD150) + 0x80301000);
         temp_s5 = (*(void *)0x8007B2F4 * 0xD150) + 0x80301000;
@@ -942,7 +942,7 @@ loop_6:
         }
     }
     if (*(void *)0x8008FD0E != 0) {
-        func_80002EA0();
+        CheckIfRoomIsValidLoadPoint();
         *(void *)0x8007B2E8 = (u16)2;
     }
     func_80026A04();
@@ -963,7 +963,7 @@ void func_8000227C(void) {
     func_80100000();
     if (*(void *)0x8007B2E0 == 3) {
 loop_2:
-        func_800314C0(*(void *)0x80092870);
+        controllerButtonsSomething(*(void *)0x80092870);
         *(void *)0x8007B2F8 = 0;
         func_800011DC((*(void *)0x8007B2F4 * 0xD150) + 0x80301000);
         temp_v0 = *(void *)0x8007B348;
@@ -1004,7 +1004,7 @@ void func_80002428(void) {
     func_80100000();
     if (*(void *)gameState == 4) {
 loop_2:
-        func_800314C0(*(void *)0x80092870);
+        controllerButtonsSomething(*(void *)0x80092870);
         *(void *)0x8007B2F8 = 0;
         func_80026658();
         func_800011DC((*(void *)0x8007B2F4 * 0xD150) + 0x80301000);
@@ -1049,7 +1049,7 @@ void func_800025E8(void) {
     func_800267B8(0x14);
     if (*(void *)gameState == 5) {
 loop_2:
-        func_800314C0(*(void *)0x80092870);
+        controllerButtonsSomething(*(void *)0x80092870);
         *(void *)0x8007B2F8 = 0;
         func_80026658();
         func_800011DC((*(void *)0x8007B2F4 * 0xD150) + 0x80301000);

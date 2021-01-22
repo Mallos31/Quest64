@@ -1,4 +1,4 @@
-s32 func_800442C0(void *arg0, void *arg1, s32 arg2) {
+s32 _allocatePVoice(void *arg0, void *arg1, s32 arg2) {
     void *sp24;
     s32 sp1C;
     s32 temp_a2;
@@ -78,17 +78,17 @@ s32 func_800443A8(void *arg0, void *arg1, void *arg2) {
     arg1->unk18 = (s16) arg2->unk2;
     if (sp2C != 0) {
         temp_a0 = sp2C->unkC;
-        if (func_800442C0(arg0, &sp2C, arg2->unk0) != 0) {
+        if (_allocatePVoice(arg0, &sp2C, arg2->unk0) != 0) {
             sp2C->unkD8 = 0x200;
             sp2C->unk8->unk8 = 0;
             sp28 = temp_a0;
-            temp_v0 = func_80036A30(temp_a0);
+            temp_v0 = __allocParam(temp_a0);
             temp_v0->unk8 = (u16)0xB;
             temp_v0->unkC = 0;
             temp_v0->unk4 = (s32) arg0->unk1C;
             temp_v0->unk10 = (s32) (sp2C->unkD8 - 0x40);
             temp_a0->unk8(temp_a0, 3, temp_v0);
-            temp_v0_2 = func_80036A30();
+            temp_v0_2 = __allocParam();
             if (temp_v0_2 != 0) {
                 temp_v0_2->unk8 = (u16)0xF;
                 temp_v0_2->unk0 = 0;

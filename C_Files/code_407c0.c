@@ -2,11 +2,11 @@
     s32 temp_s0;
     s32 temp_t7;
 
-    temp_s0 = func_8003D4D0();
+    temp_s0 = __osDisableInt();
     if (arg0->unk8 >= arg0->unk10) {
 loop_1:
         if (arg2 != 1) {
-            func_8003D4F0(temp_s0);
+            __osRestoreInt(temp_s0);
             return -1;
         }
         (*(void *)0x80070A00)->unk10 = (u16)8;
@@ -20,9 +20,9 @@ loop_1:
     *(arg0->unk14 + (arg0->unkC * 4)) = arg1;
     arg0->unk8 = (s32) (arg0->unk8 + 1);
     if (*arg0->unk0 != 0) {
-        func_80033C30(func_8003D1D4(arg0));
+        func_80033C30(__osPopThread(arg0));
     }
-    func_8003D4F0(temp_s0);
+    __osRestoreInt(temp_s0);
     return 0;
 }
 

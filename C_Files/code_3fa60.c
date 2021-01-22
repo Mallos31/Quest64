@@ -5,7 +5,7 @@ Unable to determine jump table for jr instruction.
 There must be a read of a variable in the same block as
 the instruction, which has a name starting with "jtbl".
 
-s32 func_8003F4D0(void *arg0, s32 arg1, void *arg2, s32 arg3) {
+s32 _Printf(void *arg0, s32 arg1, void *arg2, s32 arg3) {
     u8 spD4;
     s32 spD0;
     s32 spCC;

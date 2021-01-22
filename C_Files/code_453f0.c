@@ -1,34 +1,34 @@
-void func_800447F0(void) {
+void __osSiCreateAccessQueue(void) {
     *(void *)0x80070DC0 = 1;
     func_80033F10(0x80095648, 0x80095640, 1);
     func_80034200(0x80095648, 0, 0);
 }
 
-void func_80044840(void) {
+void __osSiGetAccess(void) {
     ? sp1C;
 
     if (*(void *)0x80070DC0 == 0) {
-        func_800447F0();
+        __osSiCreateAccessQueue();
     }
     func_80034020(0x80095648, &sp1C, 1);
 }
 
-void func_80044884(void) {
+void __osSiRelAccess(void) {
     func_80034200(0x80095648, 0, 0);
 }
 
-s32 func_800448B0(s32 arg0, s32 arg1) {
+s32 __osPfsGetStatus(s32 arg0, s32 arg1) {
     s32 sp24;
     ? sp20;
     ? sp1C;
 
     sp24 = 0;
-    func_80044994(arg1);
-    sp24 = func_80046950(1, 0x80095660);
+    __osPfsRequestOneChannel(arg1);
+    sp24 = __osSiRawStartDma(1, 0x80095660);
     func_80034020(arg0, &sp20, 1);
-    sp24 = func_80046950(0, 0x80095660);
+    sp24 = __osSiRawStartDma(0, 0x80095660);
     func_80034020(arg0, &sp20, 1);
-    func_80044A54(arg1, &sp1C);
+    __osPfsGetOneChannelData(arg1, &sp1C);
     if ((sp1E & 1) != 0) {
         if ((sp1E & 2) != 0) {
             return 2;
@@ -47,7 +47,7 @@ block_5:
     return sp24;
 }
 
-void func_80044994(s32 arg0) {
+void __osPfsRequestOneChannel(s32 arg0) {
     void *spC;
     s8 sp9;
     s8 sp8;
@@ -89,7 +89,7 @@ loop_1:
     *temp_t3 = (u8)0xFE;
 }
 
-void func_80044A54(s32 arg0, void *arg1) {
+void __osPfsGetOneChannelData(s32 arg0, void *arg1) {
     void *spC;
     ? sp4;
     s32 sp0;
@@ -118,7 +118,7 @@ loop_1:
     }
 }
 
-u16 func_80044AF0(void *arg0, s32 arg1) {
+u16 __osSumcalc(void *arg0, s32 arg1) {
     s32 spC;
     s32 sp8;
     void *sp4;
@@ -143,7 +143,7 @@ loop_1:
     return spA;
 }
 
-? func_80044B4C(s32 arg0, void *arg1, void *arg2) {
+? __osIdCheckSum(s32 arg0, void *arg1, void *arg2) {
     u16 sp6;
     u32 sp0;
     u16 temp_t9;
@@ -166,7 +166,7 @@ loop_1:
     return 0;
 }
 
-s32 func_80044BB4(void *arg0, void *arg1, void *arg2) {
+s32 __osRepairPackId(void *arg0, void *arg1, void *arg2) {
     s32 sp74;
     ? sp54;
     ? sp34;
@@ -184,7 +184,7 @@ s32 func_80044BB4(void *arg0, void *arg1, void *arg2) {
     sp33 = (u8)0U;
     if (arg0->unk65 != 0) {
         arg0->unk65 = (u8)0U;
-        sp74 = func_800457DC(arg0);
+        sp74 = __osPfsSelectBank(arg0);
         if (sp74 != 0) {
             return sp74;
         }
@@ -198,11 +198,11 @@ s32 func_80044BB4(void *arg0, void *arg1, void *arg2) {
     sp28 = 0;
 loop_4:
     arg0->unk65 = (s8) sp28;
-    sp74 = func_800457DC(arg0);
+    sp74 = __osPfsSelectBank(arg0);
     if (sp74 != 0) {
         return sp74;
     }
-    sp74 = func_80045850(arg0->unk4, arg0->unk8, 0, &sp54);
+    sp74 = __osContRamRead(arg0->unk4, arg0->unk8, 0, &sp54);
     if (sp74 != 0) {
         return sp74;
     }
@@ -216,11 +216,11 @@ loop_9:
     if (temp_t5 < 0x20) {
         goto loop_9;
     }
-    sp74 = func_80046B80(arg0->unk4, arg0->unk8, 0, &sp54, 0);
+    sp74 = __osContRamWrite(arg0->unk4, arg0->unk8, 0, &sp54, 0);
     if (sp74 != 0) {
         return sp74;
     }
-    sp74 = func_80045850(arg0->unk4, arg0->unk8, 0, &sp34);
+    sp74 = __osContRamRead(arg0->unk4, arg0->unk8, 0, &sp34);
     if (sp74 != 0) {
         return sp74;
     }
@@ -234,7 +234,7 @@ loop_15:
         }
     }
     if (sp2C == 0x20) {
-        if ((sp28 > 0) && (arg0->unk65 = (u8)0, sp74 = func_800457DC(arg0), (sp74 != 0))) {
+        if ((sp28 > 0) && (arg0->unk65 = (u8)0, sp74 = __osPfsSelectBank(arg0), (sp74 != 0))) {
             return sp74;
         } else {
             sp28 = sp28 + 1;
@@ -244,7 +244,7 @@ loop_15:
         }
     }
     arg0->unk65 = (u8)0;
-    sp74 = func_800457DC(arg0);
+    sp74 = __osPfsSelectBank(arg0);
     if (sp74 != 0) {
         return sp74;
     }
@@ -256,14 +256,14 @@ loop_15:
     arg2->unk18 = (s16) ((arg1->unk18 & 0xFFFE) | sp33);
     arg2->unk1A = (s8) sp28;
     arg2->unk1B = (u8) arg1->unk1B;
-    func_80044B4C(arg2, arg2 + 0x1C, arg2 + 0x1E);
+    __osIdCheckSum(arg2, arg2 + 0x1C, arg2 + 0x1E);
     sp20.unk0 = (u16)1;
     sp20.unk2 = (u16)3;
     sp20.unk4 = (u16)4;
     sp20.unk6 = (u16)6;
     sp2C = 0;
 loop_31:
-    sp74 = func_80046B80(arg0->unk4, arg0->unk8, (sp + (sp2C * 2))->unk20, arg2, 1);
+    sp74 = __osContRamWrite(arg0->unk4, arg0->unk8, (sp + (sp2C * 2))->unk20, arg2, 1);
     if (sp74 != 0) {
         return sp74;
     }
@@ -272,7 +272,7 @@ loop_31:
     if (temp_t3 < 4) {
         goto loop_31;
     }
-    sp74 = func_80045850(arg0->unk4, arg0->unk8, 1, &sp54);
+    sp74 = __osContRamRead(arg0->unk4, arg0->unk8, 1, &sp54);
     if (sp74 != 0) {
         return sp74;
     }
@@ -289,7 +289,7 @@ loop_37:
     return 0;
 }
 
-s32 func_80044FCC(void *arg0, void *arg1) {
+s32 __osCheckPackId(void *arg0, void *arg1) {
     ? sp30;
     s32 sp2C;
     u16 sp2A;
@@ -302,7 +302,7 @@ s32 func_80044FCC(void *arg0, void *arg1) {
     sp2C = 0;
     if (arg0->unk65 != 0) {
         arg0->unk65 = (u8)0U;
-        sp2C = func_800457DC(arg0);
+        sp2C = __osPfsSelectBank(arg0);
         if (sp2C != 0) {
             return sp2C;
         }
@@ -313,11 +313,11 @@ s32 func_80044FCC(void *arg0, void *arg1) {
     sp30.unk6 = (u16)6;
     sp24 = 1;
 loop_4:
-    sp2C = func_80045850(arg0->unk4, arg0->unk8, (sp + (sp24 * 2))->unk30, arg1);
+    sp2C = __osContRamRead(arg0->unk4, arg0->unk8, (sp + (sp24 * 2))->unk30, arg1);
     if (sp2C != 0) {
         return sp2C;
     }
-    func_80044B4C(arg1, &sp2A, &sp28);
+    __osIdCheckSum(arg1, &sp2A, &sp28);
     if ((arg1->unk1C != sp2A) || (arg1->unk1E != sp28)) {
         temp_t8 = sp24 + 1;
         sp24 = temp_t8;
@@ -333,7 +333,7 @@ loop_4:
     sp20 = 0;
 loop_12:
     if (sp20 != sp24) {
-        sp2C = func_80046B80(arg0->unk4, arg0->unk8, (sp + (sp20 * 2))->unk30, arg1, 1);
+        sp2C = __osContRamWrite(arg0->unk4, arg0->unk8, (sp + (sp20 * 2))->unk30, arg1, 1);
         if (sp2C != 0) {
             return sp2C;
         }
@@ -358,21 +358,21 @@ s32 func_80045164(void *arg0) {
 
     if (arg0->unk65 != 0) {
         arg0->unk65 = (u8)0U;
-        sp1C = func_800457DC(arg0);
+        sp1C = __osPfsSelectBank(arg0);
         if (sp1C != 0) {
             return sp1C;
         }
     }
-    sp1C = func_80045850(arg0->unk4, arg0->unk8, 1, &sp40);
+    sp1C = __osContRamRead(arg0->unk4, arg0->unk8, 1, &sp40);
     if (sp1C != 0) {
         return sp1C;
     }
-    func_80044B4C(&sp40, &sp62, &sp60);
+    __osIdCheckSum(&sp40, &sp62, &sp60);
     sp18 = &sp40;
     if ((sp40.unk1C != sp62) || (sp40.unk1E != sp60)) {
-        sp1C = func_80044FCC(arg0, sp18);
+        sp1C = __osCheckPackId(arg0, sp18);
         if (sp1C == 0xA) {
-            sp1C = func_80044BB4(arg0, sp18, &sp20);
+            sp1C = __osRepairPackId(arg0, sp18, &sp20);
             if (sp1C != 0) {
                 return sp1C;
             }
@@ -386,7 +386,7 @@ s32 func_80045164(void *arg0) {
 
     }
     if ((sp18->unk18 & 1) == 0) {
-        sp1C = func_80044BB4(arg0, sp18, &sp20);
+        sp1C = __osRepairPackId(arg0, sp18, &sp20);
         if (sp1C != 0) {
             return sp1C;
         }
@@ -410,14 +410,14 @@ loop_19:
     arg0->unk54 = 8;
     arg0->unk58 = (s32) ((arg0->unk64 * 8) + 8);
     arg0->unk5C = (s32) (arg0->unk58 + (arg0->unk64 * 8));
-    sp1C = func_80045850(arg0->unk4, arg0->unk8, 7, arg0 + 0x2C);
+    sp1C = __osContRamRead(arg0->unk4, arg0->unk8, 7, arg0 + 0x2C);
     if (sp1C != 0) {
         return sp1C;
     }
     return 0;
 }
 
-s32 func_800453C0(void *arg0) {
+s32 __osCheckId(void *arg0) {
     s32 sp3C;
     ? sp1C;
     s32 sp18;
@@ -425,17 +425,17 @@ s32 func_800453C0(void *arg0) {
 
     if (arg0->unk65 != 0) {
         arg0->unk65 = (u8)0U;
-        sp18 = func_800457DC(arg0);
+        sp18 = __osPfsSelectBank(arg0);
         if (sp18 != 0) {
             return sp18;
         }
     }
-    sp18 = func_80045850(arg0->unk4, arg0->unk8, 1, &sp1C);
+    sp18 = __osContRamRead(arg0->unk4, arg0->unk8, 1, &sp1C);
     if (sp18 != 0) {
         if (sp18 != 2) {
             return sp18;
         }
-        sp18 = func_80045850(arg0->unk4, arg0->unk8, 1, &sp1C);
+        sp18 = __osContRamRead(arg0->unk4, arg0->unk8, 1, &sp1C);
         if (sp18 != 0) {
             return sp18;
         }
@@ -453,7 +453,7 @@ loop_9:
     return 0;
 }
 
-s32 func_800454BC(void *arg0, void *arg1, u8 arg2, u8 arg3) {
+s32 __osPfsRWInode(void *arg0, void *arg1, u8 arg2, u8 arg3) {
     u8 sp37;
     s32 sp30;
     s32 sp2C;
@@ -471,7 +471,7 @@ s32 func_800454BC(void *arg0, void *arg1, u8 arg2, u8 arg3) {
 
     if (arg0->unk65 != 0) {
         arg0->unk65 = (u8)0U;
-        sp2C = func_800457DC(arg0);
+        sp2C = __osPfsSelectBank(arg0);
         if (sp2C != 0) {
             return sp2C;
         }
@@ -482,17 +482,17 @@ s32 func_800454BC(void *arg0, void *arg1, u8 arg2, u8 arg3) {
         sp28 = arg0->unk60;
     }
     if (arg2 == 1) {
-        arg1->unk1 = func_80044AF0(arg1 + (sp28 * 2), (-sp28 * 2) + 0x100);
+        arg1->unk1 = __osSumcalc(arg1 + (sp28 * 2), (-sp28 * 2) + 0x100);
     }
     sp30 = 0;
 loop_9:
     temp_t2 = arg1 + (sp30 << 5);
     sp24 = temp_t2;
     if (arg2 == 1) {
-        sp2C = func_80046B80(arg0->unk4, arg0->unk8, (arg0->unk54 + (arg3 * 8)) + sp30, temp_t2, 0);
-        phi_v0 = func_80046B80(arg0->unk4, arg0->unk8, (arg0->unk58 + (arg3 * 8)) + sp30, sp24, 0);
+        sp2C = __osContRamWrite(arg0->unk4, arg0->unk8, (arg0->unk54 + (arg3 * 8)) + sp30, temp_t2, 0);
+        phi_v0 = __osContRamWrite(arg0->unk4, arg0->unk8, (arg0->unk58 + (arg3 * 8)) + sp30, sp24, 0);
     } else {
-        phi_v0 = func_80045850(arg0->unk4, arg0->unk8, (arg0->unk54 + (arg3 * 8)) + sp30, sp24);
+        phi_v0 = __osContRamRead(arg0->unk4, arg0->unk8, (arg0->unk54 + (arg3 * 8)) + sp30, sp24);
     }
     sp2C = phi_v0;
     if (sp2C != 0) {
@@ -504,13 +504,13 @@ loop_9:
         goto loop_9;
     }
     if (arg2 == 0) {
-        sp37 = func_80044AF0(arg1 + (sp28 * 2), (-sp28 * 2) + 0x100);
+        sp37 = __osSumcalc(arg1 + (sp28 * 2), (-sp28 * 2) + 0x100);
         if (arg1->unk1 != sp37) {
             sp30 = 0;
 loop_18:
             temp_t6 = arg1 + (sp30 << 5);
             sp24 = temp_t6;
-            sp2C = func_80045850(arg0->unk4, arg0->unk8, (arg0->unk58 + (arg3 * 8)) + sp30, temp_t6);
+            sp2C = __osContRamRead(arg0->unk4, arg0->unk8, (arg0->unk58 + (arg3 * 8)) + sp30, temp_t6);
             temp_t4 = sp30 + 1;
             sp30 = temp_t4;
             if (temp_t4 < 8) {
@@ -523,7 +523,7 @@ loop_18:
 loop_22:
             temp_t5_2 = arg1 + (sp30 << 5);
             sp24 = temp_t5_2;
-            sp2C = func_80046B80(arg0->unk4, arg0->unk8, (arg0->unk54 + (arg3 * 8)) + sp30, temp_t5_2, 0);
+            sp2C = __osContRamWrite(arg0->unk4, arg0->unk8, (arg0->unk54 + (arg3 * 8)) + sp30, temp_t5_2, 0);
             temp_t0 = sp30 + 1;
             sp30 = temp_t0;
             if (temp_t0 < 8) {
@@ -534,7 +534,7 @@ loop_22:
 loop_25:
             temp_t1 = arg1 + (sp30 << 5);
             sp24 = temp_t1;
-            sp2C = func_80046B80(arg0->unk4, arg0->unk8, (arg0->unk58 + (arg3 * 8)) + sp30, temp_t1, 0);
+            sp2C = __osContRamWrite(arg0->unk4, arg0->unk8, (arg0->unk58 + (arg3 * 8)) + sp30, temp_t1, 0);
             temp_t3 = sp30 + 1;
             sp30 = temp_t3;
             if (temp_t3 < 8) {
@@ -545,7 +545,7 @@ loop_25:
     return 0;
 }
 
-s32 func_800457DC(void *arg0) {
+s32 __osPfsSelectBank(void *arg0) {
     ? sp28;
     s32 sp24;
     s32 sp20;
@@ -561,7 +561,7 @@ loop_1:
     if (temp_t1 < 0x20) {
         goto loop_1;
     }
-    temp_v0 = func_80046B80(arg0->unk4, arg0->unk8, 0x400, &sp28, 0);
+    temp_v0 = __osContRamWrite(arg0->unk4, arg0->unk8, 0x400, &sp28, 0);
     sp20 = temp_v0;
     return temp_v0;
 }

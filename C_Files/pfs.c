@@ -215,13 +215,13 @@ s32 func_8003B120(void *arg0, void *arg1) {
     if ((arg0->unk0 & 1) == 0) {
         return 5;
     }
-    if (func_800453C0(arg0) == 2) {
+    if (__osCheckId(arg0) == 2) {
         return 2;
     }
     sp23 = (u8)0U;
     if ((s32) arg0->unk64 > 0) {
 loop_5:
-        sp24 = func_800454BC(arg0, &sp28, 0, sp23);
+        sp24 = __osPfsRWInode(arg0, &sp28, 0, sp23);
         if (sp24 != 0) {
             return sp24;
         }

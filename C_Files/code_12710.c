@@ -289,9 +289,9 @@ loop_1:
     }
     if (phi_s2_2 < 0x2BU) {
         temp_s2_2 = phi_v0_2->unk4;
-        *(void *)0x80086A00 = (?32) temp_s2_2;
+        *(void *)NumSpiritsOnMap = (?32) temp_s2_2;
         if (temp_s2_2 != 0) {
-            phi_s0 = (void *)0x80086A08;
+            phi_s0 = (void *)SpiritXPos;
             phi_s1 = phi_v0_2->unk8;
             phi_s2_3 = temp_s2_2;
 loop_7:
@@ -314,7 +314,7 @@ loop_7:
             return temp_ret;
         }
     } else {
-        *(void *)0x80086A00 = 0;
+        *(void *)NumSpiritsOnMap = 0;
     }
     return phi_return;
 }
@@ -332,10 +332,10 @@ void *func_80012358(void *arg0) {
     void *phi_s0;
     s32 phi_s1;
 
-    temp_s1 = *(void *)0x80086A00;
+    temp_s1 = *(void *)NumSpiritsOnMap;
     sp5C = NULL;
     if (temp_s1 != 0) {
-        phi_s0 = (void *)0x80086A08;
+        phi_s0 = (void *)SpiritXPos;
         phi_s1 = temp_s1;
 loop_2:
         if (((((phi_s0->unk10 == 0) && (temp_f0 = phi_s0->unk0 - arg0->unk0, temp_a1 = &sp50, temp_f2 = phi_s0->unk8 - arg0->unk8, (((temp_f0 * temp_f0) + (temp_f2 * temp_f2)) < 400.0f))) && (sp50 = temp_f0, sp54 = temp_f2, func_800232F4(arg0->unk10, temp_a1), (0.0f <= sp54))) && (temp_f0_2 = (f64) sp50, (-5.0 < temp_f0_2))) && (temp_f0_2 < 5.0)) {
@@ -363,10 +363,10 @@ void func_8001249C(void) {
     void *phi_s0;
     s32 phi_s1;
 
-    temp_s1 = *(void *)0x80086A00;
+    temp_s1 = *(void *)NumSpiritsOnMap;
     if (temp_s1 != 0) {
         temp_f20 = *(void *)0x800712F0;
-        phi_s0 = (void *)0x80086A08;
+        phi_s0 = (void *)SpiritXPos;
         phi_s1 = temp_s1;
 loop_2:
         if (phi_s0->unk10 == 0) {
@@ -638,10 +638,10 @@ void func_80012BE0(s32 arg0) {
     temp_f12 = (f32) (((f64) (bitwise f32) *(void *)0x80086EC8 * *(void *)0x80071348) / 2.0);
     sp60 = temp_f12;
     sp38 = func_80035680(temp_f12);
-    *(void *)0x80086ED4 = (f32) (sp38 / func_800361F0(temp_f12));
+    *(void *)0x80086ED4 = (f32) (sp38 / cosf(temp_f12));
 }
 
-void func_80013008(void *arg0) {
+void camModeFollow(void *arg0) {
     u8 sp47;
     f32 sp40;
     f32 sp3C;
@@ -902,7 +902,7 @@ block_33:
     }
 }
 
-f32 func_80013698(void *arg0) {
+f32 camModeStaticRotate(void *arg0) {
     f32 sp34;
     f32 sp30;
     f32 sp2C;
@@ -962,7 +962,7 @@ f32 func_80013698(void *arg0) {
         temp_f0_3 = arg0->unk24;
         if (temp_f0_3 < temp_f12) {
             arg0->unk24 = temp_f12;
-            sp34 = sp28 / func_800361F0(temp_f12);
+            sp34 = sp28 / cosf(temp_f12);
             temp_ret_4 = func_80035680(arg0->unk60);
             arg0->unk1C = (f32) (arg0->unk10 - (temp_ret_4 * sp34));
             phi_f16_2 = 0.0f;
@@ -973,7 +973,7 @@ f32 func_80013698(void *arg0) {
             phi_return = temp_f0_3;
             if (temp_f12_2 < temp_f0_3) {
                 arg0->unk24 = temp_f12_2;
-                sp34 = sp28 / func_800361F0(temp_f12_2);
+                sp34 = sp28 / cosf(temp_f12_2);
                 temp_ret_5 = func_80035680(arg0->unk64);
                 arg0->unk1C = (f32) (arg0->unk10 - (temp_ret_5 * sp34));
                 phi_f16_2 = 0.0f;
@@ -1152,7 +1152,7 @@ loop_3:
             }
         }
     }
-    func_80013008(phi_f12_4, phi_f14, arg0);
+    camModeFollow(phi_f12_4, phi_f14, arg0);
 }
 
 void func_80013C80(void *arg0) {
@@ -1183,7 +1183,7 @@ void func_80013C80(void *arg0) {
             arg0->unk8 = (u16) (arg0->unk8 | 0x10);
         }
     }
-    func_80013008(temp_a1);
+    camModeFollow(temp_a1);
 }
 
 void func_80013D30(s32 arg0) {

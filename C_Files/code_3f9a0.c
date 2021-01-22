@@ -1,4 +1,4 @@
-? func_8003EDA0(s32 arg0) {
+? __osProbeTLB(s32 arg0) {
     s32 phi_v0;
 
     ERROR(unknown instruction: mfc0 $t0, $10);

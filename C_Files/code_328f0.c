@@ -460,17 +460,17 @@ void func_80033850(void) {
 
     sp30 = 0U;
     *(void *)0x80092D40 = 1;
-    func_8003C990(func_8003C9A0() | 0x20000000);
-    func_8003C9B0(0x1000800);
-    if (func_8003C9C0(0x1FC007FC, &sp34) != 0) {
+    __osSetSR(func_8003C9A0() | 0x20000000);
+    __osSetFpcCsr(0x1000800);
+    if (__osSpRawReadIo(0x1FC007FC, &sp34) != 0) {
 loop_1:
-        if (func_8003C9C0(0x1FC007FC, &sp34) != 0) {
+        if (__osSpRawReadIo(0x1FC007FC, &sp34) != 0) {
             goto loop_1;
         }
     }
-    if (func_8003CA10(0x1FC007FC, sp34 | 8) != 0) {
+    if (__osSpRawWriteIo(0x1FC007FC, sp34 | 8) != 0) {
 loop_3:
-        if (func_8003CA10(0x1FC007FC, sp34 | 8) != 0) {
+        if (__osSpRawWriteIo(0x1FC007FC, sp34 | 8) != 0) {
             goto loop_3;
         }
     }
@@ -509,7 +509,7 @@ loop_3:
     *(void *)0x8006F400 = temp_ret_2;
     *(void *)0x8006F404 = temp_v1_2;
     if (*(void *)0x8000030C == 0) {
-        func_8003D430(0x8000031C, 0x40);
+        bzero(0x8000031C, 0x40);
     }
     if (*(void *)0x80000300 == 0) {
         *(void *)0x8006F408 = 0x2F5B2D2;

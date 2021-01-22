@@ -1,4 +1,4 @@
-f32 func_800361F0(f32 arg0) {
+f32 cosf(f32 arg0) {
     f64 temp_f0;
     f64 temp_f12;
     f64 temp_f14;

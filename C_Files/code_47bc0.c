@@ -9,13 +9,13 @@ s32 func_80046FC0(void *arg0, u16 arg1, s32 arg2, s32 arg3, s32 arg4, void *arg5
     s32 temp_t9;
 
     sp1C = 0;
-    if (func_800453C0(arg0) == 2) {
+    if (__osCheckId(arg0) == 2) {
         return 2;
     }
     sp44 = 0;
     if (arg0->unk50 > 0) {
 loop_3:
-        sp1C = func_80045850(arg0->unk4, arg0->unk8, arg0->unk5C + sp44, &sp20);
+        sp1C = __osContRamRead(arg0->unk4, arg0->unk8, arg0->unk5C + sp44, &sp20);
         if (sp1C != 0) {
             return sp1C;
         }

@@ -342,7 +342,7 @@ loop_8:
     return phi_t1_3;
 }
 
-void *func_80040FA0(void) {
+void *_decodeChunk(void) {
     s32 temp_a2;
     s32 temp_s1;
     s32 temp_s3;
@@ -488,7 +488,7 @@ void *func_800410CC(void *arg0, void *arg1, s32 arg2, ? arg3, void *arg4) {
         sp8C = phi_a1;
         temp_v1_3 = arg0->unk3C;
         temp_a1 = phi_a1;
-        temp_t2 = func_80040FA0(phi_a0, phi_a1, phi_a2, temp_a3);
+        temp_t2 = _decodeChunk(phi_a0, phi_a1, phi_a2, temp_a3);
         if (temp_v1_3 != 0) {
             *arg1 = (s16) (*arg1 + (temp_v1_3 * 2));
         } else {
@@ -533,7 +533,7 @@ loop_16:
             sp88 = temp_t7;
             sp80 = temp_a2;
             sp8C = phi_a1_3;
-            temp_v0_4 = func_80040FA0(phi_a0_2, phi_a1_3, temp_a2, temp_t7);
+            temp_v0_4 = _decodeChunk(phi_a0_2, phi_a1_3, temp_a2, temp_t7);
             temp_a1_2 = phi_a1_3;
             temp_v1_4 = temp_a1_2 * 2;
             temp_v0_4->unk0 = (s32) ((((arg0->unk3C * 2) + temp_t7) & 0xFFFFFF) | 0xA000000);
@@ -577,7 +577,7 @@ loop_16:
         arg1 = temp_a3;
         sp90 = phi_a0_3;
         temp_v1_6 = arg0->unk3C;
-        temp_t2_2 = func_80040FA0(phi_a0_3, temp_a1_3, temp_t1_4 - phi_v1_2, temp_a3);
+        temp_t2_2 = _decodeChunk(phi_a0_3, temp_a1_3, temp_t1_4 - phi_v1_2, temp_a3);
         if (temp_v1_6 != 0) {
             *arg1 = (s16) (*arg1 + (temp_v1_6 * 2));
         } else {

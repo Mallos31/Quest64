@@ -23,7 +23,7 @@ s32 func_8000B530(void) {
 loop_1:
     if ((temp_v0 == phi_v1->unk0) && (*(void *)0x80084EE8 == phi_v1->unk2)) {
         sp28 = phi_v1;
-        temp_ret_2 = func_8000B9D8(phi_s0, 8);
+        temp_ret_2 = checkForValidBossID(phi_s0, 8);
         temp_v1 = phi_v1;
         phi_return = temp_ret_2;
         if (temp_ret_2 == 0) {
@@ -143,7 +143,7 @@ void *func_8000B7DC(s32 arg0, f32 arg1, s32 arg2, f32 arg3, void *arg4) {
     return (void *)0x8007D110;
 }
 
-s32 func_8000B9D8(u32 arg0) {
+s32 checkForValidBossID(u32 arg0) {
     return (((arg0 & 7) + 0x80050000)->unk-28C0 & ((arg0 >> 3) + 0x80080000)->unk-2E64) & 0xFF;
 }
 

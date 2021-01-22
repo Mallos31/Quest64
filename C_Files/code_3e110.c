@@ -1,4 +1,4 @@
-void func_8003D510(void *arg0, void *arg1) {
+void __osDequeueThread(void *arg0, void *arg1) {
     void *temp_a2;
     void *temp_a3;
     void *temp_a3_2;
@@ -42,12 +42,12 @@ s32 func_8003D550(void) {
         *(void *)0x800954E7 = (s8) ((sp1C >> 0x14) & 0xF);
         *(void *)0x800954E9 = (u8)0;
         *(void *)0x800954F0 = 0;
-        func_8003D430(0x800954F4, 0x60);
-        temp_v0 = func_8003D4D0();
+        bzero(0x800954F4, 0x60);
+        temp_v0 = __osDisableInt();
         *(void *)0x800954E0 = (s32) *(void *)0x8006F43C;
         sp18 = temp_v0;
         *(void *)0x8006F43C = 0x800954E0;
-        func_8003D4F0(sp18);
+        __osRestoreInt(sp18);
     }
     return 0x80090000 + 0x54E0;
 }

@@ -10,9 +10,9 @@ void func_80033F10(void *arg0, ?32 arg1, ?32 arg2) {
 void func_80033F40(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_v0;
 
-    temp_v0 = func_8003D4D0();
+    temp_v0 = __osDisableInt();
     (*(void *)0x80070A84)->unk10 = arg0;
     (*(void *)0x80070A84)->unk14 = arg1;
     (*(void *)0x80070A84)->unk2 = (s16) arg2;
-    func_8003D4F0(temp_v0);
+    __osRestoreInt(temp_v0);
 }

@@ -1,5 +1,5 @@
-? func_8003E560(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    if (func_8003E5F0() != 0) {
+? __osSpRawStartDma(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    if (__osSpDeviceBusy() != 0) {
         return -1;
     }
     *(void *)0xA4040000 = arg1;

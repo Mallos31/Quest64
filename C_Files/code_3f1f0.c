@@ -1,11 +1,11 @@
-? func_8003E5F0(void) {
+? __osSpDeviceBusy(void) {
     if ((*(void *)0xA4040010 & 0x1C) != 0) {
         return 1;
     }
     return 0;
 }
 
-void func_8003E620(void) {
+void __osTimerServicesInit(void) {
     void *temp_t1;
     void *temp_t4;
     void *temp_t8;
@@ -29,7 +29,7 @@ void func_8003E620(void) {
     (*(void *)0x80070A90)->unk1C = 0;
 }
 
-void func_8003E6AC(void) {
+void __osTimerInterrupt(void) {
     void *sp24;
     s32 sp20;
     u32 sp1C;
@@ -63,7 +63,7 @@ block_6:
                     temp_t0 = (sp24->unk10 - 0U) - (temp_t3 < sp1C);
                     sp24->unk14 = (u32) (temp_t3 - sp1C);
                     sp24->unk10 = temp_t0;
-                    func_8003E824(sp24->unk10, sp24->unk14);
+                    __osSetTimerIntr(sp24->unk10, sp24->unk14);
                     return;
                 }
                 if (sp1C < (u32) sp24->unk14) {
@@ -87,31 +87,31 @@ block_6:
             }
             sp24->unk10 = temp_t8_2;
             sp24->unk14 = temp_t9_2;
-            func_8003E898(sp24);
+            __osInsertTimer(sp24);
             goto loop_1;
         }
-        func_80047CD0(0);
+        __osSetCompare(0);
         *(void *)0x80095630 = 0;
         return;
     }
 }
 
-void func_8003E824(s32 arg0, u32 arg1) {
+void __osSetTimerIntr(s32 arg0, u32 arg1) {
     u32 sp24;
     s32 sp20;
     s32 sp1C;
     u32 temp_t3;
 
-    sp1C = func_8003D4D0();
+    sp1C = __osDisableInt();
     *(void *)0x80095630 = func_8003ED90();
     temp_t3 = *(void *)0x80095630 + arg1;
     sp20 = (temp_t3 < arg1) + arg0;
     sp24 = temp_t3;
-    func_80047CD0(temp_t3);
-    func_8003D4F0(sp1C);
+    __osSetCompare(temp_t3);
+    __osRestoreInt(sp1C);
 }
 
-u32 func_8003E898(void *arg0) {
+u32 __osInsertTimer(void *arg0) {
     void *sp34;
     u32 sp2C;
     u32 sp28;
@@ -132,7 +132,7 @@ u32 func_8003E898(void *arg0) {
     void *temp_t7;
 
     temp_t6 = *(void *)0x80070A90;
-    sp24 = func_8003D4D0();
+    sp24 = __osDisableInt();
     temp_t7 = *temp_t6;
     sp34 = temp_t7;
     temp_t1 = arg0->unk14;
@@ -182,15 +182,15 @@ loop_4:
     arg0->unk4 = (s32) sp34->unk4;
     *sp34->unk4 = arg0;
     sp34->unk4 = arg0;
-    func_8003D4F0(sp24);
+    __osRestoreInt(sp24);
     return sp28;
 }
 
-s32 func_8003EA20(void) {
+s32 __osGetCurrFaultedThread(void) {
     return *(void *)0x80070A80;
 }
 
-void func_8003EA30(void) {
+void __osViSwapContext(void) {
     s32 sp3C;
     s32 sp38;
     u32 sp34;

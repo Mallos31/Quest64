@@ -9,5 +9,5 @@ s32 func_80034DD0(u32 arg0) {
             return arg0 & 0x1FFFFFFF;
         }
     }
-    return func_8003EDA0(arg0);
+    return __osProbeTLB(arg0);
 }

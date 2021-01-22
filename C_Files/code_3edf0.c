@@ -1,12 +1,12 @@
-void func_8003E1F0(s32 arg0) {
+void __osSpSetStatus(s32 arg0) {
     *(void *)0xA4040010 = arg0;
 }
 
-s32 func_8003E200(void) {
+s32 __osSpGetStatus(void) {
     return *(void *)0xA4040010;
 }
 
-s32 func_8003E210(s32 arg0, s32 arg1, s32 arg2) {
+s32 bcopy(s32 arg0, s32 arg1, s32 arg2) {
     s16 temp_v0_3;
     s16 temp_v1;
     s32 temp_a0;
