@@ -1,4 +1,4 @@
-void *func_80021170(void) {
+void *initInventory(void) {
     s32 temp_v1;
     s32 temp_v1_2;
     void *temp_v0;
@@ -41,7 +41,7 @@ loop_3:
     return temp_v0;
 }
 
-? CheckIfLastInvSlotEmpty(void) {
+? checkIfInventoryFull(void) {
     ? phi_v1;
 
     phi_v1 = 1;
@@ -95,7 +95,7 @@ loop_1:
     return 0xFF;
 }
 
-s32 func_800212E4(u8 arg0) {
+s32 useItemIfPossible(u8 arg0) {
     s32 sp1C;
     s32 temp_t6;
     u8 temp_a2;
