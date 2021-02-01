@@ -77,7 +77,7 @@ loop_1:
     goto loop_1;
 }
 
-void func_800007D4(void *arg0, void *arg1, s32 arg2) {
+void osScAddClient(void *arg0, void *arg1, s32 arg2) {
     s32 temp_a0;
 
     temp_a0 = func_80034160(1);
