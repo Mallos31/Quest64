@@ -1,4 +1,4 @@
-s32 func_80038590(void *arg0, void *arg1) {
+s32 alCSeqGetLoc(void *arg0, void *arg1) {
     s32 temp_v0;
     void *temp_a2;
     void *temp_a3;
@@ -45,7 +45,7 @@ loop_1:
     return temp_v0;
 }
 
-s32 func_80038630(void *arg0, void *arg1) {
+s32 alCSeqSetLoc(void *arg0, void *arg1) {
     s32 temp_v0;
     void *temp_a2;
     void *temp_a3;
