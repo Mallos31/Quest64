@@ -15,21 +15,22 @@ void func_80000530(void *arg0, u8 arg1) {
     arg0->unk2 = (u16)3;
     temp_a0 = arg0 + 0x74;
     sp2C = temp_a0;
-    func_80033F10(temp_a0, arg0 + 0x8C, 8);
+    osCreateMesgQueue(temp_a0, arg0 + 0x8C, 8);
     temp_a0_2 = arg0 + 0xAC;
     sp28 = temp_a0_2;
-    func_80033F10(temp_a0_2, arg0 + 0xC4, 8);
+    osCreateMesgQueue(temp_a0_2, arg0 + 0xC4, 8);
     temp_a0_3 = arg0 + 0xE4;
     sp24 = temp_a0_3;
-    func_80033F10(temp_a0_3, arg0 + 0xFC, 8);
-    func_80033F10(arg0 + 0x3C, arg0 + 0x54, 8);
-    func_80033F10(arg0 + 4, arg0 + 0x1C, 8);
-    func_80033F10(arg0 + 0x11C, arg0 + 0x134, 8);
-    func_80033F40(temp_a0, 0x29A, arg1);
-    func_80033FB0(4, sp28, 0x29B);
-    func_80033FB0(9, sp24, 0x29C);
-    func_80033FB0(0xE, sp2C, 0x29D);
+    osCreateMesgQueue(temp_a0_3, arg0 + 0xFC, 8);
+    osCreateMesgQueue(arg0 + 0x3C, arg0 + 0x54, 8);
+    osCreateMesgQueue(arg0 + 4, arg0 + 0x1C, 8);
+    osCreateMesgQueue(arg0 + 0x11C, arg0 + 0x134, 8);
+    osViSetEvent(temp_a0, 0x29A, arg1);
+    osSetEventMesg(4, sp28, 0x29B);
+    osSetEventMesg(9, sp24, 0x29C);
+    osSetEventMesg(0xE, sp2C, 0x29D);
 }
+
 
 void func_8000062C(s32 arg0) {
     s32 sp2C;
@@ -50,6 +51,7 @@ void func_8000062C(s32 arg0) {
     func_80033AE0(temp_a0_3, 0x11, 0x80000A80, arg0, 0x8007B2D0, 0x64);
     func_80033C30(temp_a0_3);
 }
+
 
 s32 Add_Four(s32 arg0) {
     return arg0 + 4;
@@ -338,13 +340,14 @@ s32 func_8000111C(void *arg0) {
     return 0x80049EF0;
 }
 
-s32 func_800011DC(void *arg0) {
+s32 graphicsMain(void *arg0) {
     void *sp74;
     void *sp70;
     void *sp68;
     void *sp5C;
     void *sp4C;
-    void *sp24;
+    s32 sp24;
+    s32 temp_a0;
     s32 temp_t5;
     s32 temp_t5_2;
     s32 temp_t8;
@@ -352,7 +355,6 @@ s32 func_800011DC(void *arg0) {
     s32 temp_v0_3;
     s32 temp_v0_4;
     u16 temp_v0;
-    void *temp_a0;
     void *temp_v1;
     void *temp_v1_10;
     void *temp_v1_11;
@@ -376,99 +378,99 @@ s32 func_800011DC(void *arg0) {
     s32 phi_v0;
     s16 phi_t8;
 
-    *(void *)0x8007B2FC = (void *) (arg0 + 0x8148);
-    temp_v1 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1 + 8);
+    UNK_DisplayListCommand = (void *) (arg0 + 0x8148);
+    temp_v1 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1 + 8);
     temp_v1->unk4 = 0;
     temp_v1->unk0 = 0xBC000006;
-    temp_v1_2 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_2 + 8);
+    temp_v1_2 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_2 + 8);
     temp_v1_2->unk0 = 0xBC000406;
     sp74 = temp_v1_2;
-    sp74->unk4 = func_80034DD0(*(void *)spiritData);
-    temp_v1_3 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_3 + 8);
+    sp74->unk4 = osVirtualToPhysical(spiritData);
+    temp_v1_3 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_3 + 8);
     temp_v1_3->unk0 = 0xBC000806;
     sp70 = temp_v1_3;
     temp_a0 = arg0 + 0x58;
     sp24 = temp_a0;
-    sp70->unk4 = func_80034DD0(temp_a0, sp74);
-    temp_v1_4 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_4 + 8);
+    sp70->unk4 = osVirtualToPhysical(temp_a0, sp74);
+    temp_v1_4 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_4 + 8);
     temp_v1_4->unk4 = 0x1000010;
     temp_v1_4->unk0 = 0x6000000;
-    temp_v1_5 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_5 + 8);
+    temp_v1_5 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_5 + 8);
     temp_v1_5->unk0 = 0xFE000000;
     sp68 = temp_v1_5;
-    sp68->unk4 = func_80034DD0(0x802DA800, sp70);
-    temp_v1_6 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_6 + 8);
+    sp68->unk4 = osVirtualToPhysical(&D_802DA800);
+    temp_v1_6 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_6 + 8);
     temp_v1_6->unk4 = 0;
     temp_v1_6->unk0 = 0xE7000000;
-    temp_v1_7 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_7 + 8);
+    temp_v1_7 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_7 + 8);
     temp_v1_7->unk4 = 0x300000;
     temp_v1_7->unk0 = 0xBA001402;
-    temp_v1_8 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_8 + 8);
+    temp_v1_8 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_8 + 8);
     temp_v1_8->unk0 = 0xFF10013F;
     sp5C = temp_v1_8;
-    sp5C->unk4 = func_80034DD0(0x802DA800, sp68);
-    temp_v1_9 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_9 + 8);
+    sp5C->unk4 = osVirtualToPhysical(&D_802DA800);
+    temp_v1_9 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_9 + 8);
     temp_v1_9->unk4 = 0xFFFCFFFC;
     temp_v1_9->unk0 = 0xF7000000;
-    temp_v1_10 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_10 + 8);
+    temp_v1_10 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_10 + 8);
     temp_v1_10->unk0 = 0xF64DC39C;
     temp_v1_10->unk4 = 0x20020;
-    temp_v1_11 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_11 + 8);
+    temp_v1_11 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_11 + 8);
     temp_v1_11->unk4 = 0;
     temp_v1_11->unk0 = 0xE7000000;
-    temp_v1_12 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_12 + 8);
+    temp_v1_12 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_12 + 8);
     temp_v1_12->unk0 = 0xFF10013F;
     sp4C = temp_v1_12;
-    sp4C->unk4 = func_80034DD0(arg0->unkD14C);
-    if (1 == *(void *)0x8007B2E0) {
-        temp_v1_13 = *(void *)0x8007B2FC;
-        *(void *)0x8007B2FC = (void *) (temp_v1_13 + 8);
+    sp4C->unk4 = osVirtualToPhysical(arg0->unkD14C);
+    if (GameMode == 1) {
+        temp_v1_13 = UNK_DisplayListCommand;
+        UNK_DisplayListCommand = (void *) (temp_v1_13 + 8);
         temp_v1_13->unk0 = 0xF7000000;
-        temp_t5 = ((((*(void *)0x8007B300 << 8) & 0xF800) | ((*(void *)0x8007B304 * 8) & 0x7C0)) | (((u32) *(void *)0x8007B308 >> 2) & 0x3E)) | 1;
+        temp_t5 = ((D_8007B300 << 8) & 0xF800) | ((D_8007B304 * 8) & 0x7C0) | (((u32) D_8007B308 >> 2) & 0x3E) | 1;
         temp_v1_13->unk4 = (s32) ((temp_t5 << 0x10) | temp_t5);
-        temp_v1_14 = *(void *)0x8007B2FC;
-        *(void *)0x8007B2FC = (void *) (temp_v1_14 + 8);
+        temp_v1_14 = UNK_DisplayListCommand;
+        UNK_DisplayListCommand = (void *) (temp_v1_14 + 8);
         temp_v1_14->unk4 = 0x20020;
         temp_v1_14->unk0 = 0xF64DC39C;
     } else {
-        temp_v1_15 = *(void *)0x8007B2FC;
-        *(void *)0x8007B2FC = (void *) (temp_v1_15 + 8);
+        temp_v1_15 = UNK_DisplayListCommand;
+        UNK_DisplayListCommand = (void *) (temp_v1_15 + 8);
         temp_v1_15->unk4 = 0x10001;
         temp_v1_15->unk0 = 0xF7000000;
-        temp_v1_16 = *(void *)0x8007B2FC;
-        *(void *)0x8007B2FC = (void *) (temp_v1_16 + 8);
+        temp_v1_16 = UNK_DisplayListCommand;
+        UNK_DisplayListCommand = (void *) (temp_v1_16 + 8);
         temp_v1_16->unk4 = 0x20020;
         temp_v1_16->unk0 = 0xF64DC39C;
     }
-    temp_v1_17 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_17 + 8);
+    temp_v1_17 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_17 + 8);
     temp_v1_17->unk4 = 0;
     temp_v1_17->unk0 = 0xE7000000;
-    temp_v1_18 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_18 + 8);
+    temp_v1_18 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_18 + 8);
     temp_v1_18->unk4 = 0x100000;
     temp_v1_18->unk0 = 0xBA001402;
-    temp_v0 = *(void *)0x8007B2E0;
-    if (1 == temp_v0) {
-        func_80012BE0(sp24, (void *)0x8007B2E0, 1);
-        func_80010B58();
-        if ((*(void *)0x80084F12 & 4) != 0) {
-            func_800111F8(*(void *)0x8007B340);
+    temp_v0 = GameMode;
+    if (temp_v0 == 1) {
+        func_80012BE0(sp24);
+        VOID_FUN_80010b58();
+        if ((D_80084F12 & 4) != 0) {
+            func_800111F8(D_8007B340);
             func_8000D9BC(sp24);
         }
-        func_800111F8(*(void *)0x8007B340);
+        func_800111F8(D_8007B340);
         func_8000C4C4(sp24);
         func_80003870(sp24);
         func_80007F18(sp24);
@@ -476,103 +478,94 @@ s32 func_800011DC(void *arg0) {
         func_8000CE8C(sp24);
         func_80008CF4(sp24);
         func_8000B618(sp24);
-        func_8001249C();
-        func_800111F8(*(void *)0x8007BC08);
+        VOID_FUN_8001249c();
+        func_800111F8(D_8007BC08);
         func_800118D4(sp24);
         func_8001B19C(sp24);
         func_80018638(sp24);
-        func_800228F8(sp24);
-        temp_v0_2 = *(void *)0x8007B2E4;
+        unk_dimsScreenWhenOpeningMenu(sp24);
+        temp_v0_2 = HUDState;
         if ((temp_v0_2 & 2) != 0) {
-            func_8002EAA0();
+            printText();
 block_11:
-            phi_v0 = (void *)0x80080000->unk-4D1C;
+            phi_v0 = HUDState;
         } else {
             phi_v0 = temp_v0_2;
             if ((temp_v0_2 & 0x4000) == 0) {
                 phi_v0 = temp_v0_2;
-                if (*(void *)0x8007B2E8 != 4) {
+                if (cutsceneNum != 4) {
                     func_8001E25C(sp24);
                     goto block_11;
                 }
             }
         }
         if ((phi_v0 & 1) != 0) {
-            func_80021524();
+            updateHUDState();
         }
-    } else {
-        if (temp_v0 == 2) {
-            func_80026A7C(sp24, (void *)0x8007B2E0, 1);
-        } else {
-            if (temp_v0 == 3) {
-                temp_v0_3 = func_8010004C((void *)0x8007B2E0, 1);
-                if (temp_v0_3 != 0) {
-                    if (temp_v0_3 != 1) {
+    } else if (temp_v0 == 2) {
+        openPauseMenuOrSaveLoad(sp24);
+    } else if (temp_v0 == 3) {
+        temp_v0_3 = displayTitleScreen();
+        if (temp_v0_3 != 0) {
+            if (temp_v0_3 != 1) {
 
+            } else {
+                GameMode = (u16)4;
+            }
+        } else {
+            temp_t5_2 = TitleScreenOption & 0xF0;
+            if (temp_t5_2 != 0x10) {
+                if (temp_t5_2 != 0x20) {
+                    if (temp_t5_2 != 0x30) {
+                        phi_t8 = (u16)1;
+block_38:
+                        GameMode = phi_t8;
                     } else {
-                        *(void *)0x8007B2E0 = (u16)4U;
+                        UNK_SetsGameStateto2(8);
                     }
                 } else {
-                    temp_t5_2 = *(void *)0x8007B344 & 0xF0;
-                    if (temp_t5_2 != 0x10) {
-                        if (temp_t5_2 != 0x20) {
-                            if (temp_t5_2 != 0x30) {
-                                phi_t8 = (u16)1;
-block_38:
-                                *(void *)0x8007B2E0 = phi_t8;
-                            } else {
-                                func_8002B510(8, (void *)0x8007B2E0, 1);
-                            }
-                        } else {
-                            func_8002B510(0, (void *)0x8007B2E0, 1);
-                        }
-                    } else {
-                        *(void *)0x8007B2E0 = (u16)1U;
-                    }
+                    UNK_SetsGameStateto2(0);
                 }
             } else {
-                if (temp_v0 == 4) {
-                    temp_v0_4 = func_8010009C((void *)0x8007B2E0, 1);
-                    if (temp_v0_4 != 0) {
-                        if (temp_v0_4 != 1) {
-                            *(void *)0x8006AC60 = (u8)0;
-                        } else {
-                            *(void *)0x8006AC60 = (u8)1;
-                            *(void *)0x8007B2E0 = (u16)3U;
-                        }
-                    } else {
-                        *(void *)0x8006AC60 = (u8)0;
-                        *(void *)0x8007B2E0 = (u16)3U;
-                    }
-                } else {
-                    if (temp_v0 == 5) {
-                        if (func_8010008C((void *)0x8007B2E0, 1) == 0) {
-                            phi_t8 = (u16)3;
-                            goto block_38;
-                        }
-                    }
-                }
+                GameMode = (u16)1;
             }
         }
+    } else if (temp_v0 == 4) {
+        temp_v0_4 = func_8010009C();
+        if (temp_v0_4 != 0) {
+            if (temp_v0_4 != 1) {
+                D_8006AC60 = (u8)0;
+            } else {
+                D_8006AC60 = (u8)1;
+                GameMode = (u16)3;
+            }
+        } else {
+            D_8006AC60 = (u8)0;
+            GameMode = (u16)3;
+        }
+    } else if ((temp_v0 == 5) && (func_8010008C() == 0)) {
+        phi_t8 = (u16)3;
+        goto block_38;
     }
-    temp_v1_19 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_19 + 8);
+    temp_v1_19 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_19 + 8);
     temp_v1_19->unk4 = 0;
     temp_v1_19->unk0 = 0xE9000000;
-    temp_v1_20 = *(void *)0x8007B2FC;
-    *(void *)0x8007B2FC = (void *) (temp_v1_20 + 8);
+    temp_v1_20 = UNK_DisplayListCommand;
+    UNK_DisplayListCommand = (void *) (temp_v1_20 + 8);
     temp_v1_20->unk4 = 0;
     temp_v1_20->unk0 = 0xB8000000;
-    func_80034E50(0x2000000, 0xD0F0);
-    temp_t8 = (s32) ((*(void *)0x8007B2FC - arg0) + 0xFFFF7EB8) >> 3;
-    if (*(void *)0x8007B34C < temp_t8) {
-        *(void *)0x8007B34C = temp_t8;
+    osWritebackDCache(0x2000000, 0xD0F0);
+    temp_t8 = (s32) ((UNK_DisplayListCommand - arg0) + 0xFFFF7EB8) >> 3;
+    if (D_8007B34C < temp_t8) {
+        D_8007B34C = temp_t8;
     }
-    *(void *)0x8004C210 = temp_t8;
-    arg0->unk40 = (void *) (sp24 + 0x80F0);
-    arg0->unk44 = (s32) (((s32) ((*(void *)0x8007B2FC - sp24) + 0xFFFF7F10) >> 3) * 8);
+    D_8004C210 = temp_t8;
+    arg0->unk40 = (s32) (sp24 + 0x80F0);
+    arg0->unk44 = (s32) (((s32) ((UNK_DisplayListCommand - sp24) + 0xFFFF7F10) >> 3) * 8);
     return temp_t8;
 }
+
 
 void func_80001800(void) {
     void *sp5C;
