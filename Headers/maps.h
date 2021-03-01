@@ -1,0 +1,39 @@
+/**********************************
+*   MAP NAMES NEED SOME RENAMING  *
+**********************************/
+#define MAP_MELRODE 		0x0
+#define MAP_DONDORAN 		0x1
+#define MAP_HOLY_PLAIN 		0x2
+#define MAP_DONDORAN_FLATS 	0x3
+#define MAP_LARAPOOL 		0x4
+#define MAP_WEST_CARMAGH 	0x5
+#define MAP_NORMOON 		0x6
+#define MAP_EAST_LIMELIN 	0x7
+#define MAP_LIMELIN_TOWN 	0x8
+#define MAP_DINDOM_DRIES 	0x9
+#define MAP_SHAMWOOD 		0xA
+#define MAP_BRANNOCH 		0xB
+#define MAP_SKYE 		0xC
+#define MAP_MONASTERY 		0xD
+#define MAP_DONDORAN_CASTLE 	0xE
+#define MAP_MELRODE_HOUSES	0xF
+#define MAP_DONDORAN_HOUSES	0x10
+#define MAP_LARAPOOL_HOUSES_1	0x11
+#define MAP_LARAPOOL_HOUSES_2	0x12
+#define MAP_WINDMILLS 		0x13
+#define MAP_HOUSES_5 		0x14
+#define MAP_LIMELIN_CASTLE 	0x15
+#define MAP_HOUSES_6 		0x16
+#define MAP_HOUSES_7 		0x17
+#define MAP_SHAMWOOD_PYRAMID 	0x18
+#define MAP_SHIPS 		0x19
+#define MAP_BLUE_CAVE 		0x1A
+#define MAP_CULL_HAZARD 	0x1B
+#define MAP_BARAGOON_TUNNEL 	0x1C
+#define MAP_BOIL_HOLE 		0x1D
+#define MAP_BRANNOCH_CASTLE 	0x1E
+#define MAP_CONNOR_FORTRESS 	0x1F
+#define MAP_GLENCOE_FOREST 	0x20
+#define MAP_WINDWARD_FOREST 	0x21
+#define MAP_WORLD_OF_MAMMON 	0x22
+#define MAP_NEPTY 		0x23

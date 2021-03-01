@@ -1,0 +1,613 @@
+name: Quest 64 (North America)
+basename: quest64
+options:
+  find_file_boundaries: True
+  compiler: IDO
+  platform: n64
+  out_dir: .
+  target_path: baserom.z64
+segments:
+  - name: header
+    type: header
+    start: 0x0
+  - name: boot
+    type: bin
+    start: 0x40
+  - name: main
+    type: code
+    start: 0x1000
+    vram: 0x80000400
+    subsections:
+      - [0x1000, asm]
+      - [0x1130, asm]
+      - [0x1850, asm]
+      - [0x33D0, asm]
+      - [0x8650, asm]
+      - [0x97B0, asm]
+      - [0xC120, asm]
+      - [0xC910, asm]
+      - [0xFA60, asm]
+      - [0x12450, asm]
+      - [0x12740, asm]
+      - [0x15440, asm]
+      - [0x191F0, asm]
+      - [0x1BCD0, asm]
+      - [0x1D160, asm]
+      - [0x1E4B0, asm]
+      - [0x1EDF0, asm]
+      - [0x21D70, asm]
+      - [0x234E0, asm]
+      - [0x23740, asm]
+      - [0x23BD0, asm]
+      - [0x24E60, asm]
+      - [0x25290, asm]
+      - [0x271F0, asm]
+      - [0x27640, asm]
+      - [0x2C110, asm]
+      - [0x2F1E0, asm]
+      - [0x31A10, asm]
+      - [0x31F00, asm]
+      - [0x32840, asm]
+      - [0x328F0, asm]
+      - [0x346E0, asm]
+      - [0x34830, asm]
+      - [0x34B10, asm]
+      - [0x34B40, asm]
+      - [0x34BB0, asm]
+      - [0x34C20, asm]
+      - [0x34D60, asm]
+      - [0x34F50, asm]
+      - [0x34F80, asm]
+      - [0x352E0, asm]
+      - [0x35440, asm]
+      - [0x357A0, asm]
+      - [0x35810, asm]
+      - [0x359D0, asm]
+      - [0x35A50, asm]
+      - [0x35AD0, asm]
+      - [0x35B60, asm]
+      - [0x35B70, asm]
+      - [0x35D90, asm]
+      - [0x36070, asm]
+      - [0x36280, asm]
+      - [0x36600, asm]
+      - [0x36890, asm]
+      - [0x36D50, asm]
+      - [0x36DF0, asm]
+      - [0x36F60, asm]
+      - [0x36FE0, asm]
+      - [0x37060, asm]
+      - [0x37110, asm]
+      - [0x37220, asm]
+      - [0x37260, asm]
+      - [0x372C0, asm]
+      - [0x37520, asm]
+      - [0x37C10, asm]
+      - [0x37CC0, asm]
+      - [0x37CD0, asm]
+      - [0x38F00, asm]
+      - [0x39150, asm]
+      - [0x39190, asm]
+      - [0x39C50, asm]
+      - [0x39C90, asm]
+      - [0x39D00, asm]
+      - [0x3A410, asm]
+      - [0x3A4B0, asm]
+      - [0x3A4D0, asm]
+      - [0x3A560, asm]
+      - [0x3A5B0, asm]
+      - [0x3A610, asm]
+      - [0x3A670, asm]
+      - [0x3A6D0, asm]
+      - [0x3AC00, asm]
+      - [0x3B3A0, asm]
+      - [0x3B3E0, asm]
+      - [0x3B7A0, asm]
+      - [0x3B810, asm]
+      - [0x3BE70, asm]
+      - [0x3C620, asm]
+      - [0x3CC30, asm]
+      - [0x3D130, asm]
+      - [0x3D390, asm]
+      - [0x3D4E0, asm]
+      - [0x3D590, asm]
+      - [0x3D5B0, asm]
+      - [0x3D660, asm]
+      - [0x3DFD0, asm]
+      - [0x3E030, asm]
+      - [0x3E0D0, asm]
+      - [0x3E110, asm]
+      - [0x3E250, asm]
+      - [0x3E430, asm]
+      - [0x3E820, asm]
+      - [0x3EDF0, asm]
+      - [0x3EE00, asm]
+      - [0x3EE10, asm]
+      - [0x3F160, asm]
+      - [0x3F1F0, asm]
+      - [0x3F220, asm]
+      - [0x3F630, asm]
+      - [0x3F990, asm]
+      - [0x3F9A0, asm]
+      - [0x3FA60, asm]
+      - [0x40720, asm]
+      - [0x407C0, asm]
+      - [0x40940, asm]
+      - [0x40950, asm]
+      - [0x41430, asm]
+      - [0x414D0, asm]
+      - [0x42170, asm]
+      - [0x42470, asm]
+      - [0x430D0, asm]
+      - [0x431E0, asm]
+      - [0x44C10, asm]
+      - [0x44CE0, asm]
+      - [0x44E30, asm]
+      - [0x44EC0, asm]
+      - [0x450F0, asm]
+      - [0x45230, asm]
+      - [0x452C0, asm]
+      - [0x45360, asm]
+      - [0x453F0, asm]
+      - [0x46450, asm]
+      - [0x467B0, asm]
+      - [0x47600, asm]
+      - [0x47AE0, asm]
+      - [0x47BC0, asm]
+      - [0x47D80, asm]
+      - [0x47DB0, asm]
+      - [0x48630, asm]
+      - [0x48730, asm]
+      - [0x48790, asm]
+      - [0x487E0, asm]
+      - [0x48880, asm]
+      - [0x488D0, asm]
+      - [0x488E0, asm]
+      - [0x48B80, asm]
+      - [0x49640, asm]
+      - [0x496C0, asm]
+      - [0x496E0, asm]
+      - [0x4A330, asm]
+      - [0x4AAF0, asm]
+  - type: bin
+    start: 0x4AD20    
+  - type: bin
+    name: map_melrode
+    start: 0xF13F0
+    vram: 0x8010FE00
+    subsections:
+    - [0xF13F0, data]
+  - type: bin
+    name: map_dondoran
+    start: 0x136090
+    vram: 0x8010FE00
+    subsections:
+    - [0x136090, data]
+  - type: bin
+    name: map_holy_plain
+    start: 0x167FE0
+    vram: 0x8010FE00
+    subsections:
+    - [0x167FE0, data]
+  - type: bin
+    name: map_dondoran_flats
+    start: 0x19E340
+    vram: 0x8010FE00
+    subsections:
+    - [0x19E340, data]
+  - type: bin
+    name: map_larapool
+    start: 0x001CCA30
+    vram: 0x8010FE00
+    subsections:
+    - [0x1CCA30, data]
+  - type: bin
+    name: map_west_carmagh
+    start: 0x00208EE0
+    vram: 0x8010FE00
+    subsections:
+    - [0x208EE0, data]
+  - type: bin
+    name: map_normoon
+    start: 0x253EA0
+    vram: 0x8010FE00
+    subsections:
+    - [0x253EA0, data]
+  - type: bin
+    name: map_east_limelin
+    start: 0x00278A20
+    vram: 0x8010FE00
+    subsections:
+    - [0x278A20, data]
+  - type: bin
+    name: map_limelin
+    start: 0x002AA680
+    vram: 0x8010FE00
+    subsections:
+    - [0x2AA680, data]
+  - type: bin
+    name: map_dindom_dries
+    start: 0x002F8520
+    vram: 0x8010FE00
+    subsections:
+    - [0x002F8520, data]
+  - type: bin
+    name: map_shamwood
+    start: 0x00347960
+    vram: 0x8010FE00
+    subsections:
+    - [0x00347960, data]
+  - type: bin
+    name: map_brannoch
+    start: 0x0036D970
+    vram: 0x8010FE00
+    subsections:
+    - [0x0036D970, data]
+  - type: bin
+    name: map_skye
+    start: 0x003CB600
+    vram: 0x8010FE00
+    subsections:
+    - [0x003CB600, data]
+  - type: bin
+    name: map_unrefrenced
+    start: 0x003E3200
+    vram: 0x801539F0
+    subsections:
+    - [0x3E3200, data]
+  - type: bin
+    name: map_dondoran_castle
+    start: 0x00439660
+    vram: 0x801539F0
+    subsections:
+    - [0x00439660, data]
+  - type: bin
+    name: map_melrode_houses
+    start: 0x00489A00
+    vram: 0x801539F0
+    subsections:
+    - [0x00489A00, data]
+  - type: bin
+    name: map_dondoran_houses
+    start: 0x0049F9A0
+    vram: 0x801539F0
+    subsections:
+    - [0x0049F9A0, data]
+  - type: bin
+    name: map_larapool_houses_1
+    start: 0x004CF450
+    vram: 0x801539F0
+    subsections:
+    - [0x004CF450, data]
+  - type: bin
+    name: map_larapool_houses_2
+    start: 0x004E6610
+    vram: 0x801539F0
+    subsections:
+    - [0x004E6610, data]
+  - type: bin
+    name: map_windmills
+    start: 0x004F6FE0
+    vram: 0x801539F0
+    subsections:
+    - [0x004F6FE0, data]
+  - type: bin
+    name: map_houses_5
+    start: 0x00502150
+    vram: 0x801539F0
+    subsections:
+    - [0x00502150, data]
+  - type: bin
+    name: map_limelin_castle
+    start: 0x0051C830
+    vram: 0x801539F0
+    subsections:
+    - [0x0051C830, data]
+  - type: bin
+    name: map_houses_6
+    start: 0x0056FCB0
+    vram: 0x801539F0
+    subsections:
+    - [0x0056FCB0, data]
+  - type: bin
+    name: map_houses_7
+    start: 0x0059F860
+    vram: 0x801539F0
+    subsections:
+    - [0x0059F860, data]
+  - type: bin
+    name: map_shamwood_pyramid
+    start: 0x005D8E90
+    vram: 0x801539F0
+    subsections:
+    - [0x005D8E90, data]
+  - type: bin
+    name: map_ships
+    start: 0x005EBB50
+    vram: 0x801539F0
+    subsections:
+    - [0x005EBB50, data]
+  - type: bin
+    name: map_blue_cave
+    start: 0x00609A40
+    vram: 0x8010FE00
+    subsections:
+    - [0x00609A40, data]
+  - type: bin
+    name: map_cull_hazard
+    start: 0x006677E0
+    vram: 0x8010FE00
+    subsections:
+    - [0x006677E0, data]
+  - type: bin
+    name: map_baragoon_tunnel
+    start: 0x006C69F0
+    vram: 0x8010FE00
+    subsections:
+    - [0x006C69F0, data]
+  - type: bin
+    name: map_boil_hole
+    start: 0x00720D60
+    vram: 0x8010FE00
+    subsections:
+    - [0x00720D60, data]
+  - type: bin
+    name: map_connor_fortress
+    start: 0x007878A0
+    vram: 0x8010FE00
+    subsections:
+    - [0x007878A0, data]
+  - type: bin
+    name: map_glencoe_forest
+    start: 0x007C3EF0
+    vram: 0x8010FE00
+    subsections:
+    - [0x007C3EF0, data]
+  - type: bin
+    name: map_windward_forest
+    start: 0x007F1B40
+    vram: 0x8010FE00
+    subsections:
+    - [0x007F1B40, data]
+  - type: bin
+    name: map_world_of_mammon
+    start: 0x00825400
+    vram: 0x8010FE00
+    subsections:
+    - [0x00825400, data]
+  - type: bin
+    name: map_nepty
+    start: 0x00853450
+    vram: 0x8010FE00
+    subsections:
+    - [0x00853450, data]
+  
+  - type: bin
+    name: CURRENTLY_UNKNOWN
+    start: 0x0086B830
+    subsections:
+    - [0x0086B830]
+    
+  - type: bin
+    name: bgm_boss
+    start: 0xEBAD34
+    subsections:
+    - [0xEBAD34]
+  - type: bin
+    name: bgm_baragoon_tunnel
+    start: 0xEBBC84
+    subsections:
+    - [0xEBBC84]
+  - type: bin
+    name: bgm_melrode
+    start: 0xEBC9FC
+    subsections:
+    - [0xEBC9FC]
+  - type: bin
+    name: bgm_dondoran_castle
+    start: 0xEBDECC
+    subsections:
+    - [0xEBDECC]
+  - type: bin
+    name: bgm_beta_melrode
+    start: 0xEBE830
+    subsections:
+    - [0xEBE830]
+  - type: bin
+    name: bgm_shamwood
+    start: 0xEBEE90
+    subsections:
+    - [0xEBEE90]
+  - type: bin
+    name: bgm_inside_ship
+    start: 0xEBF5E8
+    subsections:
+    - [0xEBF5E8]
+  - type: bin
+    name: bgm_shop_inn
+    start: 0xEC04FC
+    subsections:
+    - [0xEC04FC]
+  - type: bin
+    name: bgm_limelin_castle
+    start: 0xEC1040
+    subsections:
+    - [0xEC1040]
+  - type: bin
+    name: bgm_crystal_valley
+    start: 0xEC1774
+    subsections:
+    - [0xEC1774]
+  - type: bin
+    name: bgm_cull_hazard
+    start: 0xEC26DC
+    subsections:
+    - [0xEC26DC]
+  - type: bin
+    name: bgm_epona
+    start: 0xEC3420
+    subsections:
+    - [0xEC3420]
+  - type: bin
+    name: bgm_conner_forest
+    start: 0xEC4038
+    subsections:
+    - [0xEC4038]
+  - type: bin
+    name: bgm_battle
+    start: 0xEC4904
+    subsections:
+    - [0xEC4904]
+  - type: bin
+    name: bgm_nepty
+    start: 0xEC5C30
+    subsections:
+    - [0xEC5C30]
+  - type: bin
+    name: bgm_melrode_monastery
+    start: 0xEC61A8
+    subsections:
+    - [0xEC61A8]
+  - type: bin
+    name: bgm_beta_melrode_monastery
+    start: 0xEC6DAC
+    subsections:
+    - [0xEC6DAC]
+  - type: bin
+    name: bgm_unk_unused
+    start: 0xEC72F8
+    subsections: 
+    - [0xEC72F8]
+  - type: bin
+    name: bgm_boil_hole
+    start: 0xEC7E1C
+    subsections:
+    - [0xEC7E1C]
+  - type: bin
+    name: bgm_beta_limelin
+    start: 0xEC9078
+    subsections:
+    - [0xEC9078]
+  - type: bin
+    name: bgm_staff_roll
+    start: 0xEC97F0
+    subsections:
+    - [0xEC97F0]
+  - type: bin
+    name: bgm_holy_plains
+    start: 0xECE51C
+    subsections:
+    - [0xECE51C]
+  - type: bin
+    name: bgm_dindom_dries
+    start: 0xECF8CC
+    subsections:
+    - [0xECF8CC]
+  - type: bin
+    name: bgm_blue_cave
+    start: 0xED073C
+    subsections:
+    - [0xED073C]
+  - type: bin
+    name: bgm_conner_forest_house
+    start: 0xED0E84
+    subsections:
+    - [0xED0E84]
+  - type: bin
+    name: bgm_dondoran
+    start: 0xED13C8
+    subsections:
+    - [0xED13C8]
+  - type: bin
+    name: bgm_skye
+    start: 0xED1DCC
+    subsections:
+    - [0xED1DCC]
+  - type: bin
+    name: bgm_quest_theme
+    start: 0xED2B1C
+    subsections:
+    - [0xED2B1C]
+  - type: bin
+    name: bgm_unused_sleep
+    start: 0xED5AA0
+    subsections:
+    - [0xED5AA0]
+  - type: bin
+    name: bgm_unused_death
+    start: 0xED5C54
+    subsections:
+    - [0xED5C54]
+  - type: bin
+    name: bgm_death
+    start: 0xED5DB8
+    subsections:
+    - [0xED5DB8]
+  - type: bin
+    name: bgm_brannoch_castle
+    start: 0xED5F28
+    subsections:
+    - [0xED5F28]
+  - type: bin
+    name: bgm_unused_mammon
+    start: 0xED7F58
+    subsections:
+    - [0xED7F58]
+  - type: bin
+    name: bgm_mammon_monastery
+    start: 0xEDB890
+    subsections:
+    - [0xEDB890]
+  - type: bin
+    name: bgm_larapool
+    start: 0xEDC9B0
+    subsections:
+    - [0xEDC9B0]
+  - type: bin
+    name: bgm_solvaring_hideout
+    start: 0xEDD57C
+    subsections:
+    - [0xEDD57C]
+  - type: bin
+    name: bgm_limelin
+    start: 0xEDE848
+    subsections:
+    - [0xEDE848]
+  - type: bin
+    name: bgm_normoon
+    start: 0xEDEFA0
+    subsections:
+    - [0xEDEFA0]
+  - type: bin
+    name: bgm_mammon_loses
+    start: 0xEE0234
+    subsections:
+    - [0xEE0234]
+  - type: bin
+    name: bgm_highland
+    start: 0xEE22B0
+    subsections:
+    - [0xEE22B0]
+  - type: bin
+    name: bgm_unused_ending
+    start: 0xEE4C80
+    subsections:
+    - [0xEE4C80]
+  - type: bin
+    name: bgm_mammon_battle
+    start: 0xEE72AC
+    subsections:
+    - [0xEE72AC]
+  - type: bin
+    name: bgm_unused_jpn_ending
+    start: 0xEEAE88
+    subsections:
+    - [0xEEAE88]
+  - type: bin
+    name: bgm_victory
+    start: 0xEEDE94
+    subsections:
+    - [0xEEDE94]
+  
+    
+  - [0x1000000]
