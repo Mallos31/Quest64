@@ -388,6 +388,20 @@ segments:
     subsections:
     - [0x0086B830]
     
+  - type: code
+    name: title_screen
+    start: 0xDA68F0
+    vram: 0x80100000
+    subsections:
+    - [0xDA68F0, c]
+    - [0xDA693C, asm]
+    - [0xDA6998, asm]
+    - [0xDA6FC8, asm]
+    - [0xDA7404, asm]
+    - [0xDA7490, asm]
+    - [0xDA9720, asm]
+    - [0xDA9804, asm]
+    - [0xDA99F8, data]
   - type: bin
     name: bgm_boss
     start: 0xEBAD34
