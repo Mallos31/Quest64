@@ -13,7 +13,7 @@ segments:
   - name: boot
     type: bin
     start: 0x40
-  - name: main
+  - name: Main/main
     type: code
     start: 0x1000
     vram: 0x80000400
@@ -180,228 +180,228 @@ segments:
     - [0x73A90, data]
   
   - type: bin
-    name: common_map_data
+    name: Maps/common_map_data
     start: 0x77560
     vram: 0x80100000
     
   - type: bin
-    name: common_town_data
+    name: Maps/common_town_data
     start: 0x87360
     vram: 0x8010FE00
     
   - type: bin
-    name: map_melrode
+    name: Maps/map_melrode
     start: 0xF13F0
     vram: 0x8010FE00
     subsections:
     - [0xF13F0, data]
   - type: bin
-    name: map_dondoran
+    name: Maps/map_dondoran
     start: 0x136090
     vram: 0x8010FE00
     subsections:
     - [0x136090, data]
   - type: bin
-    name: map_holy_plain
+    name: Maps/map_holy_plain
     start: 0x167FE0
     vram: 0x8010FE00
     subsections:
     - [0x167FE0, data]
   - type: bin
-    name: map_dondoran_flats
+    name: Maps/map_dondoran_flats
     start: 0x19E340
     vram: 0x8010FE00
     subsections:
     - [0x19E340, data]
   - type: bin
-    name: map_larapool
+    name: Maps/map_larapool
     start: 0x001CCA30
     vram: 0x8010FE00
     subsections:
     - [0x1CCA30, data]
   - type: bin
-    name: map_west_carmagh
+    name: Maps/map_west_carmagh
     start: 0x00208EE0
     vram: 0x8010FE00
     subsections:
     - [0x208EE0, data]
   - type: bin
-    name: map_normoon
+    name: Maps/map_normoon
     start: 0x253EA0
     vram: 0x8010FE00
     subsections:
     - [0x253EA0, data]
   - type: bin
-    name: map_east_limelin
+    name: Maps/map_east_limelin
     start: 0x00278A20
     vram: 0x8010FE00
     subsections:
     - [0x278A20, data]
   - type: bin
-    name: map_limelin
+    name: Maps/map_limelin
     start: 0x002AA680
     vram: 0x8010FE00
     subsections:
     - [0x2AA680, data]
   - type: bin
-    name: map_dindom_dries
+    name: Maps/map_dindom_dries
     start: 0x002F8520
     vram: 0x8010FE00
     subsections:
     - [0x002F8520, data]
   - type: bin
-    name: map_shamwood
+    name: Maps/map_shamwood
     start: 0x00347960
     vram: 0x8010FE00
     subsections:
     - [0x00347960, data]
   - type: bin
-    name: map_brannoch
+    name: Maps/map_brannoch
     start: 0x0036D970
     vram: 0x8010FE00
     subsections:
     - [0x0036D970, data]
   - type: bin
-    name: map_skye
+    name: Maps/map_skye
     start: 0x003CB600
     vram: 0x8010FE00
     subsections:
     - [0x003CB600, data]
   - type: bin
-    name: map_ship
+    name: Maps/map_ship
     start: 0x003E3200
     vram: 0x801E0000
     subsections:
     - [0x3E3200, data]
   - type: bin
-    name: map_dondoran_castle
+    name: Maps/map_dondoran_castle
     start: 0x00439660
     vram: 0x801539F0
     subsections:
     - [0x00439660, data]
   - type: bin
-    name: map_melrode_houses
+    name: Maps/map_melrode_houses
     start: 0x00489A00
     vram: 0x801539F0
     subsections:
     - [0x00489A00, data]
   - type: bin
-    name: map_dondoran_houses
+    name: Maps/map_dondoran_houses
     start: 0x0049F9A0
     vram: 0x801539F0
     subsections:
     - [0x0049F9A0, data]
   - type: bin
-    name: map_larapool_houses_1
+    name: Maps/map_larapool_houses_1
     start: 0x004CF450
     vram: 0x801539F0
     subsections:
     - [0x004CF450, data]
   - type: bin
-    name: map_larapool_houses_2
+    name: Maps/map_larapool_houses_2
     start: 0x004E6610
     vram: 0x801539F0
     subsections:
     - [0x004E6610, data]
   - type: bin
-    name: map_windmills
+    name: Maps/map_windmills
     start: 0x004F6FE0
     vram: 0x801539F0
     subsections:
     - [0x004F6FE0, data]
   - type: bin
-    name: map_houses_5
+    name: Maps/map_houses_5
     start: 0x00502150
     vram: 0x801539F0
     subsections:
     - [0x00502150, data]
   - type: bin
-    name: map_limelin_castle
+    name: Maps/map_limelin_castle
     start: 0x0051C830
     vram: 0x801539F0
     subsections:
     - [0x0051C830, data]
   - type: bin
-    name: map_houses_6
+    name: Maps/map_houses_6
     start: 0x0056FCB0
     vram: 0x801539F0
     subsections:
     - [0x0056FCB0, data]
   - type: bin
-    name: map_houses_7
+    name: Maps/map_houses_7
     start: 0x0059F860
     vram: 0x801539F0
     subsections:
     - [0x0059F860, data]
   - type: bin
-    name: map_shamwood_pyramid
+    name: Maps/map_shamwood_pyramid
     start: 0x005D8E90
     vram: 0x801539F0
     subsections:
     - [0x005D8E90, data]
   - type: bin
-    name: map_ships
+    name: Maps/map_ships
     start: 0x005EBB50
     vram: 0x801539F0
     subsections:
     - [0x005EBB50, data]
   - type: bin
-    name: map_blue_cave
+    name: Maps/map_blue_cave
     start: 0x00609A40
     vram: 0x8010FE00
     subsections:
     - [0x00609A40, data]
   - type: bin
-    name: map_cull_hazard
+    name: Maps/map_cull_hazard
     start: 0x006677E0
     vram: 0x8010FE00
     subsections:
     - [0x006677E0, data]
   - type: bin
-    name: map_baragoon_tunnel
+    name: Maps/map_baragoon_tunnel
     start: 0x006C69F0
     vram: 0x8010FE00
     subsections:
     - [0x006C69F0, data]
   - type: bin
-    name: map_boil_hole
+    name: Maps/map_boil_hole
     start: 0x00720D60
     vram: 0x8010FE00
     subsections:
     - [0x00720D60, data]
   - type: bin
-    name: map_connor_fortress
+    name: Maps/map_connor_fortress
     start: 0x007878A0
     vram: 0x8010FE00
     subsections:
     - [0x007878A0, data]
   - type: bin
-    name: map_glencoe_forest
+    name: Maps/map_glencoe_forest
     start: 0x007C3EF0
     vram: 0x8010FE00
     subsections:
     - [0x007C3EF0, data]
   - type: bin
-    name: map_windward_forest
+    name: Maps/map_windward_forest
     start: 0x007F1B40
     vram: 0x8010FE00
     subsections:
     - [0x007F1B40, data]
   - type: bin
-    name: map_world_of_mammon
+    name: Maps/map_world_of_mammon
     start: 0x00825400
     vram: 0x8010FE00
     subsections:
     - [0x00825400, data]
   - type: bin
-    name: map_nepty
+    name: Maps/map_nepty
     start: 0x00853450
     vram: 0x8010FE00
     subsections:
     - [0x00853450, data]
   
   - type: bin
-    name: Brian_model
+    name: Models/Brian_model
     start: 0x0086B830
     vram: 0x80206000
     subsections:
@@ -416,172 +416,95 @@ segments:
     start: 0x873F20
     
   - type: bin
-    name: shannon
+    name: Models/Shannon
     start: 0xA725D0
     vram: 0x802A0000
     
   - type: bin
-    name: Nepty
+    name: Models/Nepty
     start: 0xCC4570
     vram: 0x802A7BC0
     
   - type: bin
-    name: Solvaring
+    name: Models/Solvaring
     start: 0xCCF460
     vram: 0x802A7BC0  
     
   - type: bin
-    name: Zelse
+    name: Models/Zelse
     start: 0xCDB730
     vram: 0x802A7BC0
     
   - type: bin
-    name: Shilf
+    name: Models/Shilf
     start: 0xCE53E0
     vram: 0x802A7BC0  
     
   - type: bin
-    name: Fargo
+    name: Models/Fargo
     start: 0xCF2A10
     vram: 0x802A7BC0
     
   - type: bin
-    name: Guilty
+    name: Models/Guilty
     start: 0xD006B0
     vram: 0x802A7BC0
     
   - type: bin
-    name: Mammon
+    name: Models/Mammon
     start: 0xD0FEE0       
     
   - type: bin
-    name: unknown1
+    name: Models/Beigis
     start: 0xD237F0
     
   - type: bin
-    name: unknown2
+    name: NPC_text
     start: 0xD305E0
     
   - type: bin
-    name: inventory_palettes
+    name: Textures/inventory_palettes
     start: 0xD3BE40
     vram: 0x803AAC20
 
   - type: bin
-    name: icon_spirit_light
+    name: Textures/item_icons
     start: 0xD3C240
+    subsections:
+    - [0xD3C240, bin, icon_spirit_light]
+    - [0xD3C340, bin, icon_fresh_bread]
+    - [0xD3C440, bin, icon_honey_bread]
+    - [0xD3C540, bin, icon_healing_potion]
+    - [0xD3C640, bin, icon_dragon_potion]
+    - [0xD3C740, bin, icon_dew_drop]
+    - [0xD3C840, bin, icon_mint_leaf]
+    - [0xD3C940, bin, icon_heroes_drink]
+    - [0xD3CA40, bin, icon_silent_flute]
+    - [0xD3CB40, bin, icon_celines_bell]
+    - [0xD3CC40, bin, icon_replica]
+    - [0xD3CD40, bin, icon_giants_shoes]
+    - [0xD3CE40, bin, icon_silver_amulet]
+    - [0xD3CF40, bin, icon_golden_amulet]
+    - [0xD3D040, bin, icon_white_wings]
+    - [0xD3D140, bin, icon_yellow_wings]
+    - [0xD3D240, bin, icon_blue_wings]
+    - [0xD3D340, bin, icon_green_wings]
+    - [0xD3D440, bin, icon_red_wings]
+    - [0xD3D540, bin, icon_black_wings]
+    - [0xD3D640, bin, icon_earth_orb]
+    - [0xD3D740, bin, icon_wind_jade]
+    - [0xD3D840, bin, icon_water_jewel]
+    - [0xD3D940, bin, icon_fire_ruby]
+    - [0xD3DA40, bin, icon_eltale_book]
+    - [0xD3DB40, bin, icon_dark_gaol_key]
     
   - type: bin
-    name: icon_fresh_bread
-    start: 0xD3C340
-    
-  - type: bin
-    name: icon_honey_bread
-    start: 0xD3C440
-    
-  - type: bin
-    name: icon_healing_potion
-    start: 0xD3C540
-    
-  - type: bin
-    name: icon_dragon_potion
-    start: 0xD3C640
-    
-  - type: bin
-    name: icon_dew_drop
-    start: 0xD3C740
-    
-  - type: bin
-    name: icon_mint_leaf
-    start: 0xD3C840
-    
-  - type: bin
-    name: icon_heroes_drink
-    start: 0xD3C940
-    
-  - type: bin
-    name: icon_silent_flute
-    start: 0xD3CA40
-    
-  - type: bin
-    name: icon_celines_bell
-    start: 0xD3CB40
-    
-  - type: bin
-    name: icon_replica
-    start: 0xD3CC40
-    
-  - type: bin
-    name: icon_giants_shoes
-    start: 0xD3CD40
-    
-  - type: bin
-    name: icon_silver_amulet
-    start: 0xD3CE40
-    
-  - type: bin
-    name: icon_golden_amulet
-    start: 0xD3CF40
-    
-  - type: bin
-    name: icon_white_wings
-    start: 0xD3D040
-    
-  - type: bin
-    name: icon_yellow_wings
-    start: 0xD3D140
-    
-  - type: bin
-    name: icon_blue_wings
-    start: 0xD3D240
-    
-  - type: bin
-    name: icon_green_wings
-    start: 0xD3D340
-    
-  - type: bin
-    name: icon_red_wings
-    start: 0xD3D440
-    
-  - type: bin
-    name: icon_black_wings
-    start: 0xD3D540
-    
-  - type: bin
-    name: icon_earth_orb
-    start: 0xD3D640
-    
-  - type: bin
-    name: icon_wind_jade
-    start: 0xD3D740
-    
-  - type: bin
-    name: icon_water_jewel
-    start: 0xD3D840
-    
-  - type: bin
-    name: icon_fire_ruby
-    start: 0xD3D940
-    
-  - type: bin
-    name: icon_eltale_book
-    start: 0xD3DA40
-    
-  - type: bin
-    name: icon_dark_gaol_key
-    start: 0xD3DB40
-    
-  - type: bin
-    name: unknown3
-    start: 0xD3DC40
-    
-  - type: bin
-    name: text_palettes
+    name: Textures/text_palettes
     start: 0xD3E240
     vram: 0x80331A30
     
   - type: bin
-    name: font_table
+    name: Textures/font_table
     start: 0xD3E2C0
     vram: 0x803232A0
     
@@ -601,18 +524,18 @@ segments:
     
   
   - type: bin
-    name: some_common_palette
+    name: Textures/some_common_palette
     start: 0xD884F0
     vram: 0x800820D8
     
   - type: bin
-    name: some_common_palette_2
+    name: Skybox/skybox_data
     start: 0xD88AF0
     vram: 0x800826D8
     
       
   - type: code
-    name: title_screen
+    name: Title/title_screen
     start: 0xDA68F0
     vram: 0x80100000
     subsections:
@@ -627,7 +550,7 @@ segments:
     - [0xDA99F8, bin]
     
   - type: code
-    name: opening_credits
+    name: Opening/opening_credits
     start: 0xDC1620
     vram: 0x80100000
     subsections:
@@ -671,7 +594,7 @@ segments:
     - [0xDC7860, bin]
   
   - type: code
-    name: end_credits
+    name: Ending/end_credits
     start: 0xE27840
     vram: 0x80100000
     subsections:
@@ -701,222 +624,222 @@ segments:
     
     
   - type: bin
-    name: bgm_boss
+    name: BGMs/bgm_boss
     start: 0xEBAD34
     subsections:
     - [0xEBAD34]
   - type: bin
-    name: bgm_baragoon_tunnel
+    name: BGMs/bgm_baragoon_tunnel
     start: 0xEBBC84
     subsections:
     - [0xEBBC84]
   - type: bin
-    name: bgm_melrode
+    name: BGMs/bgm_melrode
     start: 0xEBC9FC
     subsections:
     - [0xEBC9FC]
   - type: bin
-    name: bgm_dondoran_castle
+    name: BGMs/bgm_dondoran_castle
     start: 0xEBDECC
     subsections:
     - [0xEBDECC]
   - type: bin
-    name: bgm_beta_melrode
+    name: BGMs/bgm_beta_melrode
     start: 0xEBE830
     subsections:
     - [0xEBE830]
   - type: bin
-    name: bgm_shamwood
+    name: BGMs/bgm_shamwood
     start: 0xEBEE90
     subsections:
     - [0xEBEE90]
   - type: bin
-    name: bgm_inside_ship
+    name: BGMs/bgm_inside_ship
     start: 0xEBF5E8
     subsections:
     - [0xEBF5E8]
   - type: bin
-    name: bgm_shop_inn
+    name: BGMs/bgm_shop_inn
     start: 0xEC04FC
     subsections:
     - [0xEC04FC]
   - type: bin
-    name: bgm_limelin_castle
+    name: BGMs/bgm_limelin_castle
     start: 0xEC1040
     subsections:
     - [0xEC1040]
   - type: bin
-    name: bgm_crystal_valley
+    name: BGMs/bgm_crystal_valley
     start: 0xEC1774
     subsections:
     - [0xEC1774]
   - type: bin
-    name: bgm_cull_hazard
+    name: BGMs/bgm_cull_hazard
     start: 0xEC26DC
     subsections:
     - [0xEC26DC]
   - type: bin
-    name: bgm_epona
+    name: BGMs/bgm_epona
     start: 0xEC3420
     subsections:
     - [0xEC3420]
   - type: bin
-    name: bgm_conner_forest
+    name: BGMs/bgm_conner_forest
     start: 0xEC4038
     subsections:
     - [0xEC4038]
   - type: bin
-    name: bgm_battle
+    name: BGMs/bgm_battle
     start: 0xEC4904
     subsections:
     - [0xEC4904]
   - type: bin
-    name: bgm_nepty
+    name: BGMs/bgm_nepty
     start: 0xEC5C30
     subsections:
     - [0xEC5C30]
   - type: bin
-    name: bgm_melrode_monastery
+    name: BGMs/bgm_melrode_monastery
     start: 0xEC61A8
     subsections:
     - [0xEC61A8]
   - type: bin
-    name: bgm_beta_melrode_monastery
+    name: BGMs/bgm_beta_melrode_monastery
     start: 0xEC6DAC
     subsections:
     - [0xEC6DAC]
   - type: bin
-    name: bgm_unk_unused
+    name: BGMs/bgm_unk_unused
     start: 0xEC72F8
     subsections: 
     - [0xEC72F8]
   - type: bin
-    name: bgm_boil_hole
+    name: BGMs/bgm_boil_hole
     start: 0xEC7E1C
     subsections:
     - [0xEC7E1C]
   - type: bin
-    name: bgm_beta_limelin
+    name: BGMs/bgm_beta_limelin
     start: 0xEC9078
     subsections:
     - [0xEC9078]
   - type: bin
-    name: bgm_staff_roll
+    name: BGMs/bgm_staff_roll
     start: 0xEC97F0
     subsections:
     - [0xEC97F0]
   - type: bin
-    name: bgm_holy_plains
+    name: BGMs/bgm_holy_plains
     start: 0xECE51C
     subsections:
     - [0xECE51C]
   - type: bin
-    name: bgm_dindom_dries
+    name: BGMs/bgm_dindom_dries
     start: 0xECF8CC
     subsections:
     - [0xECF8CC]
   - type: bin
-    name: bgm_blue_cave
+    name: BGMs/bgm_blue_cave
     start: 0xED073C
     subsections:
     - [0xED073C]
   - type: bin
-    name: bgm_conner_forest_house
+    name: BGMs/bgm_conner_forest_house
     start: 0xED0E84
     subsections:
     - [0xED0E84]
   - type: bin
-    name: bgm_dondoran
+    name: BGMs/bgm_dondoran
     start: 0xED13C8
     subsections:
     - [0xED13C8]
   - type: bin
-    name: bgm_skye
+    name: BGMs/bgm_skye
     start: 0xED1DCC
     subsections:
     - [0xED1DCC]
   - type: bin
-    name: bgm_quest_theme
+    name: BGMs/bgm_quest_theme
     start: 0xED2B1C
     subsections:
     - [0xED2B1C]
   - type: bin
-    name: bgm_unused_sleep
+    name: BGMs/bgm_unused_sleep
     start: 0xED5AA0
     subsections:
     - [0xED5AA0]
   - type: bin
-    name: bgm_unused_death
+    name: BGMs/bgm_unused_death
     start: 0xED5C54
     subsections:
     - [0xED5C54]
   - type: bin
-    name: bgm_death
+    name: BGMs/bgm_death
     start: 0xED5DB8
     subsections:
     - [0xED5DB8]
   - type: bin
-    name: bgm_brannoch_castle
+    name: BGMs/bgm_brannoch_castle
     start: 0xED5F28
     subsections:
     - [0xED5F28]
   - type: bin
-    name: bgm_unused_mammon
+    name: BGMs/bgm_unused_mammon
     start: 0xED7F58
     subsections:
     - [0xED7F58]
   - type: bin
-    name: bgm_mammon_monastery
+    name: BGMs/bgm_mammon_monastery
     start: 0xEDB890
     subsections:
     - [0xEDB890]
   - type: bin
-    name: bgm_larapool
+    name: BGMs/bgm_larapool
     start: 0xEDC9B0
     subsections:
     - [0xEDC9B0]
   - type: bin
-    name: bgm_solvaring_hideout
+    name: BGMs/bgm_solvaring_hideout
     start: 0xEDD57C
     subsections:
     - [0xEDD57C]
   - type: bin
-    name: bgm_limelin
+    name: BGMs/bgm_limelin
     start: 0xEDE848
     subsections:
     - [0xEDE848]
   - type: bin
-    name: bgm_normoon
+    name: BGMs/bgm_normoon
     start: 0xEDEFA0
     subsections:
     - [0xEDEFA0]
   - type: bin
-    name: bgm_mammon_loses
+    name: BGMs/bgm_mammon_loses
     start: 0xEE0234
     subsections:
     - [0xEE0234]
   - type: bin
-    name: bgm_highland
+    name: BGMs/bgm_highland
     start: 0xEE22B0
     subsections:
     - [0xEE22B0]
   - type: bin
-    name: bgm_unused_ending
+    name: BGMs/bgm_unused_ending
     start: 0xEE4C80
     subsections:
     - [0xEE4C80]
   - type: bin
-    name: bgm_mammon_battle
+    name: BGMs/bgm_mammon_battle
     start: 0xEE72AC
     subsections:
     - [0xEE72AC]
   - type: bin
-    name: bgm_unused_jpn_ending
+    name: BGMs/bgm_unused_jpn_ending
     start: 0xEEAE88
     subsections:
     - [0xEEAE88]
   - type: bin
-    name: bgm_victory
+    name: BGMs/bgm_victory
     start: 0xEEDE94
     subsections:
     - [0xEEDE94]
