@@ -408,15 +408,15 @@ segments:
     - [0x0086B830]
     
   - type: bin
-    name: currently_unknown
+    name: currently_unknown #textures look like knights. May be separate from other NPCs
     start: 0x871900
     
   - type: bin
-    name: currently_unknown_2
+    name: NPCs #Needs splitting
     start: 0x873F20
     
   - type: bin
-    name: Models/Shannon
+    name: Models/Shannon #Also contains enemy models and data. Needs to be split
     start: 0xA725D0
     vram: 0x802A0000
     
