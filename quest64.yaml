@@ -172,6 +172,13 @@ segments:
   - type: bin
     start: 0x4AD20    
   
+  - type: code
+    name: spirit_data
+    start: 0x73A90
+    vram: 0x80096850
+    subsections:
+    - [0x73A90, data]
+  
   - type: bin
     name: common_map_data
     start: 0x77560
@@ -261,9 +268,9 @@ segments:
     subsections:
     - [0x003CB600, data]
   - type: bin
-    name: map_unrefrenced
+    name: map_ship
     start: 0x003E3200
-    vram: 0x801539F0
+    vram: 0x801E0000
     subsections:
     - [0x3E3200, data]
   - type: bin
@@ -394,11 +401,216 @@ segments:
     - [0x00853450, data]
   
   - type: bin
-    name: CURRENTLY_UNKNOWN
+    name: Brian_model
     start: 0x0086B830
+    vram: 0x80206000
     subsections:
     - [0x0086B830]
     
+  - type: bin
+    name: currently_unknown
+    start: 0x871900
+    
+  - type: bin
+    name: currently_unknown_2
+    start: 0x873F20
+    
+  - type: bin
+    name: shannon
+    start: 0xA725D0
+    vram: 0x802A0000
+    
+  - type: bin
+    name: Nepty
+    start: 0xCC4570
+    vram: 0x802A7BC0
+    
+  - type: bin
+    name: Solvaring
+    start: 0xCCF460
+    vram: 0x802A7BC0  
+    
+  - type: bin
+    name: Zelse
+    start: 0xCDB730
+    vram: 0x802A7BC0
+    
+  - type: bin
+    name: Shilf
+    start: 0xCE53E0
+    vram: 0x802A7BC0  
+    
+  - type: bin
+    name: Fargo
+    start: 0xCF2A10
+    vram: 0x802A7BC0
+    
+  - type: bin
+    name: Guilty
+    start: 0xD006B0
+    vram: 0x802A7BC0
+    
+  - type: bin
+    name: Mammon
+    start: 0xD0FEE0       
+    
+  - type: bin
+    name: unknown1
+    start: 0xD237F0
+    
+  - type: bin
+    name: unknown2
+    start: 0xD305E0
+    
+  - type: bin
+    name: inventory_palettes
+    start: 0xD3BE40
+    vram: 0x803AAC20
+
+  - type: bin
+    name: icon_spirit_light
+    start: 0xD3C240
+    
+  - type: bin
+    name: icon_fresh_bread
+    start: 0xD3C340
+    
+  - type: bin
+    name: icon_honey_bread
+    start: 0xD3C440
+    
+  - type: bin
+    name: icon_healing_potion
+    start: 0xD3C540
+    
+  - type: bin
+    name: icon_dragon_potion
+    start: 0xD3C640
+    
+  - type: bin
+    name: icon_dew_drop
+    start: 0xD3C740
+    
+  - type: bin
+    name: icon_mint_leaf
+    start: 0xD3C840
+    
+  - type: bin
+    name: icon_heroes_drink
+    start: 0xD3C940
+    
+  - type: bin
+    name: icon_silent_flute
+    start: 0xD3CA40
+    
+  - type: bin
+    name: icon_celines_bell
+    start: 0xD3CB40
+    
+  - type: bin
+    name: icon_replica
+    start: 0xD3CC40
+    
+  - type: bin
+    name: icon_giants_shoes
+    start: 0xD3CD40
+    
+  - type: bin
+    name: icon_silver_amulet
+    start: 0xD3CE40
+    
+  - type: bin
+    name: icon_golden_amulet
+    start: 0xD3CF40
+    
+  - type: bin
+    name: icon_white_wings
+    start: 0xD3D040
+    
+  - type: bin
+    name: icon_yellow_wings
+    start: 0xD3D140
+    
+  - type: bin
+    name: icon_blue_wings
+    start: 0xD3D240
+    
+  - type: bin
+    name: icon_green_wings
+    start: 0xD3D340
+    
+  - type: bin
+    name: icon_red_wings
+    start: 0xD3D440
+    
+  - type: bin
+    name: icon_black_wings
+    start: 0xD3D540
+    
+  - type: bin
+    name: icon_earth_orb
+    start: 0xD3D640
+    
+  - type: bin
+    name: icon_wind_jade
+    start: 0xD3D740
+    
+  - type: bin
+    name: icon_water_jewel
+    start: 0xD3D840
+    
+  - type: bin
+    name: icon_fire_ruby
+    start: 0xD3D940
+    
+  - type: bin
+    name: icon_eltale_book
+    start: 0xD3DA40
+    
+  - type: bin
+    name: icon_dark_gaol_key
+    start: 0xD3DB40
+    
+  - type: bin
+    name: unknown3
+    start: 0xD3DC40
+    
+  - type: bin
+    name: text_palettes
+    start: 0xD3E240
+    vram: 0x80331A30
+    
+  - type: bin
+    name: font_table
+    start: 0xD3E2C0
+    vram: 0x803232A0
+    
+    
+  - type: code
+    name: spell_data
+    start: 0xD4B3C0
+    vram: 0x800C0000
+    subsections:
+    - [0xD4B3C0, data]
+    - [0xD4BA60, bin]
+  
+  - type: bin
+    name: Hud_and_Menu
+    start: 0xD77380
+    vram: 0x80399AB0
+    
+  
+  - type: bin
+    name: some_common_palette
+    start: 0xD884F0
+    vram: 0x800820D8
+    
+  - type: bin
+    name: some_common_palette_2
+    start: 0xD88AF0
+    vram: 0x800826D8
+    
+      
   - type: code
     name: title_screen
     start: 0xDA68F0
