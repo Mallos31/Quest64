@@ -7,7 +7,7 @@
 
 .section .text, "ax"
 
-glabel virt_actorSpace
+glabel func_80100000
 /* DA68F0 80100000 3C018012 */  lui        $at, %hi(D_8011AD30)
 /* DA68F4 80100004 AC20AD30 */  sw         $zero, %lo(D_8011AD30)($at)
 /* DA68F8 80100008 3C018012 */  lui        $at, %hi(D_8011AD44)

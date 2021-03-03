@@ -171,6 +171,17 @@ segments:
       - [0x4AAF0, asm]
   - type: bin
     start: 0x4AD20    
+  
+  - type: bin
+    name: common_map_data
+    start: 0x77560
+    vram: 0x80100000
+    
+  - type: bin
+    name: common_town_data
+    start: 0x87360
+    vram: 0x8010FE00
+    
   - type: bin
     name: map_melrode
     start: 0xF13F0
@@ -393,7 +404,7 @@ segments:
     start: 0xDA68F0
     vram: 0x80100000
     subsections:
-    - [0xDA68F0, c]
+    - [0xDA68F0, asm]
     - [0xDA693C, asm]
     - [0xDA6998, asm]
     - [0xDA6FC8, asm]
@@ -401,7 +412,82 @@ segments:
     - [0xDA7490, asm]
     - [0xDA9720, asm]
     - [0xDA9804, asm]
-    - [0xDA99F8, data]
+    - [0xDA99F8, bin]
+    
+  - type: code
+    name: opening_credits
+    start: 0xDC1620
+    vram: 0x80100000
+    subsections:
+    - [0xDC1620, asm]
+    - [0xDC16AC, asm]
+    - [0xDC16BC, asm]
+    - [0xDC18DC, asm]
+    - [0xDC1924, asm]
+    - [0xDC19CC, asm]
+    - [0xDC1C54, asm]
+    - [0xDC2624, asm]
+    - [0xDC26A0, asm]
+    - [0xDC288C, asm]
+    - [0xDC2930, asm]
+    - [0xDC29E0, asm]
+    - [0xDC2A90, asm]
+    - [0xDC2B78, asm]
+    - [0xDC2CDC, asm]
+    - [0xDC2E38, asm]
+    - [0xDC2e74, asm]
+    - [0xDC2F78, asm]
+    - [0xDC307C, asm]
+    - [0xDC32F8, asm]
+    - [0xDC332C, asm]
+    - [0xDC34AC, asm]
+    - [0xDC362C, asm]
+    - [0xDC3678, asm]
+    - [0xDC3694, asm]
+    - [0xDC4700, asm]
+    - [0xDC486C, asm]
+    - [0xDC49D8, asm]
+    - [0xDC4B44, asm]
+    - [0xDC4CB0, asm]
+    - [0xDC4F74, asm]
+    - [0xDC53D8, asm]
+    - [0xDC583C, asm]
+    - [0xDC5E94, asm]
+    - [0xDC67D4, asm]
+    - [0xDC6A3C, asm]
+    - [0xDC6D7C, asm]
+    - [0xDC7860, bin]
+  
+  - type: code
+    name: end_credits
+    start: 0xE27840
+    vram: 0x80100000
+    subsections:
+    - [0xE27840, data]
+    - [0xE279C4, asm]
+    - [0xE2806C, asm]
+    - [0xE280E8, asm]
+    - [0xE281B0, asm]
+    - [0xE282D4, asm]
+    - [0xE28378, asm]
+    - [0xE28428, asm]
+    - [0xE284D8, asm]
+    - [0xE285C0, asm]
+    - [0xE28724, asm]
+    - [0xE28880, asm]
+    - [0xE288BC, asm]
+    - [0xE289C0, asm]
+    - [0xE28AC4, asm]
+    - [0xE28D40, asm]
+    - [0xE28D74, asm]
+    - [0xE28EF4, asm]
+    - [0xE29074, asm]
+    - [0xE290C0, asm]
+    - [0xE290DC, asm]
+    - [0xE2A11C, asm]
+    - [0xE2ADEC, bin]
+    
+    
   - type: bin
     name: bgm_boss
     start: 0xEBAD34

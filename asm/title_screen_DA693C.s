@@ -7,7 +7,7 @@
 
 .section .text, "ax"
 
-glabel displayTitleScreen
+glabel func_8010004C
 /* DA693C 8010004C 27BDFFE8 */  addiu      $sp, $sp, -0x18
 /* DA6940 80100050 AFBF0014 */  sw         $ra, 0x14($sp)
 /* DA6944 80100054 0C04002A */  jal        func_801000A8
@@ -25,16 +25,12 @@ glabel displayTitleScreen
 /* DA6970 80100080 54410005 */  bnel       $v0, $at, .L80100098
 /* DA6974 80100084 24020002 */   addiu     $v0, $zero, 2
 /* DA6978 80100088 AC600000 */  sw         $zero, ($v1)
-
-glabel func_8010008C
 /* DA697C 8010008C 10000002 */  b          .L80100098
 /* DA6980 80100090 00001025 */   or        $v0, $zero, $zero
 .L80100094:
 /* DA6984 80100094 24020002 */  addiu      $v0, $zero, 2
 .L80100098:
 /* DA6988 80100098 8FBF0014 */  lw         $ra, 0x14($sp)
-
-glabel func_8010009C
 /* DA698C 8010009C 27BD0018 */  addiu      $sp, $sp, 0x18
 /* DA6990 801000A0 03E00008 */  jr         $ra
 /* DA6994 801000A4 00000000 */   nop
