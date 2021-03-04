@@ -169,9 +169,37 @@ segments:
       - [0x496E0, asm]
       - [0x4A330, asm]
       - [0x4AAF0, asm]
+      - [0x4AAF8, asm]
+      - [0x4AB44, asm]
+      - [0x4ABC0, asm]
+      - [0x4AC2C, asm]
+      - [0x4AC50, asm]
+      - [0x4AC68, asm]
+      - [0x4ACEC, asm]
+      - [0x4ACFC, asm]
+      - [0x4AD24, asm]
+      - [0x4AD44, asm]
+      - [0x4AD78, asm]
+      - [0x4AD90, asm]
+      - [0x4ADB4, asm]
+      - [0x4ADBC, asm]
+      - [0x4ADF8, asm]
+      - [0x4AE38, asm]
+      - [0x4B098, asm]
+      - [0x4B13C, asm]
+      - [0x4B1A0, asm]
+      - [0x4B1C8, asm]
+      - [0x4B210, asm]
+      - [0x4B220, asm]
+      - [0x4B260, asm]
+      - [0x4B278, asm]
+      
+      
   - type: bin
-    start: 0x4AD20    
-  
+    start: 0x4B480
+   
+   
+   
   - type: code
     name: spirit_data
     start: 0x73A90
@@ -189,102 +217,119 @@ segments:
     start: 0x87360
     vram: 0x8010FE00
     
-  - type: bin
+  - type: code
     name: Maps/map_melrode
     start: 0xF13F0
     vram: 0x8010FE00
     subsections:
-    - [0xF13F0, data]
-  - type: bin
+    - [0xF13F0, bin, Maps/Melrode/melrode_data]
+    - [0x136054, data, Maps/Melrode/melrode_NPC_data]
+    
+  - type: code
     name: Maps/map_dondoran
     start: 0x136090
     vram: 0x8010FE00
     subsections:
-    - [0x136090, data]
-  - type: bin
+    - [0x136090, bin, Maps/Dondoran/dondoran_data]
+    
+  - type: code
     name: Maps/map_holy_plain
     start: 0x167FE0
     vram: 0x8010FE00
     subsections:
-    - [0x167FE0, data]
-  - type: bin
+    - [0x167FE0, bin, Maps/HolyPlain/holy_plain_data]
+    
+  - type: code
     name: Maps/map_dondoran_flats
     start: 0x19E340
     vram: 0x8010FE00
     subsections:
-    - [0x19E340, data]
-  - type: bin
+    - [0x19E340, bin, Maps/DondoranFlats/dondoran_flats_data]
+    
+  - type: code
     name: Maps/map_larapool
     start: 0x001CCA30
     vram: 0x8010FE00
     subsections:
-    - [0x1CCA30, data]
-  - type: bin
+    - [0x1CCA30, bin, Maps/Larapool/larapool_data]
+    
+  - type: code
     name: Maps/map_west_carmagh
     start: 0x00208EE0
     vram: 0x8010FE00
     subsections:
-    - [0x208EE0, data]
-  - type: bin
+    - [0x208EE0, bin, Maps/WestCarmagh/west_carmagh_data]
+    
+  - type: code
     name: Maps/map_normoon
     start: 0x253EA0
     vram: 0x8010FE00
     subsections:
-    - [0x253EA0, data]
-  - type: bin
+    - [0x253EA0, bin, Maps/Normoon/normoon_data]
+    
+  - type: code
     name: Maps/map_east_limelin
     start: 0x00278A20
     vram: 0x8010FE00
     subsections:
-    - [0x278A20, data]
-  - type: bin
+    - [0x278A20, bin, Maps/EastLimelin/east_limelin_data]
+    
+  - type: code
     name: Maps/map_limelin
     start: 0x002AA680
     vram: 0x8010FE00
     subsections:
-    - [0x2AA680, data]
-  - type: bin
+    - [0x2AA680, bin, Maps/Limelin/limelin_data]
+    
+  - type: code
     name: Maps/map_dindom_dries
     start: 0x002F8520
     vram: 0x8010FE00
     subsections:
-    - [0x002F8520, data]
-  - type: bin
+    - [0x002F8520, bin, Maps/DindomDries/dindom_dries_data]
+    
+  - type: code
     name: Maps/map_shamwood
     start: 0x00347960
     vram: 0x8010FE00
     subsections:
-    - [0x00347960, data]
-  - type: bin
+    - [0x00347960, bin, Maps/Shamwood/shamwood_data]
+    
+  - type: code
     name: Maps/map_brannoch
     start: 0x0036D970
     vram: 0x8010FE00
     subsections:
-    - [0x0036D970, data]
-  - type: bin
+    - [0x0036D970, bin, Maps/Brannoch/brannoch_data]
+    
+  - type: code
     name: Maps/map_skye
     start: 0x003CB600
     vram: 0x8010FE00
     subsections:
-    - [0x003CB600, data]
-  - type: bin
+    - [0x003CB600, bin, Maps/Skye/skye_data]
+    
+  - type: code
     name: Maps/map_ship
     start: 0x003E3200
     vram: 0x801E0000
     subsections:
-    - [0x3E3200, data]
-  - type: bin
+    - [0x3E3200, bin, Maps/Ship/ship_data]
+    
+  - type: code
     name: Maps/map_dondoran_castle
     start: 0x00439660
     vram: 0x801539F0
     subsections:
-    - [0x00439660, data]
-  - type: bin
+    - [0x00439660, bin, Maps/DondoranCastle/dondoran_castle_data]
+    
+  - type: code
     name: Maps/map_melrode_houses
     start: 0x00489A00
     vram: 0x801539F0
     subsections:
-    - [0x00489A00, data]
+    - [0x00489A00, bin, Maps/MelrodeHouses/melrode_houses]
+    
   - type: bin
     name: Maps/map_dondoran_houses
     start: 0x0049F9A0
@@ -407,13 +452,22 @@ segments:
     subsections:
     - [0x0086B830]
     
-  - type: bin
-    name: currently_unknown #textures look like knights. May be separate from other NPCs
+  - type: code
+    name: unk/currently_unknown #textures look like knights. May be separate from other NPCs
     start: 0x871900
+    vram: 0x8020C0D0
+    subsections:
+    - [0x871900, bin, unk/unknown]
+    - [0x872810, bin, unk/tex_unk1]
+    - [0x872A30, bin, unk/tex_unk2]
+    - [0x872FB0, bin, unk/tux_unk4]
+    - [0x873030, bin, unk/tex_unk3]
+    
     
   - type: bin
     name: NPCs #Needs splitting
     start: 0x873F20
+    vram: 0x8020E6F0
     
   - type: bin
     name: Models/Shannon #Also contains enemy models and data. Needs to be split
@@ -517,12 +571,39 @@ segments:
     - [0xD4B3C0, data]
     - [0xD4BA60, bin]
   
-  - type: bin
-    name: Hud_and_Menu
+  - type: code
+    name: HUD/Hud_and_Menu_textures
     start: 0xD77380
     vram: 0x80399AB0
+    subsections:
+    - [0xD77380, bin, HUD/tex_pal_hud]
+    - [0xD77580, bin, HUD/tex_hud_textures_1]
+    - [0xD7A860, bin, HUD/tex_numbers]
+    - [0xD7B260, bin, HUD/tex_pal_menues]
+    - [0xD7B460, bin, HUD/tex_menues]
+    - [0xD7F9E0, bin, HUD/tex_unknown]
+    - [0xD80230, bin, HUD/tex_pal_status]
+    - [0xD80430, bin, HUD/tex_status]
+    - [0xD82430, bin, HUD/tex_pal_beta]
+    - [0xD82630, bin, HUD/tex_beta_miss_escape]
+    - [0xD83030, bin, HUD/tex_pal_speech_bubble]
+    - [0xD83230, bin, HUD/tex_speech_bubble]
+    - [0xD83970, bin, HUD/tex_pal_exclamation]
+    - [0xD83B70, bin, HUD/tex_exclamation]
+    - [0xD83D50, bin, HUD/tex_pal_question]
+    - [0xD83F50, bin, HUD/tex_question]
+    - [0xD84220, bin, HUD/tex_pal_staff]
+    - [0xD84420, bin, HUD/tex_staff]
+    - [0xD84828, data, HUD/unknown]
+    - [0xD84862, bin, HUD/tex_pal_unk]
+    - [0xD84880, bin, HUD/unk_displayList]
+    - [0xD84998, bin, HUD/tex_debug_text_1]
+    - [0xD85320, bin, HUD/unk_displayList2]
+    - [0xD853E8, bin, HUD/tex_debug_text_2]
+    - [0xD862E0, bin, HUD/unk_displayLIst3]
+    # there are models here, as well as boss data. 
+    - [0xD88488, data, HUD/ptrs_boss_text]
     
-  
   - type: bin
     name: Textures/some_common_palette
     start: 0xD884F0

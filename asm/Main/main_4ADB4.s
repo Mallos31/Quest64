@@ -7,6 +7,6 @@
 
 .section .text, "ax"
 
-glabel func_80049EF0
-/* 4AAF0 80049EF0 09000419 */  j          .L84001064
-/* 4AAF4 80049EF4 20010FC0 */   addi      $at, $zero, 0xfc0
+glabel func_8004A1B4
+/* 4ADB4 8004A1B4 090004A0 */  j          .L84001280
+/* 4ADB8 8004A1B8 23A70008 */   addi      $a3, $sp, 8
